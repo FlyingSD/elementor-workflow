@@ -1,149 +1,161 @@
 # SSOT - Single Source of Truth
 
-**Last Updated**: 2025-11-28
+**Last Updated**: 2025-11-29
 **Project**: Svetlinki Educational Center Website Migration
 **Technology**: WordPress + Elementor (via MCP automation)
+**Optimization**: Phase 2 Complete - Golden Triangle Active
 
 ---
 
-## 📚 Complete Documentation Index
+## 🎯 The Golden Triangle (Active Files)
 
-### Session Documentation
+Read these 3 files on-demand for all current information:
 
-| Document | Purpose | Size | Status |
-|----------|---------|------|--------|
-| **[SESSION-SUMMARY-2025-11-28.md](SESSION-SUMMARY-2025-11-28.md)** | Latest session summary and accomplishments | 18 KB | ✅ NEW |
+### 1. **[STATIC_RULES.md](STATIC_RULES.md)** (3504 lines) ⭐
+**Consolidated Technical Reference** - Read by section using anchor links:
+- [Core Principles & Widget Whitelist](#core-principles)
+- [JSON Generation Tools](#json-tools)
+- [Database Schema Deep Dive](#database-schema)
+- [MCP Page Creation Checklist](#mcp-checklist)
 
-### Core Technical Documentation
+**When to read**: When building pages, validating JSON, or need technical reference
+**Content merged from**: 4 source files (ELEMENTOR-CORE-PRINCIPLES.md, JSON-GENERATION-TOOLS-GUIDE.md, ELEMENTOR-DATA-SCHEMA-DEEP-DIVE.md, MCP-PAGE-CREATION-CHECKLIST.md)
 
-| Document | Purpose | Size | Status |
-|----------|---------|------|--------|
-| **[ELEMENTOR-CORE-PRINCIPLES.md](ELEMENTOR-CORE-PRINCIPLES.md)** ⭐ | Technical reference for Elementor best practices | 74 KB | ✅ NEW |
-| **[MCP-PAGE-CREATION-CHECKLIST.md](MCP-PAGE-CREATION-CHECKLIST.md)** ⭐ | Step-by-step workflow for creating pages via MCP | 65 KB | ✅ NEW |
-| **[JSON-GENERATION-TOOLS-GUIDE.md](JSON-GENERATION-TOOLS-GUIDE.md)** ⭐ | JSON validation and generation tools | 56 KB | ✅ NEW |
+### 2. **[ACTIVE_STATE.md](ACTIVE_STATE.md)** (248 lines) ⭐
+**Current Project State Only** - No historical data:
+- WordPress credentials & page IDs
+- Global Colors & Fonts
+- Current pages (8 pages, 2 templates)
+- File locations
+- Known issues & workarounds
+- Quick stats
 
-### Analysis & Tracking Documentation
+**When to read**: When you need current values (page IDs, credentials, Global Colors)
+**Content merged from**: 01-CURRENT-STATE.md, 02-PROGRESS-TRACKER.md (current state only)
 
-| Document | Purpose | Size | Status |
-|----------|---------|------|--------|
-| **[01-CURRENT-STATE.md](01-CURRENT-STATE.md)** | Current site state and gaps analysis | 11 KB | ✅ Complete |
-| **[02-PROGRESS-TRACKER.md](02-PROGRESS-TRACKER.md)** | Task tracking and completion metrics | 14 KB | ✅ Complete |
-| **[EXISTING-PAGES-ANALYSIS.md](EXISTING-PAGES-ANALYSIS.md)** | Analysis framework for existing pages | 28 KB | ✅ NEW |
+### 3. **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** ⭐
+**Known Issues & Solutions**:
+- Global Colors not showing (SOLVED)
+- Stretch Section not working (SOLVED)
+- REST API can't update _elementor_data (WORKAROUND)
+- Flexbox Containers don't work (EXPECTED - PRO feature)
+- Header/Footer templates not REST accessible (LIMITATION)
 
-**Total Documentation**: ~266 KB across 7 documents
+**When to read**: When you encounter errors or blocked
+**Content**: All documented issues with step-by-step solutions
+
+---
+
+## 📁 Archive Structure (Cold Storage)
+
+All historical and reference documentation preserved:
+
+```
+SSOT/
+├── STATIC_RULES.md (3504 lines - active)
+├── ACTIVE_STATE.md (248 lines - active)
+├── TROUBLESHOOTING.md (active)
+├── README.md (this file)
+├── 03-DOCUMENTATION-RULES.md (reference)
+├── archive/
+│   ├── reference/
+│   │   ├── ELEMENTOR-DEVELOPER-RESOURCES.md
+│   │   ├── ELEMENTOR-FREE-COLOR-FIX-SOLUTION.md
+│   │   ├── ELEMENTOR-REST-API-REFERENCE.md
+│   │   └── EXISTING-PAGES-ANALYSIS.md
+│   ├── sessions/
+│   │   ├── SESSION-2025-11-29-RECOVERY.md
+│   │   ├── SESSION-FINAL-2025-11-29.md
+│   │   ├── SESSION-SUMMARY-2025-11-28-EVENING.md
+│   │   ├── SESSION-SUMMARY-2025-11-28.md
+│   │   └── SESSION-SUMMARY-2025-11-29-COLOR-FIX.md
+│   └── deprecated-docs/
+│       ├── DESIGNER-BLOG-ANALYSIS.md
+│       ├── svetlinkelementor-rebuild-guide.md
+│       ├── HERO_CONTAINER_REPORT.md
+│       └── [8 more archived docs]
+```
+
+**Access archived files**: Only when researching historical decisions or needing reference material
 
 ---
 
 ## 🚀 Quick Start
 
 ### New to the Project?
-1. Read **[SESSION-SUMMARY-2025-11-28.md](SESSION-SUMMARY-2025-11-28.md)** first
-2. Then **[01-CURRENT-STATE.md](01-CURRENT-STATE.md)** for context
-3. Finally **[ELEMENTOR-CORE-PRINCIPLES.md](ELEMENTOR-CORE-PRINCIPLES.md)** for technical foundation
+1. Read **[ACTIVE_STATE.md](ACTIVE_STATE.md)** first (current values)
+2. Then **[STATIC_RULES.md](STATIC_RULES.md)** → Core Principles section
+3. Finally **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** (known issues)
 
 ### Ready to Build Pages?
-→ **[MCP-PAGE-CREATION-CHECKLIST.md](MCP-PAGE-CREATION-CHECKLIST.md)** (complete workflow)
+→ **[STATIC_RULES.md](STATIC_RULES.md)** → Jump to `#mcp-checklist` section
 
-### Need to Validate JSON?
-→ **[JSON-GENERATION-TOOLS-GUIDE.md](JSON-GENERATION-TOOLS-GUIDE.md)** (tools & integration)
+### Need Widget Reference?
+→ **[STATIC_RULES.md](STATIC_RULES.md)** → Jump to `#core-principles` section → Widget Whitelist
 
-### Analyzing Existing Pages?
-→ **[EXISTING-PAGES-ANALYSIS.md](EXISTING-PAGES-ANALYSIS.md)** (analysis framework)
+### Need JSON Schema?
+→ **[STATIC_RULES.md](STATIC_RULES.md)** → Jump to `#database-schema` section
 
----
-
-## 📁 Document Structure
-
-### Core Documents (Read in Order)
-
-1. **[01-CURRENT-STATE.md](01-CURRENT-STATE.md)** - Current Site Assessment
-   - What EXISTS (35% complete)
-   - What's MISSING (65% remaining)
-   - Critical issues identified
-   - Reference screenshots catalog
-   - Next actions priority
-
-2. **[02-PROGRESS-TRACKER.md](02-PROGRESS-TRACKER.md)** - Progress Dashboard
-   - Visual progress bars by phase
-   - Detailed task breakdowns (135 total tasks)
-   - Timeline estimates
-   - Change log
-   - Next 10 priority actions
-
-3. **[03-DOCUMENTATION-RULES.md](03-DOCUMENTATION-RULES.md)** - Documentation Standards
-   - When to document
-   - What to document
-   - How to document
-   - Update frequency
-   - File naming conventions
-
-4. **[04-MASTER-GUIDE.md](04-MASTER-GUIDE.md)** - Complete Project Guide
-   - Project overview
-   - Technical architecture
-   - Agent system explained
-   - Workflow procedures
-   - Quick reference commands
+### Stuck on an Error?
+→ **[TROUBLESHOOTING.md](TROUBLESHOOTING.md)** → Search for error message
 
 ---
 
-## 🎯 Quick Links
+## 📊 Optimization Results
 
-**For Quick Status Check**: Read `02-PROGRESS-TRACKER.md` (see completion percentages)
+### Context Reduction:
 
-**For Technical Details**: Read `04-MASTER-GUIDE.md` (architecture, MCP, agents)
+**Before Optimization**:
+- 19 files in SSOT/ (352 KB)
+- Initial context load: ~166 KB (~40,000 tokens)
+- Multiple overlapping documents
 
-**For Current Issues**: Read `01-CURRENT-STATE.md` → "Critical Issues" section
+**After Optimization (Phase 2)**:
+- 3 active files (Golden Triangle)
+- Initial context load: ~25 KB (~6,000 tokens)
+- **85% context reduction**
+- **100% information preserved** (all archived, ZERO deletions)
 
-**For Documentation Rules**: Read `03-DOCUMENTATION-RULES.md`
-
----
-
-## 📊 Current Status Summary
-
-```
-Overall Progress: 35% Complete
-
-Foundation:        ████████████████████  90% ✅
-Content Structure: ████████░░░░░░░░░░░░  40% 🟡
-Visual Design:     ░░░░░░░░░░░░░░░░░░░░   0% ❌
-Functionality:     ██░░░░░░░░░░░░░░░░░░  10% ❌
-QA & Testing:      ░░░░░░░░░░░░░░░░░░░░   0% ❌
-```
-
-**Critical Blockers**:
-- ❌ ZERO images in media library
-- ❌ No navigation menus configured
-- ❌ No contact form installed
-- ❌ No visual QA performed
+### What Changed:
+- ✅ Merged 4 core technical docs → STATIC_RULES.md
+- ✅ Merged 2 state files → ACTIVE_STATE.md (current only)
+- ✅ Renamed ISSUES-AND-SOLUTIONS-GUIDE.md → TROUBLESHOOTING.md
+- ✅ Archived 5 session logs
+- ✅ Archived 4 reference docs
+- ✅ Archived 9 old root docs
+- ✅ Archived 7 deprecated scripts
+- ✅ Archived 4 screenshot folders (~10.6 MB)
 
 ---
 
-## 🚀 Getting Started
+## 🎯 Quick Links (Golden Triangle)
 
-### New Team Member Onboarding
+**Need current page IDs?** → ACTIVE_STATE.md → Current Pages section
 
-1. Read `RESTORE-CONTEXT-PROMPT.md` in parent folder (project overview)
-2. Read `01-CURRENT-STATE.md` (understand where we are)
-3. Read `02-PROGRESS-TRACKER.md` (see what's done/todo)
-4. Read `04-MASTER-GUIDE.md` (technical implementation details)
-5. Start working on "Next 10 Actions" from progress tracker
+**Need Global Colors?** → ACTIVE_STATE.md → Global Design System section
 
-### After Context Loss (Compact)
+**Need widget whitelist?** → STATIC_RULES.md → #core-principles section
 
-Simply read `RESTORE-CONTEXT-PROMPT.md` in parent folder - contains all essential context.
+**Need MCP workflow?** → STATIC_RULES.md → #mcp-checklist section
+
+**Need JSON structure?** → STATIC_RULES.md → #database-schema section
+
+**Encountering error?** → TROUBLESHOOTING.md → Search for issue
+
+**Need historical context?** → archive/sessions/ folder
 
 ---
 
 ## 📝 Document Maintenance
 
-**Last Full Review**: 2025-11-28
-**Next Review Due**: After Phase 3 completion (Visual Design)
+**Last Full Review**: 2025-11-29
+**Last Optimization**: 2025-11-29 (Phase 2 - Golden Triangle)
 
 **Update Frequency**:
-- Progress Tracker: Daily (when work is done)
-- Current State: After major milestones
-- Master Guide: As architecture changes
-- Documentation Rules: As needed
+- ACTIVE_STATE.md: When values change (page IDs, credentials, new pages)
+- STATIC_RULES.md: When technical rules/workflows change (rare)
+- TROUBLESHOOTING.md: When new issues discovered or solved
+- README.md: After major reorganizations
 
 ---
 
@@ -151,25 +163,29 @@ Simply read `RESTORE-CONTEXT-PROMPT.md` in parent folder - contains all essentia
 
 | Version | Date | Changes | Updated By |
 |---------|------|---------|------------|
-| 1.0 | 2025-11-28 | Initial SSOT creation, baseline documentation | Claude |
+| 1.0 | 2025-11-28 | Initial SSOT creation | Claude |
+| 2.0 | 2025-11-29 | Golden Triangle optimization (Phase 2) | Claude |
+
+**Commits**:
+- Phase 1: `94e6c61` - Archive everything (ZERO deletions)
+- Phase 2: Pending - Golden Triangle creation
 
 ---
 
 ## 📞 Contact & Support
 
-**Project Owner**: User
-**Technical Lead**: Claude (AI Agent System)
+**Project Owner**: Denis
 **Site URL**: http://svetlinkielementor.local
-**Admin**: test/test
+**Admin**: test / S27q64rqoFhfTPDA30nBhNM5
 
 **For Issues**:
-1. Check `01-CURRENT-STATE.md` → Critical Issues section
-2. Check `02-PROGRESS-TRACKER.md` → Blockers & Risks
-3. Escalate to Stuck agent for research
-4. Update documentation after resolution
+1. Check TROUBLESHOOTING.md first
+2. Check ACTIVE_STATE.md → Known Issues section
+3. Search archive/sessions/ for historical context
+4. Update TROUBLESHOOTING.md after resolution
 
 ---
 
 **Location**: `C:\Users\denit\Local Sites\svetlinkielementor\SSOT\`
-**Purpose**: Central knowledge repository for Svetlinki Elementor rebuild
-**Maintained by**: Primary chat session with proper documentation discipline
+**Purpose**: Optimized knowledge repository with Golden Triangle structure
+**Philosophy**: Disk is cheap, knowledge is expensive - archive everything, delete nothing
