@@ -55,13 +55,17 @@ This ensures:
 PRIMARY RESEARCH TOOL:
 When blocked or uncertain, use r.jina to find working solutions.
 
-API KEY: jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU
+API CREDENTIALS:
+Stored in: `config.json` → `research.r_jina.api_key`
+Base URL: https://r.jina.ai/
 
 SEARCH PATTERN:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/[URL]"
 ```
+
+**Note**: API key is in config.json to keep it centralized and secure.
 
 ALLOWED SOURCES:
 ✅ Elementor official documentation (developers.elementor.com)
@@ -131,9 +135,10 @@ COMMON CAUSES:
 
 RESEARCH SOLUTION:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://developers.elementor.com/docs/editor/global-colors/"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION (v4.0 way):
 1. Edit widget → Style tab
@@ -168,9 +173,10 @@ COMMON CAUSES:
 
 RESEARCH SOLUTION:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://github.com/alex-daiz/wp-elementor-mcp"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION:
 1. Regenerate Application Password in WordPress
@@ -204,9 +210,10 @@ COMMON CAUSES:
 
 RESEARCH SOLUTION:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://developers.elementor.com/docs/widgets/"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION:
 1. Validate widget JSON against Elementor docs
@@ -240,9 +247,10 @@ COMMON CAUSES:
 
 RESEARCH SOLUTION:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://developers.elementor.com/docs/css/"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION (v4.0 way):
 1. ⚠️ FIRST: Can this be solved with Elementor native styles?
@@ -279,9 +287,10 @@ COMMON CAUSES:
 
 RESEARCH SOLUTION:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://developers.elementor.com/docs/editor/responsive-design/"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION:
 1. Regenerate CSS: Elementor → Tools → Regenerate Files & Data
@@ -311,9 +320,10 @@ DIAGNOSIS:
 
 RESEARCH:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://github.com/alex-daiz/wp-elementor-mcp#troubleshooting"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION:
 1. Validate .mcp.json with JSON validator
@@ -340,9 +350,10 @@ DIAGNOSIS:
 
 RESEARCH:
 ```bash
-curl -H "Authorization: Bearer jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU" \
+curl -H "Authorization: Bearer [API_KEY]" \
   "https://r.jina.ai/https://developer.wordpress.org/rest-api/"
 ```
+**Get API_KEY from**: config.json → research.r_jina.api_key
 
 SOLUTION:
 1. Review tool parameters against documentation

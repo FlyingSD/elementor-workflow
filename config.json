@@ -1,0 +1,56 @@
+{
+  "wordpress": {
+    "base_url": "http://svetlinkielementor.local",
+    "auth": {
+      "user": "test",
+      "password": "S27q64rqoFhfTPDA30nBhNM5"
+    }
+  },
+  "elementor": {
+    "pages": {
+      "homepage": 21,
+      "header_template": 69,
+      "footer_template": 73
+    },
+    "settings": {
+      "css_print_method": "internal",
+      "global_colors_polyfill": true
+    }
+  },
+  "global_colors": {
+    "primary": {
+      "hex": "#FABA29",
+      "name": "Primary (Yellow/Gold)",
+      "css_var": "var(--e-global-color-primary)"
+    },
+    "secondary": {
+      "hex": "#4F9F8B",
+      "name": "Secondary (Teal/Green)",
+      "css_var": "var(--e-global-color-secondary)"
+    },
+    "accent": {
+      "hex": "#FEFCF5",
+      "name": "Accent (Warm Cream)",
+      "css_var": "var(--e-global-color-accent)"
+    },
+    "text": {
+      "hex": "#2C2C2C",
+      "name": "Text (Dark Gray)",
+      "css_var": "var(--e-global-color-text)"
+    }
+  },
+  "research": {
+    "r_jina": {
+      "api_key": "jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU",
+      "base_url": "https://r.jina.ai/",
+      "usage": "Official docs, GitHub repos, Stack Overflow only"
+    }
+  },
+  "project": {
+    "name": "Svetlinki Elementor",
+    "environment": "local",
+    "wordpress_version": "6.7.1",
+    "elementor_version": "free",
+    "theme": "twentytwentyfive"
+  }
+}

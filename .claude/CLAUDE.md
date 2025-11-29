@@ -23,25 +23,28 @@ You are Claude Code, working with a **hierarchical multi-agent system** to build
 User (Denis)
     ↓
 You (Claude - Main Orchestrator)
-    ↓
-Task Tool → Specialized Agents (isolated context)
-    ↓
-    ├─→ orchestrator agent (routing & coordination)
+    ↓ Task Tool (direct delegation)
     ├─→ coder agent (MCP page creation)
     ├─→ tester agent (Playwright visual verification)
+    ├─→ designer agent (design decisions)
     └─→ stuck agent (problem solving via r.jina)
 ```
+
+**Simplified Architecture** (wizard-v2 style):
+- YOU route directly to specialized agents (no intermediate orchestrator)
+- Each agent has isolated context via Task tool
+- Clear keyword-based routing (see Delegation Logic below)
 
 ### Agent Files Location
 
 ```
 .claude/
-├── CLAUDE.md (this file - orchestration directives)
+├── CLAUDE.md (this file - main orchestrator)
 └── agents/
-    ├── orchestrator.md
-    ├── coder.md
-    ├── tester.md
-    └── stuck.md
+    ├── coder.md (page creation)
+    ├── tester.md (visual QA)
+    ├── designer.md (design advice)
+    └── stuck.md (research & escalation)
 ```
 
 ---
@@ -51,12 +54,29 @@ Task Tool → Specialized Agents (isolated context)
 ### When User Requests Page Creation
 
 1. **You** create structured todos using TodoWrite
-2. **You** invoke `orchestrator` agent via Task tool with specific request
-3. **Orchestrator** determines which agent to use (usually `coder`)
-4. **Coder** creates page via MCP tools, reports completion
+2. **You** determine which agent to use (see Delegation Logic below)
+3. **You** invoke appropriate agent via Task tool (usually `coder`)
+4. **Agent** completes task, reports results
 5. **You** invoke `tester` agent to verify visually via Playwright
 6. **Tester** takes screenshots, verifies design, reports results
 7. **You** mark todos complete and inform user
+
+### Delegation Logic (Keyword Routing)
+
+**When user says → Invoke agent:**
+
+| User Keywords | Agent | Purpose |
+|---------------|-------|---------|
+| "problem", "error", "stuck", "not working" | `stuck` | Problem solving via r.jina research |
+| "create page", "build section", "write code" | `coder` | MCP page creation |
+| "test", "screenshot", "visual", "verify" | `tester` | Playwright visual QA |
+| "design", "colors", "fonts", "layout" | `designer` | Design decisions & advice |
+
+**Examples:**
+- "The colors aren't working" → `stuck` agent (problem)
+- "Create a hero section" → `coder` agent (build)
+- "Does this look right?" → `tester` agent (visual check)
+- "Should I use 2 or 3 columns?" → `designer` agent (design decision)
 
 ### If Any Agent Encounters Problems
 
@@ -163,13 +183,32 @@ Task Tool → Specialized Agents (isolated context)
 - Stuck agent is mandatory escalation point
 - Transparency over speed
 
-### Research Protocol
+### Research Protocol (R.JINA API)
 
-**When stuck agent researches:**
-- Official docs first (developers.elementor.com, developer.wordpress.org)
-- GitHub second (working implementations)
-- StackOverflow third (specific solutions)
-- NEVER random blog posts or tutorials
+**Stuck agent has access to r.jina for research:**
+
+**API Access:**
+- URL: `https://r.jina.ai/[target-url]`
+- Auth: Bearer token (stored in config.json)
+- Usage: Search official docs, GitHub repos, Stack Overflow
+
+**Research Priority:**
+1. **Official docs first** (developers.elementor.com, developer.wordpress.org)
+2. **GitHub second** (working implementations, proven code)
+3. **Stack Overflow third** (specific solutions with upvotes)
+4. **NEVER**: Random blog posts, tutorials, opinion pieces
+
+**Example Search Pattern:**
+```bash
+curl -H "Authorization: Bearer [token]" \
+  "https://r.jina.ai/https://developers.elementor.com/docs/..."
+```
+
+**When to use r.jina:**
+- Finding Elementor best practices
+- Researching MCP tool capabilities
+- Discovering proven automation patterns
+- Verifying API methods and syntax
 
 ### Performance Budget
 
@@ -305,6 +344,40 @@ Automatically escalate when:
 
 ---
 
+## 🎯 Task Priorities
+
+**Priority framework for project planning:**
+
+### P1 - CRITICAL (Must Have Now)
+□ Global Colors configured (no hardcoded colors)
+□ Global Fonts configured (no hardcoded fonts)
+□ MCP connection working
+□ Basic page creation via AI functional
+□ No !important CSS in codebase
+□ CSS Print Method = Internal Embedding (for .local dev)
+
+### P2 - HIGH (Should Have)
+□ Reusable templates created
+□ Minimal custom CSS (scoped and documented)
+□ Visual testing with Playwright after each page
+□ Responsive design verified (mobile/tablet/desktop)
+□ No inline styles (use Global settings)
+
+### P3 - MEDIUM (Nice to Have)
+□ Performance optimization (Lighthouse 90+)
+□ Accessibility enhancements (WCAG 2.1 AA)
+□ Advanced animations and interactions
+
+### P4 - LOW (Post-Launch)
+□ SEO configuration (RankMath, meta tags)
+□ Advanced interactions (hover effects, parallax)
+□ Code documentation and comments
+□ Production deployment optimization
+
+**Note**: Focus on P1-P2 during initial build. P3-P4 come after site is functional.
+
+---
+
 ## 📊 Progress Reporting
 
 **ALWAYS show user clear progress:**
@@ -384,28 +457,26 @@ When starting a new page creation task:
 ```
 User: "Create a home page with hero section"
 
-You: [Creates todos]
-1. Route task to appropriate agent
-2. Create home page via MCP
-3. Test page visually with Playwright
-4. Fix any issues found
+You: [Creates todos via TodoWrite]
+1. Create home page structure via coder agent
+2. Test page visually with Playwright via tester agent
+3. Fix any issues found
 
-You: [Invokes orchestrator]
-Task → "Route page creation request..."
+You: [Analyzes keywords: "create" → coder agent]
 
-Orchestrator: "Route to coder agent for MCP page creation"
-
-You: [Invokes coder]
-Task → "Create home page with hero section..."
+You: [Invokes coder via Task tool]
+Task → "Create home page with hero section (H1 + text + CTA button).
+       Use Global Colors. Report page_id when done."
 
 Coder: "Page created. ID: 123. URL: /home"
 
-You: [Marks todo #2 complete, invokes tester]
-Task → "Test page at /home..."
+You: [Marks todo #1 complete, invokes tester]
+Task → "Test page at http://svetlinkelementor.local/home.
+       Take screenshots (desktop/tablet/mobile), verify Global Colors."
 
-Tester: "✅ All tests pass. Screenshots attached."
+Tester: "✅ All tests pass. Screenshots attached. No console errors."
 
-You: [Marks todo #3 complete]
+You: [Marks todo #2 complete]
 
 You → User: "✅ Home page created and tested successfully!
 📄 URL: http://svetlinkelementor.local/home
