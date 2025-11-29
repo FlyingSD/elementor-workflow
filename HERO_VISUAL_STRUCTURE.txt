@@ -1,0 +1,128 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                    SVETLINKI ELEMENTOR - HERO CONTAINER                        ║
+║                              (Container 1)                                     ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ MAIN CONTAINER (Flexbox) [ID: 86d9b9e]                                      │
+│ ┌──────────────────────────────────────────────────────────────────────────┐ │
+│ │ Type: container (Flexbox)                                                │ │
+│ │ Direction: column (vertical)                                             │ │
+│ │ Align: center (horizontal & vertical)                                    │ │
+│ │ Gap: 30px                                                                │ │
+│ │ Padding: 80px (T/B) | 20px (L/R)                                        │ │
+│ │ Background: var(--e-global-color-accent) [#FEFCF5 - Cream]             │ │
+│ └──────────────────────────────────────────────────────────────────────────┘ │
+│                                                                              │
+│   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓   │
+│   ┃ WIDGET 1: Heading (H1) [ID: f0e2a96]                                ┃   │
+│   ┃ ─────────────────────────────────────────────────────────────────── ┃   │
+│   ┃                                                                      ┃   │
+│   ┃        Развийте Математическите Умения на Вашето Дете               ┃   │
+│   ┃                                                                      ┃   │
+│   ┃ Type: heading (FREE widget)                                         ┃   │
+│   ┃ Size: H1                                                            ┃   │
+│   ┃ Color: var(--e-global-color-secondary) [#1E3A8A - Dark Blue]       ┃   │
+│   ┃ Font: Global Primary Typography                                     ┃   │
+│   ┃ Size: 48px | Weight: 700 | Align: center                           ┃   │
+│   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛   │
+│                                                                              │
+│   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓   │
+│   ┃ WIDGET 2: Text Editor [ID: f1651af]                                 ┃   │
+│   ┃ ─────────────────────────────────────────────────────────────────── ┃   │
+│   ┃                                                                      ┃   │
+│   ┃    Професионални обучения по математика за деца от 4 до 16 години   ┃   │
+│   ┃                                                                      ┃   │
+│   ┃ Type: text-editor (FREE widget)                                     ┃   │
+│   ┃ Color: var(--e-global-color-text) [#333333 - Dark Gray]            ┃   │
+│   ┃ Size: 20px | Line Height: 1.6em | Align: center                    ┃   │
+│   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛   │
+│                                                                              │
+│   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓   │
+│   ┃ NESTED CONTAINER: Counters (Flexbox Row) [ID: 7411f08]             ┃   │
+│   ┃ ═══════════════════════════════════════════════════════════════════ ┃   │
+│   ┃ Direction: row (horizontal) | Gap: 40px | Wrap: yes                ┃   │
+│   ┃                                                                      ┃   │
+│   ┃   ╔════════════════════════╗        ╔════════════════════════╗      ┃   │
+│   ┃   ║ COUNTER 1              ║        ║ COUNTER 2              ║      ┃   │
+│   ┃   ║ [ID: 61328ba]          ║        ║ [ID: 7d2a91f]          ║      ┃   │
+│   ┃   ║                        ║        ║                        ║      ┃   │
+│   ┃   ║        500+            ║        ║          8+            ║      ┃   │
+│   ┃   ║      ученици           ║        ║     Години опит        ║      ┃   │
+│   ┃   ║                        ║        ║                        ║      ┃   │
+│   ┃   ║ Type: counter (FREE)   ║        ║ Type: counter (FREE)   ║      ┃   │
+│   ┃   ║ Number: 500 + "+"      ║        ║ Number: 8 + "+"        ║      ┃   │
+│   ┃   ║ Color: var(--primary)  ║        ║ Color: var(--primary)  ║      ┃   │
+│   ┃   ║ Size: 48px | Bold      ║        ║ Size: 48px | Bold      ║      ┃   │
+│   ┃   ║ Animation: 2000ms      ║        ║ Animation: 2000ms      ║      ┃   │
+│   ┃   ╚════════════════════════╝        ╚════════════════════════╝      ┃   │
+│   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛   │
+│                                                                              │
+│   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓   │
+│   ┃ WIDGET 3: Button [ID: d4ff817]                                      ┃   │
+│   ┃ ─────────────────────────────────────────────────────────────────── ┃   │
+│   ┃                                                                      ┃   │
+│   ┃                   [ ЗАПАЗИ СЕ СЕГА ]                                ┃   │
+│   ┃                                                                      ┃   │
+│   ┃ Type: button (FREE widget)                                          ┃   │
+│   ┃ Text: "ЗАПАЗИ СЕ СЕГА" (Book Now)                                   ┃   │
+│   ┃ Link: #contact (anchor to contact section)                          ┃   │
+│   ┃ Background: var(--e-global-color-primary) [#F59E0B - Orange]       ┃   │
+│   ┃ Text Color: var(--e-global-color-text) [#333333]                   ┃   │
+│   ┃ Padding: 15px (T/B) | 40px (L/R)                                   ┃   │
+│   ┃ Border Radius: 5px | Font Size: 18px | Weight: 600                 ┃   │
+│   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛   │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                               WIDGET SUMMARY                                   ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║ Total Widgets: 5 (all FREE)                                                   ║
+║ Total Containers: 2 (1 main + 1 nested)                                       ║
+║ ──────────────────────────────────────────────────────────────────────────────║
+║ 1. Heading (H1)         - Main title                                          ║
+║ 2. Text Editor          - Subtitle/description                                ║
+║ 3. Counter #1           - 500+ students                                       ║
+║ 4. Counter #2           - 8+ years experience                                 ║
+║ 5. Button               - Call-to-action (CTA)                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                            GLOBAL COLORS USED                                  ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║ --e-global-color-primary     │ #F59E0B (Orange)    │ Counters, Button BG     ║
+║ --e-global-color-secondary   │ #1E3A8A (DarkBlue)  │ H1 Heading             ║
+║ --e-global-color-text        │ #333333 (DarkGray)  │ Body text, Button text ║
+║ --e-global-color-accent      │ #FEFCF5 (Cream)     │ Container background   ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                          CONSTRAINTS VERIFICATION                              ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║ ✅ Use ONLY FREE widgets           - heading, text-editor, counter, button    ║
+║ ✅ NO HTML widget                   - Not used                                ║
+║ ✅ NO custom code                   - No custom code widgets                  ║
+║ ✅ Use Flexbox Containers           - Modern container architecture           ║
+║ ✅ Apply Global Colors              - All colors use CSS variables            ║
+║ ✅ Bulgarian language               - All text in Bulgarian                   ║
+║ ✅ Client editable                  - 100% editable in Elementor UI           ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                              ACCESS INFORMATION                                ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║ Elementor Editor:                                                             ║
+║ http://svetlinkielementor.local/wp-admin/post.php?post=21&action=elementor    ║
+║                                                                                ║
+║ Frontend View:                                                                ║
+║ http://svetlinkielementor.local/?page_id=21                                   ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                   STATUS                                       ║
+╠════════════════════════════════════════════════════════════════════════════════╣
+║                         ✅ BUILD SUCCESSFUL                                    ║
+║                         ✅ STRUCTURE VERIFIED                                  ║
+║                         ✅ READY FOR REVIEW                                    ║
+╚════════════════════════════════════════════════════════════════════════════════╝

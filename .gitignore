@@ -1,0 +1,63 @@
+# WordPress Core Files (не качваме WordPress core)
+app/public/wp-admin/
+app/public/wp-includes/
+app/public/wp-content/plugins/
+app/public/wp-content/themes/twentytwenty*/
+app/public/wp-content/upgrade/
+app/public/wp-content/uploads/
+
+# WordPress Config
+app/public/wp-config.php
+
+# Local by Flywheel
+app/sql/
+logs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Playwright
+.playwright-mcp/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+.cache/
+
+# Sensitive
+config.json
+*.key
+*.pem
+
+# Keep these important files:
+!.claude/
+!SSOT/
+!scripts/
+!templates/
+!*.py
+!*.json
+!*.md

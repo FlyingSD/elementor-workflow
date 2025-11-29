@@ -1,0 +1,187 @@
+[
+  {
+    "id": "86d9b9e",
+    "elType": "container",
+    "settings": {
+      "content_width": "full",
+      "flex_direction": "column",
+      "flex_justify_content": "center",
+      "flex_align_items": "center",
+      "gap": {
+        "unit": "px",
+        "size": 30,
+        "sizes": []
+      },
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "20",
+        "bottom": "80",
+        "left": "20",
+        "isLinked": false
+      },
+      "background_background": "classic",
+      "background_color": "var(--e-global-color-accent)"
+    },
+    "elements": [
+      {
+        "id": "f0e2a96",
+        "elType": "widget",
+        "widgetType": "heading",
+        "settings": {
+          "title": "Развийте Математическите Умения на Вашето Дете",
+          "header_size": "h1",
+          "align": "center",
+          "title_color": "var(--e-global-color-secondary)",
+          "typography_typography": "custom",
+          "typography_font_family": "var(--e-global-typography-primary-font-family)",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 48,
+            "sizes": []
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.2,
+            "sizes": []
+          }
+        }
+      },
+      {
+        "id": "f1651af",
+        "elType": "widget",
+        "widgetType": "text-editor",
+        "settings": {
+          "editor": "Професионални обучения по математика за деца от 4 до 16 години",
+          "align": "center",
+          "text_color": "var(--e-global-color-text)",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 20,
+            "sizes": []
+          },
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.6,
+            "sizes": []
+          }
+        }
+      },
+      {
+        "id": "7411f08",
+        "elType": "container",
+        "settings": {
+          "content_width": "full",
+          "flex_direction": "row",
+          "flex_justify_content": "center",
+          "flex_align_items": "center",
+          "gap": {
+            "unit": "px",
+            "size": 40,
+            "sizes": []
+          },
+          "flex_wrap": "wrap"
+        },
+        "elements": [
+          {
+            "id": "61328ba",
+            "elType": "widget",
+            "widgetType": "counter",
+            "settings": {
+              "starting_number": 0,
+              "ending_number": 500,
+              "suffix": "+",
+              "duration": 2000,
+              "title": "ученици",
+              "number_color": "var(--e-global-color-primary)",
+              "title_color": "var(--e-global-color-text)",
+              "typography_number_typography": "custom",
+              "typography_number_font_size": {
+                "unit": "px",
+                "size": 48,
+                "sizes": []
+              },
+              "typography_number_font_weight": "700",
+              "typography_title_typography": "custom",
+              "typography_title_font_size": {
+                "unit": "px",
+                "size": 16,
+                "sizes": []
+              }
+            }
+          },
+          {
+            "id": "7d2a91f",
+            "elType": "widget",
+            "widgetType": "counter",
+            "settings": {
+              "starting_number": 0,
+              "ending_number": 8,
+              "suffix": "+",
+              "duration": 2000,
+              "title": "Години опит",
+              "number_color": "var(--e-global-color-primary)",
+              "title_color": "var(--e-global-color-text)",
+              "typography_number_typography": "custom",
+              "typography_number_font_size": {
+                "unit": "px",
+                "size": 48,
+                "sizes": []
+              },
+              "typography_number_font_weight": "700",
+              "typography_title_typography": "custom",
+              "typography_title_font_size": {
+                "unit": "px",
+                "size": 16,
+                "sizes": []
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "d4ff817",
+        "elType": "widget",
+        "widgetType": "button",
+        "settings": {
+          "text": "ЗАПАЗИ СЕ СЕГА",
+          "link": {
+            "url": "#contact",
+            "is_external": "",
+            "nofollow": "",
+            "custom_attributes": ""
+          },
+          "align": "center",
+          "button_type": "primary",
+          "button_text_color": "var(--e-global-color-text)",
+          "background_color": "var(--e-global-color-primary)",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "px",
+            "size": 18,
+            "sizes": []
+          },
+          "typography_font_weight": "600",
+          "button_padding": {
+            "unit": "px",
+            "top": "15",
+            "right": "40",
+            "bottom": "15",
+            "left": "40",
+            "isLinked": false
+          },
+          "border_radius": {
+            "unit": "px",
+            "top": "5",
+            "right": "5",
+            "bottom": "5",
+            "left": "5",
+            "isLinked": true
+          }
+        }
+      }
+    ]
+  }
+]

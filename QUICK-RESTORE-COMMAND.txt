@@ -1,0 +1,29 @@
+QUICK RESTORE COMMAND (Copy/Paste After Compact)
+================================================
+
+Read the following files in order to restore context for the Svetlinki Elementor project:
+
+1. C:\Users\denit\Local Sites\svetlinkielementor\SSOT\00-CONTEXT-RESTORE-PROMPT.md
+2. C:\Users\denit\Local Sites\svetlinkielementor\SSOT\ISSUES-AND-SOLUTIONS-GUIDE.md
+3. C:\Users\denit\Local Sites\svetlinkielementor\SSOT\ELEMENTOR-DATA-SCHEMA-DEEP-DIVE.md
+4. C:\Users\denit\Local Sites\svetlinkielementor\SSOT\ELEMENTOR-REST-API-REFERENCE.md
+5. C:\Users\denit\Local Sites\svetlinkielementor\.claude\CLAUDE.md
+
+Read agent files:
+- .claude/agents/coder.md
+- .claude/agents/designer.md
+- .claude/agents/tester.md
+- .claude/agents/stuck.md
+
+Verify MCP connection to wp-elementor-mcp server.
+Verify site is running at http://svetlinkielementor.local
+
+Current status: Home page Hero section complete (1/7 sections).
+Next task: Build section 2 "Why Choose Svetlinki".
+
+Turn on all agents and MCP tools. Ready to start building.
+
+================================================
+Last Updated: 2025-11-29
+Progress: 65%
+Hero Section: Complete (1920px, all colors working)

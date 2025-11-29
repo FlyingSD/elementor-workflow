@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "wp-elementor-mcp": {
+      "command": "npx",
+      "args": ["wp-elementor-mcp"],
+      "env": {
+        "ELEMENTOR_MCP_MODE": "standard",
+        "WORDPRESS_BASE_URL": "http://svetlinkielementor.local",
+        "WORDPRESS_USERNAME": "test",
+        "WORDPRESS_APPLICATION_PASSWORD": "S27q64rqoFhfTPDA30nBhNM5"
+      }
+    }
+  }
+}
