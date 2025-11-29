@@ -99,6 +99,120 @@ For complete MCP documentation, see:
 `SSOT/elementor-mcp-solution.md`
 
 ══════════════════════════════════════════════════════════════════════════════
+                    🚨 SAFETY RULES (PRE-FLIGHT SNAPSHOT)
+══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ 🚨 ABSOLUTE MANDATORY: PRE-FLIGHT SNAPSHOT BEFORE EVERY UPDATE 🚨          ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+NIGHTMARE SCENARIO (Why This Rule Exists):
+1. You decide to "fix" something on Home Page (page_id: 21)
+2. Generate new JSON (valid structure but accidentally empty/wrong)
+3. POST to WordPress → update_elementor_page_data(21, BAD_JSON)
+4. Result: Home page becomes WHITE SCREEN
+5. No recent backup → Must search WordPress Revisions (slow/unreliable)
+
+SOLUTION: MANDATORY PRE-FLIGHT SNAPSHOT WORKFLOW
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ BEFORE EVERY update_elementor_page_data() OR update_page():               ║
+║                                                                            ║
+║ 1. GET CURRENT STATE   → Fetch existing JSON from WordPress               ║
+║ 2. SAVE LOCAL BACKUP   → timestamped file in backups/                     ║
+║ 3. GENERATE NEW JSON   → Create your updated structure                    ║
+║ 4. VALIDATE STRUCTURE  → Check not empty, valid elTypes                   ║
+║ 5. DEPLOY (if valid)   → POST to WordPress                                ║
+║ 6. VERIFY DEPLOYMENT   → GET again, compare with expected                 ║
+║ 7. ROLLBACK (if fail)  → POST old JSON back immediately                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+BACKUP FILE NAMING CONVENTION:
+```
+backups/page_{page_id}_before_{task_name}_{timestamp}.json
+
+Examples:
+backups/page_21_before_hero-fix_20251129_143052.json
+backups/page_23_before_about-update_20251129_143152.json
+backups/page_21_before_section-3-redesign_20251129_143252.json
+```
+
+MANDATORY WORKFLOW (Use Python Script):
+```python
+# USE THIS HELPER SCRIPT (created in project root)
+python backup-before-update.py --page-id 21 --task "hero-fix"
+
+# Script will:
+# 1. GET current page JSON
+# 2. Save to backups/page_21_before_hero-fix_TIMESTAMP.json
+# 3. Print backup path for your records
+# 4. Return success/failure status
+
+# THEN you can safely proceed with update:
+update_elementor_page_data(21, new_json)
+```
+
+VALIDATION CHECKS (Before Deploying):
+```python
+def validate_before_deploy(new_json):
+    """
+    MANDATORY validation before POST
+    """
+    # Check 1: Not empty
+    if not new_json or len(new_json) == 0:
+        raise ValueError("❌ JSON is empty - would WIPE entire page!")
+
+    # Check 2: Has valid elTypes
+    for element in new_json:
+        if 'elType' not in element:
+            raise ValueError("❌ Missing elType - invalid structure!")
+        if element['elType'] not in ['section', 'column', 'widget']:
+            raise ValueError(f"❌ Invalid elType: {element['elType']}")
+
+    # Check 3: Sections have columns
+    for element in new_json:
+        if element['elType'] == 'section':
+            if 'elements' not in element or len(element['elements']) == 0:
+                raise ValueError("❌ Section has no columns - invalid!")
+
+    return True  # All checks passed
+```
+
+ROLLBACK PROCEDURE (If Deploy Fails):
+```python
+# If something goes wrong after deploy:
+# 1. Find latest backup
+latest_backup = "backups/page_21_before_hero-fix_20251129_143052.json"
+
+# 2. Read backup
+with open(latest_backup, 'r') as f:
+    old_json = json.load(f)
+
+# 3. Restore immediately
+update_elementor_page_data(21, old_json)
+
+# 4. Verify restoration
+verify_json = get_elementor_data(21)
+print("✅ Rollback complete!" if verify_json else "❌ Rollback failed!")
+```
+
+BENEFITS OF PRE-FLIGHT SNAPSHOT:
+✅ Safety net for experiments (try changes without fear)
+✅ Fast recovery (10 seconds to rollback vs hours to rebuild)
+✅ Audit trail (see exactly what changed when)
+✅ Confidence to make updates (knowing you can undo)
+✅ Debugging easier (compare old vs new JSON side-by-side)
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ ⚠️  NEVER SKIP THIS STEP - EVEN FOR "SMALL" CHANGES ⚠️                    ║
+║                                                                            ║
+║ If you update a page without Pre-Flight Snapshot:                         ║
+║ → You are risking data loss                                               ║
+║ → You are violating safety protocols                                      ║
+║ → You must immediately create backup before proceeding                    ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+══════════════════════════════════════════════════════════════════════════════
                     PAGE CREATION WORKFLOW
 ══════════════════════════════════════════════════════════════════════════════
 

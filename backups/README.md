@@ -1,11 +1,92 @@
 # WordPress Pages Backup
 
 **Created**: 2025-11-29 10:09
-**Purpose**: Backup before file reorganization and optimization
+**Updated**: 2025-11-29 (added automated Pre-Flight Snapshot workflow)
+**Purpose**: Static backups + automated Pre-Flight Snapshots before updates
 
 ---
 
-## Files Included:
+## 🚨 PRE-FLIGHT SNAPSHOT (MANDATORY WORKFLOW)
+
+**NEW (2025-11-29)**: Automated backup before EVERY page update!
+
+### Why Pre-Flight Snapshot?
+
+**Nightmare Scenario**:
+1. Update page with new JSON
+2. JSON is valid but accidentally empty/wrong
+3. Page becomes white screen
+4. No recent backup to restore from
+
+**Solution**: Always create timestamped backup BEFORE update!
+
+### Automated Backup Scripts
+
+**Location**: Project root directory
+
+#### 1. `backup-before-update.py` - Create Pre-Flight Snapshot
+
+```bash
+# Before updating page 21
+python backup-before-update.py --page-id 21 --task "hero-fix"
+
+# Result:
+# ✅ Backup saved: backups/page_21_before_hero-fix_20251129_143052.json
+```
+
+**What it does**:
+- Fetches current page data from WordPress REST API
+- Validates structure (not empty, valid elTypes)
+- Saves timestamped backup to `backups/` directory
+- Returns success/failure status
+
+**Filename format**:
+```
+backups/page_{page_id}_before_{task}_{timestamp}.json
+```
+
+#### 2. `restore-from-backup.py` - Emergency Rollback
+
+```bash
+# Restore from latest backup
+python restore-from-backup.py --page-id 21 --latest
+
+# OR restore from specific backup
+python restore-from-backup.py --backup "backups/page_21_before_hero-fix_20251129_143052.json"
+```
+
+**What it does**:
+- Loads backup JSON file
+- POSTs to WordPress REST API to restore page
+- Verifies restoration by fetching page again
+- Confirms with user before overwriting
+
+### When to Use Pre-Flight Snapshot
+
+**MANDATORY before**:
+- ✅ Updating existing page content (`update_elementor_page_data()`)
+- ✅ Modifying page structure (`update_page()`)
+- ✅ Experimenting with new sections/widgets
+- ✅ ANY change to live pages
+
+**NOT needed for**:
+- ❌ Creating NEW pages (nothing to backup)
+- ❌ Testing on draft pages (can delete and recreate)
+
+### Benefits
+
+- ⚡ **Fast recovery**: 10 seconds to rollback vs hours to rebuild
+- 🛡️ **Safety net**: Try changes without fear
+- 📊 **Audit trail**: See exactly what changed when
+- 🔍 **Debugging**: Compare old vs new JSON side-by-side
+
+---
+
+## Static Backup Files (Initial Snapshots)
+
+These are one-time backups created before major changes:
+
+### Files Included:
 
 ### 1. `homepage-page-21-backup.json` (32KB)
 **Page ID**: 21

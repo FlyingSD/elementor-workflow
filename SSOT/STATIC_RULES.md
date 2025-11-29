@@ -2810,6 +2810,51 @@ curl -u "test:S27q 64rq oFhf TPDA 30nB hNM5" \
 
 ## Page Creation Phase
 
+### Step 0: 🚨 Pre-Flight Snapshot (MANDATORY for Updates)
+
+**APPLIES TO**: Updating existing pages ONLY (skip for new page creation)
+
+**WHY**: Protect against accidental data loss (empty JSON, wrong structure, etc.)
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ 🚨 ABSOLUTE RULE: CREATE BACKUP BEFORE EVERY update_elementor_page_data() ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+**BEFORE updating existing page:**
+
+```bash
+# Step 0.1: Create Pre-Flight Snapshot
+python backup-before-update.py --page-id 21 --task "hero-fix"
+
+# Output:
+# ✅ Backup saved: backups/page_21_before_hero-fix_20251129_143052.json
+```
+
+**Checklist**:
+- [ ] Backup created with `backup-before-update.py`
+- [ ] Backup file exists in `backups/` directory
+- [ ] Backup filename includes page_id, task, and timestamp
+- [ ] Current page data validated (not empty, valid structure)
+
+**IF UPDATE FAILS (Emergency Rollback)**:
+```bash
+# Restore from latest backup
+python restore-from-backup.py --page-id 21 --latest
+
+# OR restore from specific backup
+python restore-from-backup.py --backup "backups/page_21_before_hero-fix_20251129_143052.json"
+```
+
+**Benefits**:
+- ✅ Fast recovery (10 seconds to rollback)
+- ✅ Safety net for experiments
+- ✅ Audit trail (see what changed)
+- ✅ No fear of breaking pages
+
+**See also**: `.claude/agents/coder.md` → "SAFETY RULES (PRE-FLIGHT SNAPSHOT)" section
+
+---
+
 ### Step 1: Create Base Page Structure 🏗️
 
 **MCP Tool**: `create_elementor_page` or `create_page`

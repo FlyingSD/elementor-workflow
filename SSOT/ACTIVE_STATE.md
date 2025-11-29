@@ -15,14 +15,20 @@
 - Admin Password: `S27q64rqoFhfTPDA30nBhNM5` (Application Password)
 - REST API: `http://svetlinkielementor.local/wp-json/wp/v2/`
 
-**MCP Server**:
-- Server: `wp-elementor-mcp`
-- Mode: `standard` (32 tools available)
+**MCP Servers**:
+- WordPress/Elementor: `wp-elementor-mcp` (standard mode, 32 tools)
+- Research: `brave-search` (web search engine)
 - Config: `.mcp.json` in project root
+
+**Research Tools**:
+- Brave Search API: `BSALRthHC5TjPLZ-kA70Dk7YqhCfhmC` (web search)
+- R.JINA API: `jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU` (content extraction)
+- **Workflow**: Brave finds URLs → R.JINA extracts content
+- **Sources**: Tier 1 (official docs, GitHub) + Tier 2 (WordPress.org, Stack Exchange, engineering blogs)
 
 **Config File**:
 - Location: `config.json` (project root)
-- Contains: R.JINA API key, WordPress credentials, Global Colors, page IDs
+- Contains: Brave API key, R.JINA API key, WordPress credentials, Global Colors, page IDs
 
 ---
 
@@ -181,9 +187,15 @@ C:\Users\denit\Local Sites\svetlinkielementor\
 
 ## 🎯 Current Active Scripts
 
+**Safety Scripts** (project root) - **MANDATORY**:
+- `backup-before-update.py` - Pre-Flight Snapshot before page updates
+- `restore-from-backup.py` - Emergency rollback from backup
+- **Usage**: See `backups/README.md` for full workflow
+
 **Working Scripts** (project root):
 - `rebuild-all-6-sections.py` - Rebuild homepage (all 6 sections)
 - `rebuild-complete-homepage.py` - Alternative rebuild
+- `merge-static-rules.py` - Merge SSOT documentation (used for optimization)
 
 **Deprecated Scripts** (scripts/deprecated/):
 - `build_hero_container.py` - Old container approach (doesn't work in FREE)
