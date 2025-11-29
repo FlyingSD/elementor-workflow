@@ -72,5 +72,12 @@
         "Random personal blogs"
       ]
     }
+  },
+  "project": {
+    "name": "Your Project Name",
+    "environment": "local",
+    "wordpress_version": "6.7.1",
+    "elementor_version": "free",
+    "theme": "twentytwentyfive"
   }
 }
