@@ -1,0 +1,76 @@
+{
+  "wordpress": {
+    "base_url": "http://your-site.local",
+    "auth": {
+      "user": "your-username",
+      "password": "your-application-password-here"
+    }
+  },
+  "elementor": {
+    "pages": {
+      "homepage": 21,
+      "header_template": 69,
+      "footer_template": 73
+    },
+    "settings": {
+      "css_print_method": "internal",
+      "global_colors_polyfill": true
+    }
+  },
+  "global_colors": {
+    "primary": {
+      "hex": "#FABA29",
+      "name": "Primary (Yellow/Gold)",
+      "css_var": "var(--e-global-color-primary)"
+    },
+    "secondary": {
+      "hex": "#4F9F8B",
+      "name": "Secondary (Teal/Green)",
+      "css_var": "var(--e-global-color-secondary)"
+    },
+    "accent": {
+      "hex": "#FEFCF5",
+      "name": "Accent (Warm Cream)",
+      "css_var": "var(--e-global-color-accent)"
+    },
+    "text": {
+      "hex": "#2C2C2C",
+      "name": "Text (Dark Gray)",
+      "css_var": "var(--e-global-color-text)"
+    }
+  },
+  "research": {
+    "r_jina": {
+      "api_key": "your-jina-api-key-here",
+      "base_url": "https://r.jina.ai/",
+      "usage": "Content extraction from URLs (web scraping API)"
+    },
+    "brave_search": {
+      "api_key": "your-brave-search-api-key-here",
+      "mcp_server": "@modelcontextprotocol/server-brave-search",
+      "usage": "Web search engine (find URLs, then use R.JINA to extract content)",
+      "tier1_sources": [
+        "github.com",
+        "developers.elementor.com",
+        "developer.wordpress.org",
+        "stackoverflow.com"
+      ],
+      "tier2_sources": [
+        "wordpress.org/support",
+        "wordpress.stackexchange.com",
+        "kinsta.com/blog",
+        "wpmudev.com/blog",
+        "smashingmagazine.com",
+        "css-tricks.com",
+        "reddit.com/r/elementor"
+      ],
+      "forbidden_sources": [
+        "medium.com",
+        "w3schools.com (for complex logic)",
+        "SEO spam blogs",
+        "YouTube transcripts",
+        "Random personal blogs"
+      ]
+    }
+  }
+}
