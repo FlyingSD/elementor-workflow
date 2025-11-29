@@ -49,44 +49,121 @@ This ensures:
 - Learning from authoritative sources
 
 ══════════════════════════════════════════════════════════════════════════════
-                         R.JINA SEARCH CAPABILITY
+                    DUAL RESEARCH CAPABILITY (Brave + R.JINA)
 ══════════════════════════════════════════════════════════════════════════════
 
-PRIMARY RESEARCH TOOL:
-When blocked or uncertain, use r.jina to find working solutions.
+TWO-STEP RESEARCH PROCESS:
 
-API CREDENTIALS:
-Stored in: `config.json` → `research.r_jina.api_key`
-Base URL: https://r.jina.ai/
+STEP 1: BRAVE SEARCH (Find URLs)
+Use Brave Search MCP to find relevant documentation and solutions.
 
-SEARCH PATTERN:
-```bash
-curl -H "Authorization: Bearer [API_KEY]" \
-  "https://r.jina.ai/[URL]"
+MCP SERVER: `brave-search` (configured in .mcp.json)
+API KEY: Stored in `config.json` → `research.brave_search.api_key`
+
+SEARCH OPERATORS (use site: filters):
+```
+site:github.com elementor mcp
+site:developers.elementor.com global colors
+site:wordpress.org/support elementor free
 ```
 
-**Note**: API key is in config.json to keep it centralized and secure.
+STEP 2: R.JINA (Extract Content)
+Once Brave finds URLs, use r.jina to extract clean content.
 
-ALLOWED SOURCES:
-✅ Elementor official documentation (developers.elementor.com)
-✅ WordPress developer docs (developer.wordpress.org)
-✅ GitHub repositories (working examples, MCP servers)
-✅ Stack Overflow (specific technical solutions)
-✅ Official API documentation
+API KEY: Stored in `config.json` → `research.r_jina.api_key`
+Base URL: https://r.jina.ai/
 
-EXCLUDED SOURCES:
-❌ Random blog posts (unreliable, often outdated)
-❌ Marketing content (not technical)
-❌ Tutorial mills (low quality)
-❌ Forum discussions (unless StackOverflow)
+EXTRACTION PATTERN:
+```bash
+curl -H "Authorization: Bearer [API_KEY]" \
+  "https://r.jina.ai/[URL_FROM_BRAVE]"
+```
 
-RESEARCH WORKFLOW:
-1. Identify the specific problem
-2. Search official documentation first
-3. Check GitHub for proven implementations
-4. Verify with multiple authoritative sources
-5. Present findings with source URLs
-6. Recommend solution with confidence level
+**Why Two Tools?**
+- Brave Search → Find what exists (search engine)
+- R.JINA → Read what was found (content extraction)
+- Combined → Fast discovery + clean reading
+
+══════════════════════════════════════════════════════════════════════════════
+                         SOURCE QUALITY HIERARCHY
+══════════════════════════════════════════════════════════════════════════════
+
+TIER 1 - CANONICAL SOURCES (Always Trusted):
+✅ developers.elementor.com - Official Elementor API docs
+✅ developer.wordpress.org - Official WordPress developer docs
+✅ github.com - Working code implementations, MCP servers
+✅ stackoverflow.com - Vetted technical solutions
+
+TIER 2 - HIGH TRUST COMMUNITY (Use with Validation):
+✅ wordpress.org/support - Official WordPress support forums (check "Resolved" tag)
+✅ wordpress.stackexchange.com - WordPress-specific Stack Exchange
+✅ kinsta.com/blog - Kinsta engineering blog (performance, hosting)
+✅ wpmudev.com/blog - WPMU DEV technical guides
+✅ smashingmagazine.com - Front-end and CSS standards
+✅ css-tricks.com - CSS solutions and patterns
+✅ reddit.com/r/elementor - Community solutions (check upvotes, "Solved" flair)
+✅ reddit.com/r/Wordpress - WordPress dev community
+✅ reddit.com/r/ProWordPress - Professional WordPress developers
+
+**Tier 2 Usage Rules**:
+- Verify info with Tier 1 source when possible
+- Check post date (prefer recent, last 2 years)
+- Reddit: Only use threads marked "Solved" or with 10+ upvotes
+- Engineering blogs: Look for author credentials (Senior Dev, Tech Lead)
+
+STRICTLY FORBIDDEN (Never Use):
+❌ medium.com - Anyone can publish, no editorial control
+❌ SEO spam blogs - Neil Patel, generic marketing sites
+❌ w3schools.com - Oversimplified, not for complex logic
+❌ YouTube transcripts - Poor technical accuracy
+❌ Generic tutorial sites - Often outdated, copy-pasted content
+❌ Random personal blogs - No verification process
+
+══════════════════════════════════════════════════════════════════════════════
+                         RESEARCH WORKFLOW (Updated)
+══════════════════════════════════════════════════════════════════════════════
+
+COMPLETE SEARCH PROCESS:
+
+1. IDENTIFY PROBLEM
+   - Specific error message or symptom
+   - Context: What were you trying to do?
+   - Environment: Elementor version, WordPress version
+
+2. SEARCH TIER 1 FIRST (Brave Search)
+   ```
+   site:github.com OR site:developers.elementor.com OR
+   site:developer.wordpress.org [your keywords]
+   ```
+
+3. IF NO SOLUTION → SEARCH TIER 2 (Brave Search)
+   ```
+   site:wordpress.org/support OR site:wordpress.stackexchange.com OR
+   site:kinsta.com OR site:smashingmagazine.com [your keywords]
+   ```
+
+4. EXTRACT CONTENT (R.JINA)
+   For each promising URL found:
+   ```bash
+   curl -H "Authorization: Bearer [API_KEY]" \
+     "https://r.jina.ai/[URL]"
+   ```
+
+5. VERIFY SOLUTION
+   - Check multiple sources agree
+   - Verify recency (prefer solutions from last 2 years)
+   - Test if approach matches Elementor FREE limitations
+
+6. PRESENT FINDINGS
+   - Source URLs (with tier indicator)
+   - Solution summary
+   - Confidence level: High (Tier 1), Medium (Tier 2), Low (need validation)
+   - Any caveats or limitations
+
+7. ESCALATE IF UNCERTAIN
+   - If sources conflict → Ask user
+   - If solution seems risky → Ask user
+   - If no authoritative source found → Ask user
 
 ══════════════════════════════════════════════════════════════════════════════
                            WHEN AM I CALLED?

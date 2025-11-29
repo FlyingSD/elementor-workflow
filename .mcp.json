@@ -9,6 +9,16 @@
         "WORDPRESS_USERNAME": "test",
         "WORDPRESS_APPLICATION_PASSWORD": "S27q64rqoFhfTPDA30nBhNM5"
       }
+    },
+    "brave-search": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "env": {
+        "BRAVE_API_KEY": "BSALRthHC5TjPLZ-kA70Dk7YqhCfhmC"
+      }
     }
   }
 }

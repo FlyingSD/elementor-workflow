@@ -43,7 +43,36 @@
     "r_jina": {
       "api_key": "jina_700485007fde405aba61e94002ee4a10M3Ueq3DucEcT73UKdsVUbcvGWDPU",
       "base_url": "https://r.jina.ai/",
-      "usage": "Official docs, GitHub repos, Stack Overflow only"
+      "usage": "Content extraction from URLs (web scraping API)"
+    },
+    "brave_search": {
+      "api_key": "BSALRthHC5TjPLZ-kA70Dk7YqhCfhmC",
+      "mcp_server": "@modelcontextprotocol/server-brave-search",
+      "usage": "Web search engine (find URLs, then use R.JINA to extract content)",
+      "tier1_sources": [
+        "github.com",
+        "developers.elementor.com",
+        "developer.wordpress.org",
+        "stackoverflow.com"
+      ],
+      "tier2_sources": [
+        "wordpress.org/support",
+        "wordpress.stackexchange.com",
+        "kinsta.com/blog",
+        "wpmudev.com/blog",
+        "smashingmagazine.com",
+        "css-tricks.com",
+        "reddit.com/r/elementor",
+        "reddit.com/r/Wordpress",
+        "reddit.com/r/ProWordPress"
+      ],
+      "forbidden_sources": [
+        "medium.com",
+        "w3schools.com (for complex logic)",
+        "SEO spam blogs",
+        "YouTube transcripts",
+        "generic tutorial sites"
+      ]
     }
   },
   "project": {
