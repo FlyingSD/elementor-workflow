@@ -2,8 +2,8 @@
   "wordpress": {
     "base_url": "http://your-site.local",
     "auth": {
-      "user": "your-username",
-      "password": "your-application-password-here"
+      "user": "test",
+      "password": "test"
     }
   },
   "elementor": {
@@ -78,6 +78,8 @@
     "environment": "local",
     "wordpress_version": "6.7.1",
     "elementor_version": "free",
-    "theme": "twentytwentyfive"
+    "theme": "hello-elementor",
+    "theme_version": "3.4.5",
+    "note": "Hello Elementor is the recommended theme for Elementor-based sites"
   }
 }

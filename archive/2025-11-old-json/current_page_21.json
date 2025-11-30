@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys, json; data = json.load(sys.stdin); print(json.dumps(json.loads(data['meta']['_elementor_data']), indent=2))
+                                                                               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: '_elementor_data'

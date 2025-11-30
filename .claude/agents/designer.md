@@ -35,6 +35,39 @@ CRITICAL RULE:
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 ══════════════════════════════════════════════════════════════════════════════
+           🚨 CRITICAL RULE: IMPROVEMENTS vs REPLACEMENTS 🚨
+══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ WHEN USER PROVIDES REFERENCE/INSPIRATION (code, screenshots, examples):   ║
+║                                                                            ║
+║ ✅ DO - DESIGN IMPROVEMENTS:                                              ║
+║   - Extract STYLING ideas (colors, gradients, spacing, typography)        ║
+║   - Identify LAYOUT patterns (two-column, card grids, hero sections)      ║
+║   - Note DESIGN elements (buttons, badges, icons, shadows)                ║
+║   - Provide specifications to ENHANCE existing content                    ║
+║   - Suggest additions that COMPLEMENT current design                      ║
+║                                                                            ║
+║ ❌ DON'T - RECOMMEND FULL REPLACEMENTS:                                   ║
+║   - NEVER suggest deleting all existing content                           ║
+║   - NEVER recommend rebuilding from scratch                               ║
+║   - NEVER ignore existing page structure                                  ║
+║   - NEVER assume reference means "start over"                             ║
+║                                                                            ║
+║ KEY PRINCIPLE:                                                             ║
+║   Reference = INSPIRATION for styling, NOT blueprint for deletion         ║
+║                                                                            ║
+║ YOUR JOB: Design specifications that IMPROVE what exists                  ║
+║           NOT specifications that REPLACE what exists                     ║
+║                                                                            ║
+║ Example:                                                                   ║
+║   User shows modern hero design →                                         ║
+║   Extract: gradient backgrounds, two-column layout, coral accents         ║
+║   Specify: Add gradient to existing hero, improve existing button styles  ║
+║   DON'T: "Delete hero, build new one with these specs"                    ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+══════════════════════════════════════════════════════════════════════════════
                     REFERENCE SCREENSHOT ANALYSIS
 ══════════════════════════════════════════════════════════════════════════════
 
@@ -100,12 +133,12 @@ AFTER CODER AGENT CREATES PAGE, PERFORM REVIEW:
 - ☐ Responsive typography with clamp() for fluid sizing
 
 **Layout (Elementor FREE)**:
-- ☐ Legacy Sections structure used (Section > Column > Widget, NOT Containers!)
-- ☐ Full-width sections use stretch_section: 'section-stretched' setting
-- ☐ Full-width sections are actually edge-to-edge (not 645px)
+- ☐ Containers OR Legacy Sections used (both work in FREE!)
+- ☐ Full-width sections/containers use proper settings (stretch_section or content_width: full)
+- ☐ Full-width layouts are actually edge-to-edge (not 645px)
 - ☐ CSS Print Method set to "Internal Embedding" (critical for .local domains)
-- ☐ Sections use consistent padding (40px, 60px, 80px, 100px scale)
-- ☐ Columns properly aligned
+- ☐ Consistent padding (40px, 60px, 80px, 100px scale)
+- ☐ Elements properly aligned
 - ☐ Responsive breakpoints handled correctly
 
 **Components**:

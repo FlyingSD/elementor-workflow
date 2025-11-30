@@ -216,9 +216,10 @@ TOP 5 KNOWN ISSUES:
    - Symptom: Page data updates but frontend doesn't change
    - Solution: Open in Elementor editor, click "Update" (Issue #3)
 
-4. **Containers Don't Work** (EXPECTED - PRO only)
-   - Symptom: Container structure fails
-   - Solution: Use Legacy Sections (Section > Column > Widget) (Issue #4)
+4. **Containers ARE Available in FREE** (CORRECTED)
+   - Previous misconception: Containers thought to be PRO only
+   - Actual: Containers (Flexbox/Grid) work in Elementor FREE
+   - Solution: Use Containers OR Legacy Sections (both work!) (Issue #4)
 
 5. **Header/Footer Not REST Accessible** (LIMITATION)
    - Symptom: Can't update via MCP
@@ -371,7 +372,7 @@ AGENTS UNBLOCKED: [List]
   * Issue #1: Global Colors not showing (SOLVED - polyfill)
   * Issue #2: Stretch section not working (SOLVED - Internal Embedding)
   * Issue #3: REST API limitations (WORKAROUND)
-  * Issue #4: Containers don't work (EXPECTED - use Sections)
+  * Issue #4: Containers ARE FREE (CORRECTED - use Containers or Sections)
   * Issue #5: Header/Footer not REST accessible (LIMITATION)
   * Full diagnosis steps for each issue
   * Solutions and workarounds

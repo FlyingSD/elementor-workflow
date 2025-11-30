@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Светлинки - Modern Design Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: #1D3234;
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FEFCF5 0%, #fff9e6 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            color: #4F9F8B;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.25rem);
+            color: #1D3234;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FABA29;
+            color: #FFFFFF;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(250, 186, 41, 0.3);
+            position: relative;
+        }
+
+        .cta-button:hover {
+            background: #FF8C7A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 122, 0.4);
+        }
+
+        .hero-mascot {
+            position: absolute;
+            bottom: -20px;
+            right: 10%;
+            width: 250px;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #4F9F8B;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: #FFFFFF;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(79, 159, 139, 0.15);
+            border-color: #4F9F8B;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #4F9F8B, #3d8070);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            background: linear-gradient(135deg, #FABA29, #FF8C7A);
+            transform: scale(1.1);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            color: #1D3234;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            color: #5a6c6d;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .card-mascot {
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            width: 120px;
+            height: auto;
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        /* Programs Section - Bento Grid */
+        .programs {
+            background: linear-gradient(135deg, #FEFCF5 0%, #fff9e6 100%);
+        }
+
+        .programs-bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .programs-bento .program-card:last-child {
+            grid-column: 1 / -1;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: #FEFCF5;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 2px solid #f5f0e8;
+            position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(250, 186, 41, 0.2);
+            border-color: #FABA29;
+        }
+
+        .program-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FABA29, #FF8C7A);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            font-size: 1.35rem;
+            color: #4F9F8B;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .program-card p {
+            color: #5a6c6d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .program-mascot {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            width: 140px;
+            height: auto;
+            opacity: 0.85;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero-mascot {
+                width: 150px;
+                right: 5%;
+                bottom: -10px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .programs-bento {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-bento .program-card:last-child {
+                grid-column: 1;
+            }
+
+            .card-mascot {
+                width: 80px;
+            }
+
+            .program-mascot {
+                width: 100px;
+            }
+        }
+
+        /* Design Notes Banner */
+        .design-notes {
+            background: linear-gradient(135deg, #4F9F8B, #3d8070);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .design-notes h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .design-notes p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .design-notes ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .design-notes li {
+            font-size: 0.9rem;
+        }
+
+        .design-notes li::before {
+            content: "✓ ";
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Design Notes Banner -->
+    <div class="design-notes">
+        <h2>🎨 MOCKUP - Modern Design Proposal</h2>
+        <p><strong>Based on research:</strong> Warm colors for parents, rounded cards, subtle mascots, mobile-responsive</p>
+        <ul>
+            <li>Yellow (#FABA29) → Coral (#FF8C7A) hover</li>
+            <li>Teal (#4F9F8B) headings for trust</li>
+            <li>Cream (#FEFCF5) backgrounds</li>
+            <li>Rounded corners (16px) modern look</li>
+            <li>Characters SUBTLE (not childish)</li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Развийте математическите умения на вашето дете</h1>
+            <p>Ментална аритметика за деца от 5 до 12 години. Развиваме концентрация, логика и увереност чрез доказани методи.</p>
+            <a href="#" class="cta-button">ЗАПАЗИ СЕ СЕГА</a>
+        </div>
+        <!-- Zhara pointing at CTA -->
+        <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Zhara-pointing-at-CTA.png"
+             alt="Zhara mascot"
+             class="hero-mascot">
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Предимства на нашата програма</h2>
+            <div class="benefits-grid">
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>По-добра концентрация</h3>
+                    <p>Вашето дете ще научи да се фокусира върху задачи за по-дълго време и да игнорира разсейванията.</p>
+                    <!-- Lucko leaning on card -->
+                    <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Lucko-being-cool-подпрян-на-някой-бордер-или-карта.png"
+                         alt="Lucko mascot"
+                         class="card-mascot">
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h3>Логическо мислене</h3>
+                    <p>Развиваме способността за анализиране на проблеми и намиране на творчески решения.</p>
+                    <!-- Lucko leaning on card -->
+                    <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Lucko-being-cool-подпрян-на-някой-бордер-или-карта.png"
+                         alt="Lucko mascot"
+                         class="card-mascot">
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>Отлична памет</h3>
+                    <p>Чрез визуализация и повторение укрепваме паметта и способността за запаметяване.</p>
+                    <!-- Lucko leaning on card -->
+                    <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Lucko-being-cool-подпрян-на-някой-бордер-или-карта.png"
+                         alt="Lucko mascot"
+                         class="card-mascot">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section - Bento Grid Layout -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Нашата 5-степенна програма</h2>
+            <div class="programs-bento">
+
+                <div class="program-card">
+                    <div class="program-number">1</div>
+                    <h3>Ниво 1: Начална група</h3>
+                    <p>Запознаване с абакуса, основни операции, игрови упражнения за концентрация. Подходящо за деца 5-7 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">2</div>
+                    <h3>Ниво 2: Средна група</h3>
+                    <p>Ментална визуализация, умножение и деление, развитие на фотографска памет. Деца 7-9 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">3</div>
+                    <h3>Ниво 3: Напреднала група</h3>
+                    <p>Сложни математически операции, скоростни изчисления, развитие на логическото мислене. Деца 8-10 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">4</div>
+                    <h3>Ниво 4: Майсторска група</h3>
+                    <p>Усъвършенстване на техниката, подготовка за състезания, развитие на аналитичното мислене. Деца 9-11 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">5</div>
+                    <h3>Ниво 5: Състезателна група</h3>
+                    <p>Професионално ниво, участие в национални и международни турнири, менторство на по-малки деца. Деца 10-12 години.</p>
+                    <!-- Iskrica pointing at this level -->
+                    <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Iskrica.png"
+                         alt="Iskrica mascot"
+                         class="program-mascot">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Note -->
+    <div style="background: #1D3234; color: white; padding: 40px 20px; text-align: center;">
+        <h3 style="margin-bottom: 15px;">💡 Design Philosophy</h3>
+        <p style="max-width: 800px; margin: 0 auto; line-height: 1.7; opacity: 0.9;">
+            This mockup demonstrates: <strong>Warm professional design for parents</strong> (not childish),
+            <strong>modern card layouts</strong> with rounded corners, <strong>subtle character placement</strong>
+            (not dominating), <strong>mobile-responsive</strong> Bento grid, and <strong>Global Color system</strong>
+            with hover effects. All achievable with Elementor FREE!
+        </p>
+        <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+            Open in browser: <code>file:///C:/Users/denit/Local Sites/svetlinkielementor/design-mockup.html</code>
+        </p>
+    </div>
+
+</body>
+</html>

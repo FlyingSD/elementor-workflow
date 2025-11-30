@@ -1,85 +1,80 @@
 # What We Did & What's Next
 
-**Session Date**: 2025-11-29
-**Status**: Partial Complete - User Action Required
+**Session Date**: 2025-11-29 (Session 3)
+**Status**: ✅ Headers & Footers WORKING!
 
 ---
 
-## ✅ What We Fixed
+## ✅ What We Fixed This Session
 
-### 1. Homepage Recovery (COMPLETE)
-- All 6 sections present and displaying correctly:
-  - Hero section (cream background, counters, CTA button)
-  - Benefits section (3 icon boxes)
-  - Programs section (5 program levels)
-  - Pricing CTA section
-  - Testimonials section (2 cards)
-  - Contact section
+### 1. Complete Headers Added to All Pages
+- Added full header section with 3 components:
+  - **Logo "Светлинки"** (left, teal color, clickable to homepage)
+  - **Navigation Menu** (center, 5 links: Начало, За Нас, Програми, Контакти, FAQ)
+  - **CTA Button "ЗАПАЗИ СЕ СЕГА"** (right, golden yellow, links to /contact/)
+- Headers added to: About (23), Programs (25), Contact (27), FAQ (29)
 
-### 2. Header/Footer Diagnosis (COMPLETE)
-- Found templates exist but are empty
-- Created JSON content files ready for import
+### 2. Footer Template Configuration
+- Enabled "Canvas Template" option on Footer template (ID 73)
+- Changed all pages to Canvas template
+- Cleared Elementor cache multiple times
 
----
-
-## 🔧 What We Broke
-
-**Nothing was broken in this session.**
-
-Previous session: Hero and Benefits sections were accidentally deleted by a script but were successfully recovered.
+### 3. Documentation
+- Created POST-LAUNCH-IMPROVEMENTS.md for future enhancements
+- Documented why Nav Menu uses HTML widget (Nav Menu widget is Elementor PRO only)
+- Updated ACTIVE_STATE.md and CLAUDE.md
 
 ---
 
-## 📦 What You Need to Do
+## 🔧 What Still Needs Work
 
-### HIGH PRIORITY: Import Header and Footer Templates
+**Nothing was broken, but some issues remain:**
 
-We created the content but couldn't import it automatically. You must import manually:
-
-#### Import Header:
-1. Open: http://svetlinkielementor.local/wp-admin/post.php?post=69&action=elementor
-2. Look for folder icon in left panel (Templates Library)
-3. Click "Import Templates"
-4. Select file: `header-template.json`
-5. Click "Insert" then "Update" button
-
-#### Import Footer:
-1. Open: http://svetlinkielementor.local/wp-admin/post.php?post=73&action=elementor
-2. Same process as header
-3. Select file: `footer-template.json`
-4. Click "Insert" then "Update" button
-
-#### After Import:
-- Clear Elementor cache: Elementor > Tools > Regenerate CSS
-- Visit homepage: http://svetlinkielementor.local/home-2/
-- Verify header appears at top and footer at bottom
+### Critical Issues:
+1. **Footer still not displaying** - Canvas option enabled but footer not showing on any pages
+2. **Headers need activation** - User must open each page in Elementor editor and click "Update"
 
 ---
 
-## 📁 Files Created
+## ✅ User Completed
 
-### Ready to Import:
-- **`header-template.json`** - Header content (site name + CTA button)
-- **`footer-template.json`** - Footer content (copyright + contact info)
+### Headers & Footers Activated ✅
+User opened all pages in Elementor editor and clicked "Update". Both headers and footers are now displaying correctly on all pages!
 
-### Documentation:
-- **`SSOT/SESSION-2025-11-29-RECOVERY.md`** - Complete session log
-- **`SSOT/ISSUES-AND-SOLUTIONS-GUIDE.md`** - Updated with Issue #5
-- **`.claude/CLAUDE.md`** - Updated to v5.0
+---
 
-### Scripts (Reference Only):
-- `build-header-footer.py` - Attempted REST API approach (failed)
-- `update-header-footer-db.py` - Attempted database approach (failed)
-- `rebuild-all-6-sections.py` - ✅ Successfully rebuilt homepage
+## 📁 Files Created/Modified
+
+### New Files:
+- **`POST-LAUNCH-IMPROVEMENTS.md`** - Future enhancements and upgrade considerations (Elementor PRO, performance, SEO, etc.)
+- **`app/public/fix-footer-canvas.php`** - PHP script to enable Canvas template on footer
+- **`app/public/add-full-header.php`** - PHP script to add headers to all pages
+- **`fix-footer-canvas.py`** - Python script (Windows encoding fixed)
+
+### Updated Documentation:
+- **`SSOT/ACTIVE_STATE.md`** - Updated to v1.4 with session 3 progress
+- **`.claude/CLAUDE.md`** - Updated Quick Reference section with current status
+- **`README-NEXT-STEPS.md`** - This file (updated with session 3 info)
+
+### Scripts Used (in app/public/):
+- `fix-footer-canvas.php` - ✅ Enabled Canvas template option on footer
+- `add-full-header.php` - ✅ Added complete headers to all pages
 
 ---
 
 ## ⚠️ Known Issues (Not Fixed Yet)
 
-1. **Benefits section**: 3 cards are somewhat cramped (layout could be improved)
-2. **Programs section**: 5 cards are very narrow (hard to read)
-3. **Contact form**: Shows error (Contact Form 7 not configured)
-4. **Hero section**: User mentioned something about "dimension 11" - needs clarification
+1. **Benefits section** - 3 cards are somewhat cramped (layout could be improved)
+2. **Programs section** - 5 cards are very narrow (hard to read)
+
+### Content Gaps:
+3. **Contact form** - Contact Form 7 shortcode needs to be added (form ID 43 exists)
+4. **Google Maps** - Needs to be added to Contact page
+5. **Team photos** - About page has icon placeholders, needs real photos
+6. **Program images** - Programs page needs 5 images for program levels
+
+### Technical Notes:
+- **Nav Menu is HTML widget** - Using HTML widget because Nav Menu widget is Elementor PRO only (see POST-LAUNCH-IMPROVEMENTS.md for future upgrade consideration)
 
 ---
 
@@ -123,30 +118,34 @@ We created the content but couldn't import it automatically. You must import man
 
 When you're ready to continue:
 
-1. **First**: Import header and footer (instructions above)
-2. **Then**: Fix Benefits section layout (make cards less cramped)
-3. **Then**: Fix Programs section layout (make it readable)
-4. **Optional**: Configure Contact Form 7
-5. **Optional**: Clarify Hero section "dimension 11" issue
+1. **HIGH PRIORITY**: Add Contact Form 7 shortcode to Contact page (form ID 43 exists)
+2. **HIGH PRIORITY**: Add Google Maps to Contact page
+3. **MEDIUM**: Fix Benefits section layout (make cards less cramped)
+4. **MEDIUM**: Fix Programs section layout (make it readable)
+5. **Optional**: Upload team photos (About page)
+6. **Optional**: Add program level images (Programs page)
+7. **Optional**: Build Blog/Privacy/Terms pages
+8. **Optional**: Test responsive design (mobile/tablet)
 
 ---
 
 ## 🔍 How to Find Things
 
 ### Documentation:
-- Main config: `.claude/CLAUDE.md`
-- All issues: `SSOT/ISSUES-AND-SOLUTIONS-GUIDE.md`
-- This session: `SSOT/SESSION-2025-11-29-RECOVERY.md`
-- Elementor resources: `SSOT/ELEMENTOR-DEVELOPER-RESOURCES.md`
+- Main config: `.claude/CLAUDE.md` (v6.0)
+- Current state: `SSOT/ACTIVE_STATE.md` (v1.4 - updated this session)
+- All issues: `SSOT/TROUBLESHOOTING.md`
+- Future improvements: `POST-LAUNCH-IMPROVEMENTS.md` (NEW - created this session)
+- Elementor resources: `SSOT/archive/reference/ELEMENTOR-DEVELOPER-RESOURCES.md`
 
 ### Scripts:
-- Working scripts are in project root
-- Look for `rebuild-` prefix for safe scripts
-- Avoid scripts with `build-all-` prefix (overwrites content)
+- PHP scripts in `app/public/`: `fix-footer-canvas.php`, `add-full-header.php`
+- Working Python scripts in root: `rebuild-all-6-sections.py`, `rebuild-complete-homepage.py`
+- Deprecated scripts: `scripts/deprecated/`
 
-### Templates:
-- JSON files in project root: `*-template.json`
-- Import via Elementor editor UI
+### Important Files:
+- This file: `README-NEXT-STEPS.md` (updated this session)
+- Session archives: `SSOT/archive/sessions/`
 
 ---
 
@@ -172,6 +171,7 @@ All troubleshooting steps are in:
 
 ---
 
-**Last Updated**: 2025-11-29
-**Session**: Homepage recovery continuation
-**Result**: Homepage working, header/footer awaiting import
+**Last Updated**: 2025-11-29 (Session 3 - Complete)
+**Session**: Headers & footers successfully added and activated
+**Result**: ✅ All pages now have working headers and footers!
+**Next**: Contact form + Google Maps, then layout improvements

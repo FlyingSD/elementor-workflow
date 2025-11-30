@@ -1,0 +1,336 @@
+{
+  "id": "6bf56d6",
+  "elType": "section",
+  "settings": {
+    "stretch_section": "section-stretched",
+    "background_background": "classic",
+    "background_color": "#FFFFFF",
+    "padding": {
+      "unit": "px",
+      "top": "80",
+      "right": "20",
+      "bottom": "80",
+      "left": "20"
+    },
+    "column_gap": {
+      "size": 30,
+      "unit": "px"
+    }
+  },
+  "elements": [
+    {
+      "id": "b56da1a",
+      "elType": "column",
+      "settings": {
+        "_column_size": 100
+      },
+      "elements": [
+        {
+          "id": "903cbf6",
+          "elType": "widget",
+          "settings": {
+            "title": "Предимства на нашата програма",
+            "align": "center",
+            "title_color": "var(--e-global-color-text)",
+            "typography_typography": "custom",
+            "typography_font_size": {
+              "unit": "rem",
+              "size": 2.5
+            },
+            "typography_font_weight": "700"
+          },
+          "elements": [],
+          "widgetType": "heading"
+        },
+        {
+          "id": "36b3590",
+          "elType": "widget",
+          "settings": {
+            "width": {
+              "unit": "px",
+              "size": 80
+            },
+            "height": {
+              "unit": "px",
+              "size": 4
+            },
+            "color": "var(--e-global-color-primary)",
+            "align": "center",
+            "gap": {
+              "unit": "px",
+              "size": 12
+            }
+          },
+          "elements": [],
+          "widgetType": "divider"
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "8972784",
+      "elType": "column",
+      "settings": {
+        "_column_size": 33,
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "5",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "#FABA29",
+        "border_radius": {
+          "unit": "px",
+          "top": "20",
+          "right": "20",
+          "bottom": "20",
+          "left": "20",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "30",
+          "bottom": "40",
+          "left": "30",
+          "isLinked": false
+        },
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 35,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        }
+      },
+      "elements": [
+        {
+          "id": "13318db",
+          "elType": "widget",
+          "settings": {
+            "selected_icon": {
+              "value": "🧠",
+              "library": ""
+            },
+            "title_text": "По-добра концентрация",
+            "description_text": "Вашето дете ще научи да се фокусира върху задачи за по-дълго време и да игнорира разсейванията.",
+            "title_color": "var(--e-global-color-text)",
+            "description_color": "#5a6c6d",
+            "icon_primary_color": "#FFFFFF",
+            "icon_size": {
+              "unit": "px",
+              "size": 38
+            },
+            "icon_space": {
+              "unit": "px",
+              "size": 22
+            },
+            "icon_padding": {
+              "unit": "px",
+              "top": "18",
+              "right": "18",
+              "bottom": "18",
+              "left": "18",
+              "isLinked": true
+            },
+            "icon_border_radius": {
+              "unit": "%",
+              "top": "50",
+              "right": "50",
+              "bottom": "50",
+              "left": "50",
+              "isLinked": true
+            },
+            "icon_background_color": "var(--e-global-color-primary)"
+          },
+          "elements": [],
+          "widgetType": "icon-box"
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "8c47b3e",
+      "elType": "column",
+      "settings": {
+        "_column_size": 33,
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "5",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "#FF8C7A",
+        "border_radius": {
+          "unit": "px",
+          "top": "20",
+          "right": "20",
+          "bottom": "20",
+          "left": "20",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "30",
+          "bottom": "40",
+          "left": "30",
+          "isLinked": false
+        },
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 35,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        }
+      },
+      "elements": [
+        {
+          "id": "426c398",
+          "elType": "widget",
+          "settings": {
+            "selected_icon": {
+              "value": "💡",
+              "library": ""
+            },
+            "title_text": "Логическо мислене",
+            "description_text": "Развиваме способността за анализиране на проблеми и намиране на творчески решения.",
+            "title_color": "var(--e-global-color-text)",
+            "description_color": "#5a6c6d",
+            "icon_primary_color": "#FFFFFF",
+            "icon_size": {
+              "unit": "px",
+              "size": 38
+            },
+            "icon_space": {
+              "unit": "px",
+              "size": 22
+            },
+            "icon_padding": {
+              "unit": "px",
+              "top": "18",
+              "right": "18",
+              "bottom": "18",
+              "left": "18",
+              "isLinked": true
+            },
+            "icon_border_radius": {
+              "unit": "%",
+              "top": "50",
+              "right": "50",
+              "bottom": "50",
+              "left": "50",
+              "isLinked": true
+            },
+            "icon_background_color": "var(--e-global-color-accent)"
+          },
+          "elements": [],
+          "widgetType": "icon-box"
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a868a9",
+      "elType": "column",
+      "settings": {
+        "_column_size": 33,
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "border_border": "solid",
+        "border_width": {
+          "unit": "px",
+          "top": "5",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "border_color": "#46b19d",
+        "border_radius": {
+          "unit": "px",
+          "top": "20",
+          "right": "20",
+          "bottom": "20",
+          "left": "20",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "40",
+          "right": "30",
+          "bottom": "40",
+          "left": "30",
+          "isLinked": false
+        },
+        "box_shadow_box_shadow_type": "yes",
+        "box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 10,
+          "blur": 35,
+          "spread": 0,
+          "color": "rgba(0, 0, 0, 0.08)"
+        }
+      },
+      "elements": [
+        {
+          "id": "137e434",
+          "elType": "widget",
+          "settings": {
+            "selected_icon": {
+              "value": "⭐",
+              "library": ""
+            },
+            "title_text": "Отлична памет",
+            "description_text": "Чрез визуализация и повторение укрепваме паметта и способността за запаметяване.",
+            "title_color": "var(--e-global-color-text)",
+            "description_color": "#5a6c6d",
+            "icon_primary_color": "#FFFFFF",
+            "icon_size": {
+              "unit": "px",
+              "size": 38
+            },
+            "icon_space": {
+              "unit": "px",
+              "size": 22
+            },
+            "icon_padding": {
+              "unit": "px",
+              "top": "18",
+              "right": "18",
+              "bottom": "18",
+              "left": "18",
+              "isLinked": true
+            },
+            "icon_border_radius": {
+              "unit": "%",
+              "top": "50",
+              "right": "50",
+              "bottom": "50",
+              "left": "50",
+              "isLinked": true
+            },
+            "icon_background_color": "var(--e-global-color-secondary)"
+          },
+          "elements": [],
+          "widgetType": "icon-box"
+        }
+      ],
+      "isInner": false
+    }
+  ],
+  "isInner": false
+}

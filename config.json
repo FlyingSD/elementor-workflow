@@ -3,7 +3,7 @@
     "base_url": "http://svetlinkielementor.local",
     "auth": {
       "user": "test",
-      "password": "S27q64rqoFhfTPDA30nBhNM5"
+      "password": "test"
     }
   },
   "elementor": {
@@ -21,23 +21,52 @@
     "primary": {
       "hex": "#FABA29",
       "name": "Primary (Yellow/Gold)",
+      "dominance": "STAR",
+      "usage": "MAIN COLOR - Hero gradients, primary buttons, carousel nav, icons, badges, accents",
       "css_var": "var(--e-global-color-primary)"
     },
     "secondary": {
-      "hex": "#4F9F8B",
-      "name": "Secondary (Teal/Green)",
+      "hex": "#46b19d",
+      "name": "Secondary (Teal)",
+      "dominance": "SUPPORT",
+      "usage": "Hover states, secondary accents, one benefit icon, link colors",
       "css_var": "var(--e-global-color-secondary)"
     },
     "accent": {
-      "hex": "#FEFCF5",
-      "name": "Accent (Warm Cream)",
+      "hex": "#FF8C7A",
+      "name": "Accent (Coral)",
+      "dominance": "PLAYFUL",
+      "usage": "Secondary buttons, SVG underlines, gradient accents, playful touches",
       "css_var": "var(--e-global-color-accent)"
     },
     "text": {
-      "hex": "#2C2C2C",
-      "name": "Text (Dark Gray)",
+      "hex": "#1d3234",
+      "name": "Text (Dark Teal)",
+      "dominance": "TEXT",
+      "usage": "ALL body text, headings, readable content",
       "css_var": "var(--e-global-color-text)"
+    },
+    "color_5": {
+      "hex": "#FEFCF5",
+      "name": "Warm Cream",
+      "dominance": "SPACE",
+      "usage": "Clean backgrounds, card backgrounds, breathing space",
+      "css_var": "var(--e-global-color-5)"
+    },
+    "backgrounds": {
+      "white": "#FFFFFF",
+      "light_yellow": "#fff4d9",
+      "warm_yellow": "#ffe8b3",
+      "cream_yellow": "#fff9e6"
     }
+  },
+  "design_system": {
+    "version": "v4",
+    "approved_date": "2025-11-30",
+    "reference_documents": [
+      "COLOR-AND-STYLE-VISION.md",
+      "design-mockup-v4.html"
+    ]
   },
   "research": {
     "r_jina": {
@@ -80,6 +109,9 @@
     "environment": "local",
     "wordpress_version": "6.7.1",
     "elementor_version": "free",
-    "theme": "twentytwentyfive"
+    "theme": "hello-elementor",
+    "theme_version": "3.4.5",
+    "theme_switched_date": "2025-11-29",
+    "previous_theme": "twentytwentyfive"
   }
 }

@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Светлинки - Revamped Design V2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: #1D3234;
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section - REVAMPED */
+        .hero {
+            background: linear-gradient(120deg, #4F9F8B 0%, #77bfac 50%, #FEFCF5 100%);
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(250, 186, 41, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 122, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-right: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3rem);
+            color: #1D3234;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            position: relative;
+            display: inline-block;
+            color: #4F9F8B;
+        }
+
+        .hero h1 .highlight svg {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            bottom: -5px;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            color: #1D3234;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #FABA29;
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(250, 186, 41, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #FF8C7A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 140, 122, 0.4);
+        }
+
+        .btn-secondary {
+            background: #FFFFFF;
+            color: #4F9F8B;
+            border: 2px solid #4F9F8B;
+            box-shadow: 0 4px 15px rgba(79, 159, 139, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: #4F9F8B;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .hero-mascot-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-mascot {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+        }
+
+        /* Blog Carousel Section */
+        .blog-carousel {
+            background: #FEFCF5;
+            padding: 80px 20px;
+        }
+
+        .blog-carousel h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #4F9F8B;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .carousel-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .blog-card {
+            min-width: 100%;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px 35px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #4F9F8B;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5rem;
+            color: #1D3234;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: #5a6c6d;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .blog-card .read-more {
+            color: #4F9F8B;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card .read-more:hover {
+            color: #FABA29;
+            gap: 12px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .carousel-nav button {
+            background: #4F9F8B;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(79, 159, 139, 0.3);
+        }
+
+        .carousel-nav button:hover {
+            background: #FABA29;
+            transform: scale(1.1);
+        }
+
+        /* Benefits Section - Cards with colorful borders */
+        .benefits {
+            background: #FFFFFF;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            color: #4F9F8B;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Colorful borders - random assignment */
+        .benefit-card:nth-child(1) {
+            border-top: 4px solid #4F9F8B;
+        }
+
+        .benefit-card:nth-child(2) {
+            border-top: 4px solid #FABA29;
+        }
+
+        .benefit-card:nth-child(3) {
+            border-top: 4px solid #FF8C7A;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4F9F8B, #3d8070);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:nth-child(2) .benefit-icon {
+            background: linear-gradient(135deg, #FABA29, #f5a500);
+        }
+
+        .benefit-card:nth-child(3) .benefit-icon {
+            background: linear-gradient(135deg, #FF8C7A, #ff7059);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            color: #1D3234;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            color: #5a6c6d;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Programs Section - Bento Grid with colorful borders */
+        .programs {
+            background: linear-gradient(135deg, #FEFCF5 0%, #fff9e6 100%);
+            padding: 80px 20px;
+        }
+
+        .programs-bento {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .programs-bento .program-card:last-child {
+            grid-column: 1 / -1;
+            max-width: 450px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .program-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .program-card:nth-child(1) { border-left: 5px solid #4F9F8B; }
+        .program-card:nth-child(2) { border-left: 5px solid #FABA29; }
+        .program-card:nth-child(3) { border-left: 5px solid #FF8C7A; }
+        .program-card:nth-child(4) { border-left: 5px solid #77bfac; }
+        .program-card:nth-child(5) { border-left: 5px solid #f5a500; }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18);
+        }
+
+        .program-number {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #FABA29, #FF8C7A);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .program-card h3 {
+            font-size: 1.4rem;
+            color: #1D3234;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .program-card p {
+            color: #5a6c6d;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-mascot {
+                max-width: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .programs-bento {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-bento .program-card:last-child {
+                grid-column: 1;
+            }
+
+            .carousel-nav button {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Design Notes Banner */
+        .design-notes {
+            background: linear-gradient(135deg, #1D3234, #2d4a4c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .design-notes h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .design-notes p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 15px;
+        }
+
+        .design-notes ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .design-notes li {
+            font-size: 0.9rem;
+        }
+
+        .design-notes li::before {
+            content: "✓ ";
+            font-weight: bold;
+            color: #FABA29;
+        }
+
+        /* Coral accent example */
+        .coral-accent {
+            position: relative;
+            display: inline-block;
+        }
+
+        .coral-accent svg {
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            bottom: -3px;
+            left: 0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Design Notes Banner -->
+    <div class="design-notes">
+        <h2>🎨 MOCKUP V2 - All Feedback Implemented</h2>
+        <p><strong>Changes:</strong> Hero revamped (joyful gradient), 2 buttons, NO mascots yet, blog carousel, colorful card borders, more depth, coral as subtle accent</p>
+        <ul>
+            <li>Hero: Teal→Cream gradient (inspiring!)</li>
+            <li>Text: Dark teal #1D3234</li>
+            <li>Buttons: 12px rounded</li>
+            <li>Cards: Deep shadows + colorful borders</li>
+            <li>Sans-serif font</li>
+            <li>H1 bold (700 weight)</li>
+            <li>Blog carousel with ← →</li>
+        </ul>
+    </div>
+
+    <!-- Hero Section - COMPLETELY REVAMPED -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1>
+                    Развийте <span class="highlight coral-accent">математическите умения<svg viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C2.00025 6.99997 101.5 0.999998 198.5 2.50001" stroke="#FF8C7A" stroke-width="4" stroke-linecap="round"></path></svg></span> на вашето дете
+                </h1>
+                <p>Ментална аритметика за деца от 5 до 12 години. Развиваме концентрация, логика и увереност чрез доказани методи в приятна и подкрепяща среда.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Безплатен пробен урок</a>
+                    <a href="#" class="btn btn-secondary">Вижте програмите</a>
+                </div>
+            </div>
+            <div class="hero-mascot-container">
+                <!-- Zhara pointing at buttons - BIGGER -->
+                <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Zhara-pointing-at-CTA.png"
+                     alt="Zhara mascot"
+                     class="hero-mascot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Carousel Section - NEW! -->
+    <section class="blog-carousel">
+        <div class="container">
+            <h2>От нашия блог</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="blog-card">
+                        <h3>Не, това не е просто "бързо смятане"</h3>
+                        <p>Ментална аритметика не е само изчисления - това е цялостна тренировка на мозъка, която развива концентрация, памет и увереност. Открийте истинската магия зад методиката...</p>
+                        <a href="#" class="read-more">Прочети повече →</a>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button onclick="prevBlog()">←</button>
+                    <button onclick="nextBlog()">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section - Colorful borders -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Предимства на нашата програма</h2>
+            <div class="benefits-grid">
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>По-добра концентрация</h3>
+                    <p>Вашето дете ще научи да се фокусира върху задачи за по-дълго време и да игнорира разсейванията.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h3>Логическо мислене</h3>
+                    <p>Развиваме способността за анализиране на проблеми и намиране на творчески решения.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>Отлична памет</h3>
+                    <p>Чрез визуализация и повторение укрепваме паметта и способността за запаметяване.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section - Bento Grid with colorful borders -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Нашата 5-степенна програма</h2>
+            <div class="programs-bento">
+
+                <div class="program-card">
+                    <div class="program-number">1</div>
+                    <h3>Ниво 1: Начална група</h3>
+                    <p>Запознаване с абакуса, основни операции, игрови упражнения за концентрация. Подходящо за деца 5-7 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">2</div>
+                    <h3>Ниво 2: Средна група</h3>
+                    <p>Ментална визуализация, умножение и деление, развитие на фотографска памет. Деца 7-9 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">3</div>
+                    <h3>Ниво 3: Напреднала група</h3>
+                    <p>Сложни математически операции, скоростни изчисления, развитие на логическото мислене. Деца 8-10 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">4</div>
+                    <h3>Ниво 4: Майсторска група</h3>
+                    <p>Усъвършенстване на техниката, подготовка за състезания, развитие на аналитичното мислене. Деца 9-11 години.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">5</div>
+                    <h3>Ниво 5: Състезателна група</h3>
+                    <p>Професионално ниво, участие в национални и международни турнири, менторство на по-малки деца. Деца 10-12 години.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Note -->
+    <div style="background: #1D3234; color: white; padding: 50px 20px; text-align: center;">
+        <h3 style="margin-bottom: 20px; font-size: 1.75rem;">✅ All Feedback Implemented</h3>
+        <div style="max-width: 900px; margin: 0 auto; line-height: 1.8;">
+            <p style="margin-bottom: 15px;">
+                ✓ <strong>Hero revamped:</strong> Teal→Cream gradient (joyful, professional, confidence-inspiring)<br>
+                ✓ <strong>Text left, mascot right:</strong> 2 buttons (Безплатен урок + Програми)<br>
+                ✓ <strong>Blog carousel:</strong> Left/right navigation, "Read more" CTAs<br>
+                ✓ <strong>Colorful borders:</strong> Teal, yellow, coral on cards (random variety)<br>
+                ✓ <strong>More depth:</strong> Deeper shadows (0 8px 30px)<br>
+                ✓ <strong>Coral subtle:</strong> SVG underline accent (opacity 80%)<br>
+                ✓ <strong>Sans-serif + bold H1:</strong> Font-weight 700<br>
+                ✓ <strong>Slightly rounded buttons:</strong> 12px border-radius<br>
+                ✓ <strong>Dark teal text:</strong> #1D3234 throughout<br>
+                ✓ <strong>No mascot hover effects:</strong> Static images
+            </p>
+            <p style="margin-top: 25px; font-size: 1.1rem; color: #FABA29;">
+                <strong>Mascots:</strong> Will be implemented later via Elementor (easier workflow)
+            </p>
+        </div>
+        <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
+            Open: <code>file:///C:/Users/denit/Local Sites/svetlinkielementor/design-mockup-v2.html</code>
+        </p>
+    </div>
+
+    <script>
+        // Simple blog carousel functionality
+        const blogPosts = [
+            {
+                title: "Не, това не е просто „бързо смятане"",
+                excerpt: "Ментална аритметика не е само изчисления - това е цялостна тренировка на мозъка, която развива концентрация, памет и увереност. Открийте истинската магия зад методиката...",
+                link: "#"
+            },
+            {
+                title: "Войната с разсейването",
+                excerpt: "„Остави този телефон!" „Слушаш ли ме изобщо?" Звучи ли ви познато? Открийте как ментална аритметика помага на децата да развият суперсилата на концентрацията...",
+                link: "#"
+            },
+            {
+                title: "Златният прозорец (4-12 години)",
+                excerpt: "Мозъкът на детето е като мека глина - най-податлив на формиране между 4 и 12 години. Научете защо това е критичният период за развитие на когнитивните умения...",
+                link: "#"
+            }
+        ];
+
+        let currentBlog = 0;
+
+        function updateBlog() {
+            const blog = blogPosts[currentBlog];
+            const card = document.querySelector('.blog-card');
+            card.querySelector('h3').textContent = blog.title;
+            card.querySelector('p').textContent = blog.excerpt;
+            card.querySelector('.read-more').href = blog.link;
+        }
+
+        function nextBlog() {
+            currentBlog = (currentBlog + 1) % blogPosts.length;
+            updateBlog();
+        }
+
+        function prevBlog() {
+            currentBlog = (currentBlog - 1 + blogPosts.length) % blogPosts.length;
+            updateBlog();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1223 @@
+[
+  {
+    "id": "e0fc723",
+    "elType": "section",
+    "settings": {
+      "stretch_section": "section-stretched",
+      "background_background": "gradient",
+      "background_color": "#FEFCF5",
+      "background_color_stop": {
+        "unit": "%",
+        "size": 0
+      },
+      "background_color_b": "#fff4d9",
+      "background_color_b_stop": {
+        "unit": "%",
+        "size": 40
+      },
+      "background_gradient_angle": {
+        "unit": "deg",
+        "size": 120
+      },
+      "padding": {
+        "unit": "px",
+        "top": "100",
+        "right": "20",
+        "bottom": "100",
+        "left": "20",
+        "isLinked": false
+      },
+      "min_height": {
+        "unit": "px",
+        "size": 650
+      }
+    },
+    "elements": [
+      {
+        "id": "7f4b890",
+        "elType": "column",
+        "settings": {
+          "_column_size": 60,
+          "_inline_size": 60,
+          "content_position": "center"
+        },
+        "elements": [
+          {
+            "id": "f2c646c",
+            "elType": "widget",
+            "settings": {
+              "title": "Развийте математическите умения на вашето дете",
+              "header_size": "h1",
+              "align": "left",
+              "title_color": "var(--e-global-color-text)",
+              "typography_typography": "custom",
+              "typography_font_size": {
+                "unit": "rem",
+                "size": 3.25
+              },
+              "typography_font_weight": "700",
+              "typography_line_height": {
+                "unit": "em",
+                "size": 1.15
+              }
+            },
+            "elements": [],
+            "widgetType": "heading"
+          },
+          {
+            "id": "eee974a",
+            "elType": "widget",
+            "settings": {
+              "editor": "<p>Ментална аритметика за деца от 5 до 12 години. Развиваме концентрация, логика и увереност чрез доказани методи в приятна и подкрепяща среда.</p>",
+              "align": "left",
+              "text_color": "var(--e-global-color-text)",
+              "typography_typography": "custom",
+              "typography_font_size": {
+                "unit": "rem",
+                "size": 1.25
+              },
+              "typography_line_height": {
+                "unit": "em",
+                "size": 1.75
+              }
+            },
+            "elements": [],
+            "widgetType": "text-editor"
+          },
+          {
+            "id": "78b47fb",
+            "elType": "widget",
+            "settings": {
+              "text": "Безплатен пробен урок",
+              "link": {
+                "url": "#contact",
+                "is_external": false,
+                "nofollow": false
+              },
+              "align": "left",
+              "button_text_color": "#FFFFFF",
+              "background_color": "var(--e-global-color-primary)",
+              "border_radius": {
+                "unit": "px",
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12",
+                "isLinked": true
+              },
+              "button_padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "40",
+                "bottom": "18",
+                "left": "40",
+                "isLinked": false
+              },
+              "button_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 6,
+                "blur": 20,
+                "spread": 0,
+                "color": "rgba(250, 186, 41, 0.35)"
+              },
+              "button_background_hover_color": "var(--e-global-color-secondary)",
+              "hover_animation": "grow"
+            },
+            "elements": [],
+            "widgetType": "button"
+          },
+          {
+            "id": "e918c44",
+            "elType": "widget",
+            "settings": {
+              "text": "Вижте програмите",
+              "link": {
+                "url": "/programs/",
+                "is_external": false,
+                "nofollow": false
+              },
+              "align": "left",
+              "button_text_color": "#FFFFFF",
+              "background_color": "var(--e-global-color-accent)",
+              "border_radius": {
+                "unit": "px",
+                "top": "12",
+                "right": "12",
+                "bottom": "12",
+                "left": "12",
+                "isLinked": true
+              },
+              "button_padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "40",
+                "bottom": "18",
+                "left": "40",
+                "isLinked": false
+              },
+              "button_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 6,
+                "blur": 20,
+                "spread": 0,
+                "color": "rgba(255, 140, 122, 0.35)"
+              },
+              "button_background_hover_color": "var(--e-global-color-secondary)"
+            },
+            "elements": [],
+            "widgetType": "button"
+          }
+        ],
+        "isInner": false
+      },
+      {
+        "id": "1f4634d",
+        "elType": "column",
+        "settings": {
+          "_column_size": 40,
+          "_inline_size": 40,
+          "content_position": "center"
+        },
+        "elements": [
+          {
+            "id": "f3c75b7",
+            "elType": "widget",
+            "settings": {
+              "image": {
+                "url": "http://svetlinkielementor.local/wp-content/uploads/2025/11/Zhara-pointing-at-CTA.png",
+                "id": 129
+              },
+              "image_size": "full",
+              "align": "center",
+              "width": {
+                "unit": "px",
+                "size": 520
+              },
+              "_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 15,
+                "blur": 40,
+                "spread": 0,
+                "color": "rgba(250, 186, 41, 0.25)"
+              }
+            },
+            "elements": [],
+            "widgetType": "image"
+          }
+        ],
+        "isInner": false
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "blog001",
+    "elType": "container",
+    "settings": {
+      "content_width": "full",
+      "background_background": "classic",
+      "background_color": "#FFFFFF",
+      "padding": {
+        "unit": "px",
+        "top": "90",
+        "right": "20",
+        "bottom": "90",
+        "left": "20",
+        "isLinked": false
+      }
+    },
+    "elements": [
+      {
+        "id": "blog002",
+        "elType": "widget",
+        "settings": {
+          "title": "От нашия блог",
+          "align": "center",
+          "title_color": "var(--e-global-color-text)",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "rem",
+            "size": 2.5
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.3
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "blog003",
+        "elType": "widget",
+        "settings": {
+          "width": {
+            "unit": "px",
+            "size": 80
+          },
+          "height": {
+            "unit": "px",
+            "size": 4
+          },
+          "color": "var(--e-global-color-primary)",
+          "align": "center",
+          "gap": {
+            "unit": "px",
+            "size": 12
+          }
+        },
+        "elements": [],
+        "widgetType": "divider"
+      },
+      {
+        "id": "blog004",
+        "elType": "widget",
+        "settings": {
+          "selected_icon": {
+            "value": "fas fa-newspaper",
+            "library": "fa-solid"
+          },
+          "title_text": "Не, това не е просто 'бързо смятане'",
+          "description_text": "Ментална аритметика не е само изчисления - това е цялостна тренировка на мозъка, която развива концентрация, памет и увереност чрез доказани методи.",
+          "title_color": "var(--e-global-color-text)",
+          "description_color": "#5a6c6d",
+          "icon_primary_color": "#FFFFFF",
+          "icon_size": {
+            "unit": "px",
+            "size": 52
+          },
+          "icon_space": {
+            "unit": "px",
+            "size": 22
+          },
+          "icon_padding": {
+            "unit": "px",
+            "top": "18",
+            "right": "18",
+            "bottom": "18",
+            "left": "18",
+            "isLinked": true
+          },
+          "icon_border_radius": {
+            "unit": "%",
+            "top": "50",
+            "right": "50",
+            "bottom": "50",
+            "left": "50",
+            "isLinked": true
+          },
+          "icon_background_color": "var(--e-global-color-primary)",
+          "border_border": "solid",
+          "border_width": {
+            "unit": "px",
+            "top": "5",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": false
+          },
+          "border_color": "var(--e-global-color-primary)",
+          "border_radius": {
+            "unit": "px",
+            "top": "20",
+            "right": "20",
+            "bottom": "20",
+            "left": "20",
+            "isLinked": true
+          },
+          "background_background": "classic",
+          "background_color": "#FFFFFF",
+          "padding": {
+            "unit": "px",
+            "top": "45",
+            "right": "35",
+            "bottom": "45",
+            "left": "35",
+            "isLinked": false
+          },
+          "_box_shadow_box_shadow": {
+            "horizontal": 0,
+            "vertical": 10,
+            "blur": 35,
+            "spread": 0,
+            "color": "rgba(0, 0, 0, 0.1)"
+          },
+          "_margin": {
+            "unit": "px",
+            "top": "20",
+            "right": "auto",
+            "bottom": "0",
+            "left": "auto"
+          },
+          "width": {
+            "unit": "%",
+            "size": 100
+          },
+          "width_tablet": {
+            "unit": "%",
+            "size": 100
+          },
+          "width_mobile": {
+            "unit": "%",
+            "size": 100
+          }
+        },
+        "elements": [],
+        "widgetType": "icon-box"
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "benefits001",
+    "elType": "container",
+    "settings": {
+      "content_width": "full",
+      "background_background": "classic",
+      "background_color": "#FFFFFF",
+      "padding": {
+        "unit": "px",
+        "top": "80",
+        "right": "20",
+        "bottom": "80",
+        "left": "20",
+        "isLinked": false
+      },
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "30",
+        "row": "30",
+        "unit": "px"
+      }
+    },
+    "elements": [
+      {
+        "id": "benefits002",
+        "elType": "widget",
+        "settings": {
+          "title": "Предимства на нашата програма",
+          "align": "center",
+          "title_color": "var(--e-global-color-text)",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "rem",
+            "size": 2.5
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.3
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "benefits003",
+        "elType": "widget",
+        "settings": {
+          "width": {
+            "unit": "px",
+            "size": 80
+          },
+          "height": {
+            "unit": "px",
+            "size": 4
+          },
+          "color": "var(--e-global-color-primary)",
+          "align": "center",
+          "gap": {
+            "unit": "px",
+            "size": 12
+          }
+        },
+        "elements": [],
+        "widgetType": "divider"
+      },
+      {
+        "id": "benefits004",
+        "elType": "container",
+        "settings": {
+          "flex_direction": "row",
+          "flex_wrap": "wrap",
+          "flex_gap": {
+            "column": "30",
+            "row": "30",
+            "unit": "px"
+          }
+        },
+        "elements": [
+          {
+            "id": "benefits005",
+            "elType": "widget",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-brain",
+                "library": "fa-solid"
+              },
+              "title_text": "По-добра концентрация",
+              "description_text": "Вашето дете ще научи да се фокусира върху задачи за по-дълго време и да игнорира разсейванията.",
+              "title_color": "var(--e-global-color-text)",
+              "description_color": "#5a6c6d",
+              "icon_primary_color": "#FFFFFF",
+              "icon_size": {
+                "unit": "px",
+                "size": 38
+              },
+              "icon_space": {
+                "unit": "px",
+                "size": 22
+              },
+              "icon_padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              },
+              "icon_border_radius": {
+                "unit": "%",
+                "top": "50",
+                "right": "50",
+                "bottom": "50",
+                "left": "50",
+                "isLinked": true
+              },
+              "icon_background_color": "var(--e-global-color-primary)",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "5",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+              },
+              "border_color": "var(--e-global-color-primary)",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              },
+              "background_background": "classic",
+              "background_color": "#FFFFFF",
+              "padding": {
+                "unit": "px",
+                "top": "45",
+                "right": "35",
+                "bottom": "45",
+                "left": "35",
+                "isLinked": false
+              },
+              "_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 10,
+                "blur": 35,
+                "spread": 0,
+                "color": "rgba(0, 0, 0, 0.08)"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [],
+            "widgetType": "icon-box"
+          },
+          {
+            "id": "benefits006",
+            "elType": "widget",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-lightbulb",
+                "library": "fa-solid"
+              },
+              "title_text": "Логическо мислене",
+              "description_text": "Развиваме способността за анализиране на проблеми и намиране на творчески решения.",
+              "title_color": "var(--e-global-color-text)",
+              "description_color": "#5a6c6d",
+              "icon_primary_color": "#FFFFFF",
+              "icon_size": {
+                "unit": "px",
+                "size": 38
+              },
+              "icon_space": {
+                "unit": "px",
+                "size": 22
+              },
+              "icon_padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              },
+              "icon_border_radius": {
+                "unit": "%",
+                "top": "50",
+                "right": "50",
+                "bottom": "50",
+                "left": "50",
+                "isLinked": true
+              },
+              "icon_background_color": "var(--e-global-color-accent)",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "5",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+              },
+              "border_color": "var(--e-global-color-accent)",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              },
+              "background_background": "classic",
+              "background_color": "#FFFFFF",
+              "padding": {
+                "unit": "px",
+                "top": "45",
+                "right": "35",
+                "bottom": "45",
+                "left": "35",
+                "isLinked": false
+              },
+              "_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 10,
+                "blur": 35,
+                "spread": 0,
+                "color": "rgba(0, 0, 0, 0.08)"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [],
+            "widgetType": "icon-box"
+          },
+          {
+            "id": "benefits007",
+            "elType": "widget",
+            "settings": {
+              "selected_icon": {
+                "value": "fas fa-star",
+                "library": "fa-solid"
+              },
+              "title_text": "Отлична памет",
+              "description_text": "Чрез визуализация и повторение укрепваме паметта и способността за запаметяване.",
+              "title_color": "var(--e-global-color-text)",
+              "description_color": "#5a6c6d",
+              "icon_primary_color": "#FFFFFF",
+              "icon_size": {
+                "unit": "px",
+                "size": 38
+              },
+              "icon_space": {
+                "unit": "px",
+                "size": 22
+              },
+              "icon_padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "18",
+                "bottom": "18",
+                "left": "18",
+                "isLinked": true
+              },
+              "icon_border_radius": {
+                "unit": "%",
+                "top": "50",
+                "right": "50",
+                "bottom": "50",
+                "left": "50",
+                "isLinked": true
+              },
+              "icon_background_color": "var(--e-global-color-secondary)",
+              "border_border": "solid",
+              "border_width": {
+                "unit": "px",
+                "top": "5",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+              },
+              "border_color": "var(--e-global-color-secondary)",
+              "border_radius": {
+                "unit": "px",
+                "top": "20",
+                "right": "20",
+                "bottom": "20",
+                "left": "20",
+                "isLinked": true
+              },
+              "background_background": "classic",
+              "background_color": "#FFFFFF",
+              "padding": {
+                "unit": "px",
+                "top": "45",
+                "right": "35",
+                "bottom": "45",
+                "left": "35",
+                "isLinked": false
+              },
+              "_box_shadow_box_shadow": {
+                "horizontal": 0,
+                "vertical": 10,
+                "blur": 35,
+                "spread": 0,
+                "color": "rgba(0, 0, 0, 0.08)"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [],
+            "widgetType": "icon-box"
+          }
+        ],
+        "isInner": true
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "programs001",
+    "elType": "container",
+    "settings": {
+      "content_width": "full",
+      "background_background": "classic",
+      "background_color": "#FFFFFF",
+      "padding": {
+        "unit": "px",
+        "top": "90",
+        "right": "20",
+        "bottom": "90",
+        "left": "20",
+        "isLinked": false
+      },
+      "flex_direction": "column",
+      "flex_gap": {
+        "column": "30",
+        "row": "30",
+        "unit": "px"
+      }
+    },
+    "elements": [
+      {
+        "id": "programs002",
+        "elType": "widget",
+        "settings": {
+          "title": "Нашите програми",
+          "align": "center",
+          "title_color": "var(--e-global-color-text)",
+          "typography_typography": "custom",
+          "typography_font_size": {
+            "unit": "rem",
+            "size": 2.5
+          },
+          "typography_font_weight": "700",
+          "typography_line_height": {
+            "unit": "em",
+            "size": 1.3
+          }
+        },
+        "elements": [],
+        "widgetType": "heading"
+      },
+      {
+        "id": "programs003",
+        "elType": "widget",
+        "settings": {
+          "width": {
+            "unit": "px",
+            "size": 80
+          },
+          "height": {
+            "unit": "px",
+            "size": 4
+          },
+          "color": "var(--e-global-color-primary)",
+          "align": "center",
+          "gap": {
+            "unit": "px",
+            "size": 12
+          }
+        },
+        "elements": [],
+        "widgetType": "divider"
+      },
+      {
+        "id": "programs004",
+        "elType": "container",
+        "settings": {
+          "flex_direction": "row",
+          "flex_wrap": "wrap",
+          "flex_gap": {
+            "column": "30",
+            "row": "30",
+            "unit": "px"
+          }
+        },
+        "elements": [
+          {
+            "id": "programs005",
+            "elType": "container",
+            "settings": {
+              "flex_direction": "column",
+              "flex_gap": {
+                "column": "20",
+                "row": "20",
+                "unit": "px"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [
+              {
+                "id": "programs006",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-book",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "5 нива на обучение",
+                  "description_text": "• Ниво 1: Основи с абакус\n• Ниво 2: Ментална визуализация\n• Ниво 3: Сложни операции\n• Ниво 4: Майсторско ниво\n• Ниво 5: Състезателна група",
+                  "title_color": "var(--e-global-color-text)",
+                  "description_color": "#5a6c6d",
+                  "icon_primary_color": "#FFFFFF",
+                  "icon_size": {
+                    "unit": "px",
+                    "size": 52
+                  },
+                  "icon_space": {
+                    "unit": "px",
+                    "size": 22
+                  },
+                  "icon_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "18",
+                    "bottom": "18",
+                    "left": "18",
+                    "isLinked": true
+                  },
+                  "icon_border_radius": {
+                    "unit": "%",
+                    "top": "50",
+                    "right": "50",
+                    "bottom": "50",
+                    "left": "50",
+                    "isLinked": true
+                  },
+                  "icon_background_color": "var(--e-global-color-primary)",
+                  "border_border": "solid",
+                  "border_width": {
+                    "unit": "px",
+                    "top": "5",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                  },
+                  "border_color": "var(--e-global-color-primary)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "20",
+                    "bottom": "20",
+                    "left": "20",
+                    "isLinked": true
+                  },
+                  "background_background": "classic",
+                  "background_color": "#FFFFFF",
+                  "padding": {
+                    "unit": "px",
+                    "top": "45",
+                    "right": "35",
+                    "bottom": "45",
+                    "left": "35",
+                    "isLinked": false
+                  },
+                  "_box_shadow_box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 10,
+                    "blur": 35,
+                    "spread": 0,
+                    "color": "rgba(0, 0, 0, 0.1)"
+                  }
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              },
+              {
+                "id": "programs007",
+                "elType": "widget",
+                "settings": {
+                  "text": "Прочети повече",
+                  "link": {
+                    "url": "/programs/",
+                    "is_external": false,
+                    "nofollow": false
+                  },
+                  "align": "center",
+                  "button_text_color": "#FFFFFF",
+                  "background_color": "var(--e-global-color-accent)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "12",
+                    "bottom": "12",
+                    "left": "12",
+                    "isLinked": true
+                  },
+                  "button_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "40",
+                    "bottom": "18",
+                    "left": "40",
+                    "isLinked": false
+                  },
+                  "button_background_hover_color": "var(--e-global-color-secondary)"
+                },
+                "elements": [],
+                "widgetType": "button"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "programs008",
+            "elType": "container",
+            "settings": {
+              "flex_direction": "column",
+              "flex_gap": {
+                "column": "20",
+                "row": "20",
+                "unit": "px"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [
+              {
+                "id": "programs009",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-gift",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Специални промоции",
+                  "description_text": "Безплатен пробен урок за всяко ново дете!\n\n10% отстъпка при записване на второ дете от семейството\n\n* Промоциите са валидни за нови записвания до края на месеца.",
+                  "title_color": "var(--e-global-color-text)",
+                  "description_color": "#5a6c6d",
+                  "icon_primary_color": "#FFFFFF",
+                  "icon_size": {
+                    "unit": "px",
+                    "size": 52
+                  },
+                  "icon_space": {
+                    "unit": "px",
+                    "size": 22
+                  },
+                  "icon_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "18",
+                    "bottom": "18",
+                    "left": "18",
+                    "isLinked": true
+                  },
+                  "icon_border_radius": {
+                    "unit": "%",
+                    "top": "50",
+                    "right": "50",
+                    "bottom": "50",
+                    "left": "50",
+                    "isLinked": true
+                  },
+                  "icon_background_color": "var(--e-global-color-accent)",
+                  "border_border": "solid",
+                  "border_width": {
+                    "unit": "px",
+                    "top": "5",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                  },
+                  "border_color": "var(--e-global-color-accent)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "20",
+                    "bottom": "20",
+                    "left": "20",
+                    "isLinked": true
+                  },
+                  "background_background": "classic",
+                  "background_color": "#FFFFFF",
+                  "padding": {
+                    "unit": "px",
+                    "top": "45",
+                    "right": "35",
+                    "bottom": "45",
+                    "left": "35",
+                    "isLinked": false
+                  },
+                  "_box_shadow_box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 10,
+                    "blur": 35,
+                    "spread": 0,
+                    "color": "rgba(0, 0, 0, 0.1)"
+                  }
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              },
+              {
+                "id": "programs010",
+                "elType": "widget",
+                "settings": {
+                  "text": "Прочети повече",
+                  "link": {
+                    "url": "/programs/#pricing",
+                    "is_external": false,
+                    "nofollow": false
+                  },
+                  "align": "center",
+                  "button_text_color": "#FFFFFF",
+                  "background_color": "var(--e-global-color-accent)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "12",
+                    "bottom": "12",
+                    "left": "12",
+                    "isLinked": true
+                  },
+                  "button_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "40",
+                    "bottom": "18",
+                    "left": "40",
+                    "isLinked": false
+                  },
+                  "button_background_hover_color": "var(--e-global-color-secondary)"
+                },
+                "elements": [],
+                "widgetType": "button"
+              }
+            ],
+            "isInner": true
+          },
+          {
+            "id": "programs011",
+            "elType": "container",
+            "settings": {
+              "flex_direction": "column",
+              "flex_gap": {
+                "column": "20",
+                "row": "20",
+                "unit": "px"
+              },
+              "width": {
+                "unit": "%",
+                "size": 32
+              },
+              "width_tablet": {
+                "unit": "%",
+                "size": 100
+              },
+              "width_mobile": {
+                "unit": "%",
+                "size": 100
+              }
+            },
+            "elements": [
+              {
+                "id": "programs012",
+                "elType": "widget",
+                "settings": {
+                  "selected_icon": {
+                    "value": "fas fa-question-circle",
+                    "library": "fa-solid"
+                  },
+                  "title_text": "Имате въпроси?",
+                  "description_text": "Отговорихме на най-честите въпроси на родителите:\n\n• Колко струва обучението?\n• Колко деца има в група?\n• Колко време трае програмата?\n• Какви са резултатите?\n\n...и още 16 въпроса!",
+                  "title_color": "var(--e-global-color-text)",
+                  "description_color": "#5a6c6d",
+                  "icon_primary_color": "#FFFFFF",
+                  "icon_size": {
+                    "unit": "px",
+                    "size": 52
+                  },
+                  "icon_space": {
+                    "unit": "px",
+                    "size": 22
+                  },
+                  "icon_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "18",
+                    "bottom": "18",
+                    "left": "18",
+                    "isLinked": true
+                  },
+                  "icon_border_radius": {
+                    "unit": "%",
+                    "top": "50",
+                    "right": "50",
+                    "bottom": "50",
+                    "left": "50",
+                    "isLinked": true
+                  },
+                  "icon_background_color": "var(--e-global-color-secondary)",
+                  "border_border": "solid",
+                  "border_width": {
+                    "unit": "px",
+                    "top": "5",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                  },
+                  "border_color": "var(--e-global-color-secondary)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "20",
+                    "bottom": "20",
+                    "left": "20",
+                    "isLinked": true
+                  },
+                  "background_background": "classic",
+                  "background_color": "#FFFFFF",
+                  "padding": {
+                    "unit": "px",
+                    "top": "45",
+                    "right": "35",
+                    "bottom": "45",
+                    "left": "35",
+                    "isLinked": false
+                  },
+                  "_box_shadow_box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 10,
+                    "blur": 35,
+                    "spread": 0,
+                    "color": "rgba(0, 0, 0, 0.1)"
+                  }
+                },
+                "elements": [],
+                "widgetType": "icon-box"
+              },
+              {
+                "id": "programs013",
+                "elType": "widget",
+                "settings": {
+                  "text": "Прочети повече",
+                  "link": {
+                    "url": "/faq/",
+                    "is_external": false,
+                    "nofollow": false
+                  },
+                  "align": "center",
+                  "button_text_color": "#FFFFFF",
+                  "background_color": "var(--e-global-color-accent)",
+                  "border_radius": {
+                    "unit": "px",
+                    "top": "12",
+                    "right": "12",
+                    "bottom": "12",
+                    "left": "12",
+                    "isLinked": true
+                  },
+                  "button_padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "40",
+                    "bottom": "18",
+                    "left": "40",
+                    "isLinked": false
+                  },
+                  "button_background_hover_color": "var(--e-global-color-secondary)"
+                },
+                "elements": [],
+                "widgetType": "button"
+              }
+            ],
+            "isInner": true
+          }
+        ],
+        "isInner": true
+      }
+    ],
+    "isInner": false
+  }
+]

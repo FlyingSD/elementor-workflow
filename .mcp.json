@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "wp-elementor-mcp": {
-      "command": "npx",
-      "args": ["wp-elementor-mcp"],
+      "command": "node",
+      "args": ["C:\\Users\\denit\\wp-elementor-mcp\\dist\\index.js"],
       "env": {
         "ELEMENTOR_MCP_MODE": "standard",
         "WORDPRESS_BASE_URL": "http://svetlinkielementor.local",
@@ -19,6 +19,10 @@
       "env": {
         "BRAVE_API_KEY": "BSALRthHC5TjPLZ-kA70Dk7YqhCfhmC"
       }
+    },
+    "json-schema-validator": {
+      "command": "python",
+      "args": ["C:\\Users\\denit\\jsonshema_mcp\\mcp_server.py"]
     }
   }
 }

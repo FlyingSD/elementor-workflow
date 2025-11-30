@@ -1,0 +1,72 @@
+{
+  "name": "wp-elementor-mcp",
+  "version": "1.6.1",
+  "description": "MCP server for interacting with Elementor and WordPress through natural language",
+  "main": "dist/index.js",
+  "bin": {
+    "wp-elementor-mcp": "dist/index.js"
+  },
+  "type": "module",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE",
+    "client-config.json"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "start:essential": "ELEMENTOR_MINIMAL_MODE=true node dist/index.js",
+    "start:standard": "ELEMENTOR_MCP_MODE=standard node dist/index.js",
+    "start:advanced": "ELEMENTOR_MCP_MODE=advanced node dist/index.js",
+    "start:full": "ELEMENTOR_ENABLE_ALL=true node dist/index.js",
+    "test": "node test-server.js",
+    "test:config": "node test-simple.js",
+    "test:modes": "node test-configs.js",
+    "test:comprehensive": "node comprehensive-test.js",
+    "test:validate": "node validation-test.js",
+    "test:enhanced": "node test-enhanced-features.js",
+    "test:summary": "node test-summary.js",
+    "test:credentials": "node test-with-credentials.js",
+    "test:all": "npm run test && npm run test:validate && npm run test:enhanced && npm run test:comprehensive",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "mcp",
+    "elementor",
+    "wordpress",
+    "server",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "llm"
+  ],
+  "author": "Jason Miller <me@jason-miller.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Huetarded/wp-elementor-mcp.git"
+  },
+  "homepage": "https://github.com/Huetarded/wp-elementor-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/Huetarded/wp-elementor-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "axios": "^1.6.0",
+    "form-data": "^4.0.0",
+    "js-base64": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

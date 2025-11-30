@@ -1,0 +1,19 @@
+{
+  "name": "svetlinkielementor",
+  "version": "1.0.0",
+  "description": "Svetlinki Elementor WordPress site with MCP tools",
+  "scripts": {
+    "claude": "claude-code"
+  },
+  "keywords": [
+    "wordpress",
+    "elementor",
+    "mcp"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.57.0",
+    "playwright": "^1.57.0"
+  }
+}

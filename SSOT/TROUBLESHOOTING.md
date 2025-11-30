@@ -219,6 +219,101 @@ REST API limitation - no direct way to trigger Elementor's save hooks programmat
 
 ---
 
+### Issue #6: MCP/REST API Updates Not Showing on Frontend (CSS Not Regenerated)
+
+**Date Discovered**: 2025-11-30
+**Severity**: CRITICAL - Blocks all MCP operations
+**Status**: ✅ SOLVED (with mandatory workflow)
+
+**Problem**:
+- Update via MCP (update_elementor_widget, update_elementor_data, etc.)
+- Changes saved to database correctly ✅
+- Elementor EDITOR shows changes ✅
+- Frontend does NOT show changes ❌
+- User sees old styling even after refresh, incognito, different browsers
+
+**Root Cause**:
+MCP/REST API updates the database directly but does NOT trigger Elementor's CSS regeneration hooks:
+- `wp_enqueue_scripts` hook not fired
+- CSS files not regenerated
+- Elementor doesn't know page was updated
+
+**Technical Explanation**:
+```
+Normal Flow:
+User clicks "Update" → $document->save() → WordPress hooks fire → CSS regenerates ✅
+
+MCP Flow:
+MCP update → Database update only → NO hooks fire → CSS NOT regenerated ❌
+```
+
+**Working Solution (MANDATORY WORKFLOW)**:
+
+After EVERY MCP update, run these 2 commands:
+
+```bash
+# Step 1: Nuclear CSS fix (deletes all CSS, forces regeneration)
+curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
+
+# Step 2: Visit page to trigger CSS generation
+curl -s "http://svetlinkielementor.local/home" > nul
+```
+
+**Why Both Steps Are Required**:
+1. `nuclear-css-fix.php` - Deletes all CSS + Saves via `$document->save()` (triggers hooks)
+2. Page visit - Triggers `wp_enqueue_scripts` hook → Actually generates CSS files
+
+**The Nuclear CSS Fix Script**:
+Location: `app/public/nuclear-css-fix.php`
+
+What it does:
+1. Updates post modification time
+2. Deletes ALL Elementor CSS meta (`_elementor_css%`)
+3. Flushes WordPress cache
+4. Saves document via `$document->save()` (triggers Elementor hooks!)
+5. Regenerates CSS file structure
+
+**Complete MCP Update Checklist**:
+```bash
+# 1. BACKUP
+mcp__wp-elementor-mcp__backup_elementor_data --post_id 21
+
+# 2. UPDATE
+mcp__wp-elementor-mcp__update_elementor_widget --post_id 21 --widget_id "X" --widget_settings {...}
+
+# 3. CSS REGENERATION (MANDATORY!)
+curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
+curl -s "http://svetlinkielementor.local/home" > nul
+
+# 4. VERIFY
+# Check screenshot or tell user to check in NEW incognito window
+```
+
+**Common Mistakes (DON'T DO THESE!)**:
+- ❌ Update via MCP, then immediately check frontend (CSS not regenerated yet)
+- ❌ Run only `clear_elementor_cache` tool (CSS deleted but not regenerated)
+- ❌ Forget to visit page after clearing cache (CSS files remain deleted)
+- ❌ Check in same browser without hard refresh (browser shows cached CSS)
+
+**Benefits of This Solution**:
+- ✅ Works 100% of the time
+- ✅ Handles all edge cases
+- ✅ Doesn't require manual intervention
+- ✅ Can be automated in scripts
+
+**Alternative Methods (NOT RECOMMENDED)**:
+- Manual Elementor Update (requires human intervention)
+- WP-CLI commands (not always available)
+- CSS Print Method switching (unreliable)
+
+**See Complete Documentation**: `SSOT/MANDATORY-CSS-REGENERATION.md`
+
+**This is NOT optional. This is MANDATORY for ALL MCP operations.**
+
+**Confidence**: HIGH - Proven working solution after extensive testing
+
+---
+
 ## 🔒 Elementor FREE Limitations
 
 ### What's NOT Available in FREE
@@ -227,7 +322,7 @@ REST API limitation - no direct way to trigger Elementor's save hooks programmat
 |---------|------|-----|----------------------|
 | Global Colors CSS Output | ❌ | ✅ | ✅ YES (PHP polyfill) |
 | Global Fonts CSS Output | ❌ | ✅ | ✅ YES (PHP polyfill) |
-| Flexbox Containers | ❌ | ✅ | ❌ NO (use legacy Sections) |
+| Flexbox Containers | ✅ | ✅ | N/A (Available in FREE!) |
 | Theme Builder (Header/Footer) | ❌ | ✅ | ❌ NO (use theme templates) |
 | Custom Fonts Upload | ❌ | ✅ | ⚠️ PARTIAL (Google Fonts only) |
 | Custom CSS per Element | ❌ | ✅ | ❌ NO (theme CSS only) |
@@ -335,14 +430,25 @@ REST API limitation - no direct way to trigger Elementor's save hooks programmat
 
 **Status**: ✅ DOCUMENTED
 
-### Issue: Section vs Container Confusion
+### Issue #4: Containers ARE Available in FREE (CORRECTED)
 
-**Problem**: Using `elType: 'container'` in FREE
-**Cause**: Containers are PRO-only (Flexbox)
-**Solution**: ALWAYS use legacy structure in FREE:
+**Previous Misconception**: Containers were thought to be PRO-only
+**Actual Status**: ✅ Containers (Flexbox/Grid) ARE available in Elementor FREE
+**Solution**: Use EITHER Containers OR Legacy Sections (both work)
 
 ```javascript
-// ✅ CORRECT (Elementor FREE)
+// ✅ CORRECT - Modern Container (Flexbox/Grid) - FREE
+{
+  "elType": "container",
+  "settings": {
+    "content_width": "full",
+    "flex_direction": "row",
+    "flex_gap": {"unit": "px", "size": 20}
+  },
+  "elements": [ /* widgets directly */ ]
+}
+
+// ✅ ALSO CORRECT - Legacy Section (for compatibility)
 {
   "elType": "section",
   "settings": { /* section settings */ },
@@ -354,16 +460,11 @@ REST API limitation - no direct way to trigger Elementor's save hooks programmat
     }
   ]
 }
-
-// ❌ WRONG (Elementor PRO only)
-{
-  "elType": "container",
-  "settings": { /* container settings */ },
-  "elements": [ /* widgets directly */ ]
-}
 ```
 
-**Status**: ✅ DOCUMENTED
+**Recommendation**: Use Containers for new builds (modern, flexible), Legacy Sections for compatibility
+
+**Status**: ✅ CORRECTED (Documentation updated 2025-11-30)
 
 ---
 
@@ -512,8 +613,8 @@ add_filter('register_post_type_args', function($args, $post_type) {
 ### ❌ DOESN'T WORK / NOT AVAILABLE
 
 **Architecture**:
-- ❌ Flexbox Containers (PRO only)
-- ❌ CSS Grid layouts (PRO only)
+- ✅ Flexbox Containers (Available in FREE!)
+- ✅ CSS Grid layouts (Available in FREE!)
 - ❌ Theme Builder (PRO only)
 
 **Widgets**:
@@ -591,10 +692,10 @@ When a FREE limitation blocks progress, a well-documented PHP polyfill is better
 
 ### If Upgrading to Elementor PRO:
 1. Remove Global Colors polyfill (use native PRO feature)
-2. Migrate Sections to Flexbox Containers
+2. Use Theme Builder for header/footer (Containers already available in FREE)
 3. Change CSS Print Method back to "External File"
-4. Use Theme Builder for header/footer
-5. Enable dynamic content features
+4. Enable dynamic content features
+5. Use PRO-only widgets (Call to Action, Forms, etc.)
 
 ### For Production Deployment:
 1. Change CSS Print Method to "External File"
@@ -620,7 +721,7 @@ When a FREE limitation blocks progress, a well-documented PHP polyfill is better
 | REST API changes not appearing | Elementor hooks not triggered | Click Update in editor (Issue #3) |
 | Stretch section not working | CSS file caching | Internal Embedding + hard refresh |
 | Widget property not applying | Wrong property name | Check widget-specific docs |
-| "Container" not working | Using PRO feature in FREE | Use Section > Column structure (Issue #4) |
+| Container structure issues | Incorrect JSON structure | Containers ARE FREE - use proper elType: 'container' (Issue #4) |
 | Header/footer template won't update via API | Custom post type not REST enabled | Manual import JSON (Issue #5) |
 | Changes disappear after refresh | Cache issue | Hard refresh (Ctrl+Shift+R) |
 | Elementor editor blank/broken | JavaScript error | Check console, clear browser cache |

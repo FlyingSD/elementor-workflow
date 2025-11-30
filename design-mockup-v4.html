@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Светлинки - V4 (Programs Teaser)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: #1d3234;
+            background: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section - YELLOW as MAIN! */
+        .hero {
+            background: linear-gradient(120deg, #FEFCF5 0%, #fff4d9 40%, #ffe8b3 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(250, 186, 41, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 140, 122, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-right: 40px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            color: #1d3234;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.15;
+        }
+
+        .hero h1 .highlight {
+            position: relative;
+            display: inline-block;
+            color: #46b19d;
+        }
+
+        .hero h1 .highlight svg {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            bottom: -5px;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            color: #1d3234;
+            margin-bottom: 40px;
+            line-height: 1.75;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: #FABA29;
+            color: #FFFFFF;
+            box-shadow: 0 6px 20px rgba(250, 186, 41, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: #46b19d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(70, 177, 157, 0.4);
+        }
+
+        .btn-secondary {
+            background: #FF8C7A;
+            color: #FFFFFF;
+            box-shadow: 0 6px 20px rgba(255, 140, 122, 0.35);
+        }
+
+        .btn-secondary:hover {
+            background: #46b19d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(70, 177, 157, 0.4);
+        }
+
+        .hero-mascot-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-mascot {
+            width: 100%;
+            max-width: 520px;
+            height: auto;
+            filter: drop-shadow(0 15px 40px rgba(250, 186, 41, 0.25));
+        }
+
+        /* Blog Carousel Section */
+        .blog-carousel {
+            background: #FFFFFF;
+            padding: 90px 20px;
+            position: relative;
+        }
+
+        .blog-carousel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(250, 186, 41, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .blog-carousel h2 {
+            text-align: center;
+            font-size: clamp(1.85rem, 4vw, 2.5rem);
+            color: #1d3234;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .blog-carousel h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FABA29, #FF8C7A);
+            border-radius: 2px;
+        }
+
+        .carousel-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 30px;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .blog-card {
+            min-width: 100%;
+            background: #FEFCF5;
+            border-radius: 20px;
+            padding: 45px 40px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, #FABA29, #FF8C7A) 1;
+            border-image-slice: 1;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #FABA29, #FF8C7A);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(250, 186, 41, 0.2);
+        }
+
+        .blog-card h3 {
+            font-size: 1.65rem;
+            color: #1d3234;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.3;
+        }
+
+        .blog-card p {
+            color: #5a6c6d;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 1.75;
+        }
+
+        .blog-card .read-more {
+            color: #FABA29;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .blog-card .read-more:hover {
+            color: #FF8C7A;
+            gap: 15px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 40px;
+        }
+
+        .carousel-nav button {
+            background: #FABA29;
+            color: white;
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 18px rgba(250, 186, 41, 0.3);
+            font-weight: 700;
+        }
+
+        .carousel-nav button:hover {
+            background: #46b19d;
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(70, 177, 157, 0.4);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, #FEFCF5 0%, #fff9e6 100%);
+            padding: 90px 20px;
+            position: relative;
+        }
+
+        .benefits::before {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 140, 122, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.85rem, 4vw, 2.5rem);
+            color: #1d3234;
+            font-weight: 700;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FABA29, #FF8C7A);
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: visible;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: #FABA29;
+            border-radius: 20px 20px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #FABA29, #FF8C7A);
+        }
+
+        .benefit-card:nth-child(3)::before {
+            background: #46b19d;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(250, 186, 41, 0.2);
+        }
+
+        .benefit-icon {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #FABA29, #f5a500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            font-size: 38px;
+            transition: all 0.35s ease;
+            box-shadow: 0 6px 20px rgba(250, 186, 41, 0.3);
+        }
+
+        .benefit-card:nth-child(2) .benefit-icon {
+            background: linear-gradient(135deg, #FF8C7A, #ff7059);
+            box-shadow: 0 6px 20px rgba(255, 140, 122, 0.3);
+        }
+
+        .benefit-card:nth-child(3) .benefit-icon {
+            background: linear-gradient(135deg, #46b19d, #3d8a7a);
+            box-shadow: 0 6px 20px rgba(70, 177, 157, 0.3);
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.55rem;
+            color: #1d3234;
+            margin-bottom: 16px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .benefit-card p {
+            color: #5a6c6d;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        /* Programs Section - TEASER CARDS */
+        .programs {
+            background: #FFFFFF;
+            padding: 90px 20px;
+            position: relative;
+        }
+
+        .programs::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(250, 186, 41, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-teaser-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            min-height: 420px;
+        }
+
+        .program-teaser-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .program-teaser-card:nth-child(1)::before {
+            background: #FABA29;
+        }
+
+        .program-teaser-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #FABA29, #FF8C7A);
+        }
+
+        .program-teaser-card:nth-child(3)::before {
+            background: #46b19d;
+        }
+
+        .program-teaser-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(250, 186, 41, 0.2);
+        }
+
+        .program-teaser-card .card-emoji {
+            font-size: 52px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .program-teaser-card h3 {
+            font-size: 1.65rem;
+            color: #1d3234;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .program-teaser-card .content {
+            flex: 1;
+            margin-bottom: 25px;
+        }
+
+        .program-teaser-card .levels-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .program-teaser-card .levels-list li {
+            color: #5a6c6d;
+            font-size: 1rem;
+            line-height: 2;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .program-teaser-card .levels-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #FABA29;
+            font-weight: 700;
+        }
+
+        .program-teaser-card .promo-text {
+            color: #5a6c6d;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .program-teaser-card .promo-highlight {
+            color: #FABA29;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .program-teaser-card .terms {
+            font-size: 0.8rem;
+            color: #8a9a9b;
+            text-align: center;
+            font-style: italic;
+            margin-top: 15px;
+            line-height: 1.5;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .program-teaser-card .faq-text {
+            color: #5a6c6d;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .program-teaser-card .btn-read-more {
+            background: #FABA29;
+            color: #FFFFFF;
+            padding: 15px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(250, 186, 41, 0.35);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .program-teaser-card .btn-read-more:hover {
+            background: #46b19d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(70, 177, 157, 0.4);
+        }
+
+        .program-teaser-card:nth-child(2) .btn-read-more {
+            background: #FF8C7A;
+            box-shadow: 0 6px 20px rgba(255, 140, 122, 0.35);
+        }
+
+        .program-teaser-card:nth-child(2) .btn-read-more:hover {
+            background: #46b19d;
+        }
+
+        .program-teaser-card:nth-child(3) .btn-read-more {
+            background: #46b19d;
+            box-shadow: 0 6px 20px rgba(70, 177, 157, 0.35);
+        }
+
+        .program-teaser-card:nth-child(3) .btn-read-more:hover {
+            background: #FABA29;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-mascot {
+                max-width: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 20px;
+                min-height: auto;
+            }
+
+            .benefits-grid,
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+        }
+
+        /* Design Notes Banner */
+        .design-notes {
+            background: linear-gradient(135deg, #FABA29, #f5a500);
+            color: #1d3234;
+            padding: 35px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(250, 186, 41, 0.3);
+        }
+
+        .design-notes h2 {
+            font-size: 1.65rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .design-notes p {
+            font-size: 1rem;
+            margin-bottom: 18px;
+            opacity: 0.95;
+        }
+
+        .design-notes ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .design-notes li {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .design-notes li::before {
+            content: "✓ ";
+            font-weight: bold;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Design Notes Banner -->
+    <div class="design-notes">
+        <h2>🌟 V4 - Programs Teaser!</h2>
+        <p><strong>NEW:</strong> Programs section redesigned as 3 teaser cards with "прочети повече" buttons!</p>
+        <ul>
+            <li>Card 1: Levels overview</li>
+            <li>Card 2: Promotions + terms</li>
+            <li>Card 3: FAQ link</li>
+            <li>Simple borders (no fancy hover)</li>
+            <li>Same style as Benefits</li>
+        </ul>
+    </div>
+
+    <!-- Hero Section - YELLOW DOMINANT! -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1>
+                    Развийте <span class="highlight">математическите умения<svg viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99997C2.00025 6.99997 101.5 0.999998 198.5 2.50001" stroke="#FF8C7A" stroke-width="4" stroke-linecap="round"></path></svg></span> на вашето дете
+                </h1>
+                <p>Ментална аритметика за деца от 5 до 12 години. Развиваме концентрация, логика и увереност чрез доказани методи в приятна и подкрепяща среда.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">Безплатен пробен урок</a>
+                    <a href="#" class="btn btn-secondary">Вижте програмите</a>
+                </div>
+            </div>
+            <div class="hero-mascot-container">
+                <img src="http://svetlinkielementor.local/wp-content/uploads/2025/11/Zhara-pointing-at-CTA.png"
+                     alt="Zhara mascot"
+                     class="hero-mascot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Carousel Section -->
+    <section class="blog-carousel">
+        <div class="container">
+            <h2>От нашия блог</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="blog-card">
+                        <h3>Не, това не е просто "бързо смятане"</h3>
+                        <p>Ментална аритметика не е само изчисления - това е цялостна тренировка на мозъка, която развива концентрация, памет и увереност. Открийте истинската магия зад методиката...</p>
+                        <a href="#" class="read-more">Прочети повече →</a>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button onclick="prevBlog()">←</button>
+                    <button onclick="nextBlog()">→</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Предимства на нашата програма</h2>
+            <div class="benefits-grid">
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>По-добра концентрация</h3>
+                    <p>Вашето дете ще научи да се фокусира върху задачи за по-дълго време и да игнорира разсейванията.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💡</div>
+                    <h3>Логическо мислене</h3>
+                    <p>Развиваме способността за анализиране на проблеми и намиране на творчески решения.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">⭐</div>
+                    <h3>Отлична памет</h3>
+                    <p>Чрез визуализация и повторение укрепваме паметта и способността за запаметяване.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section - TEASER CARDS -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="section-title">Нашите програми</h2>
+            <div class="programs-grid">
+
+                <!-- Card 1: Levels Overview -->
+                <div class="program-teaser-card">
+                    <div class="card-emoji">📚</div>
+                    <h3>5 нива на обучение</h3>
+                    <div class="content">
+                        <ul class="levels-list">
+                            <li><strong>Ниво 1:</strong> Основи с абакус</li>
+                            <li><strong>Ниво 2:</strong> Ментална визуализация</li>
+                            <li><strong>Ниво 3:</strong> Сложни операции</li>
+                            <li><strong>Ниво 4:</strong> Майсторско ниво</li>
+                            <li><strong>Ниво 5:</strong> Състезателна група</li>
+                        </ul>
+                    </div>
+                    <a href="/programs/" class="btn-read-more">Прочети повече</a>
+                </div>
+
+                <!-- Card 2: Promotions -->
+                <div class="program-teaser-card">
+                    <div class="card-emoji">🎁</div>
+                    <h3>Специални промоции</h3>
+                    <div class="content">
+                        <p class="promo-text">
+                            <span class="promo-highlight">Безплатен пробен урок</span><br>
+                            за всяко ново дете!<br><br>
+                            <span class="promo-highlight">10% отстъпка</span><br>
+                            при записване на второ дете от семейството
+                        </p>
+                        <p class="terms">
+                            * Промоциите са валидни за нови записвания до края на месеца. Не се комбинират с други оферти.
+                        </p>
+                    </div>
+                    <a href="/programs/#pricing" class="btn-read-more">Прочети повече</a>
+                </div>
+
+                <!-- Card 3: FAQ Link -->
+                <div class="program-teaser-card">
+                    <div class="card-emoji">❓</div>
+                    <h3>Имате въпроси?</h3>
+                    <div class="content">
+                        <p class="faq-text">
+                            Отговорихме на най-честите въпроси на родителите:<br><br>
+                            <strong>•</strong> Колко струва обучението?<br>
+                            <strong>•</strong> Колко деца има в група?<br>
+                            <strong>•</strong> Колко време трае програмата?<br>
+                            <strong>•</strong> Какви са резултатите?<br><br>
+                            ...и още 16 въпроса!
+                        </p>
+                    </div>
+                    <a href="/faq/" class="btn-read-more">Прочети повече</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Note -->
+    <div style="background: #1d3234; color: white; padding: 60px 20px; text-align: center;">
+        <h3 style="margin-bottom: 25px; font-size: 2rem; color: #FABA29;">✨ V4 - Programs Teaser Complete!</h3>
+        <div style="max-width: 900px; margin: 0 auto; line-height: 1.85; font-size: 1.05rem;">
+            <p style="margin-bottom: 20px;">
+                ✓ <strong style="color: #FABA29;">3 Teaser Cards:</strong> Levels, Promotions, FAQ<br>
+                ✓ <strong style="color: #FABA29;">Same styling:</strong> Matching Benefits cards<br>
+                ✓ <strong style="color: #FF8C7A;">"Прочети повече":</strong> Each card has CTA button<br>
+                ✓ <strong style="color: #46b19d;">Simple borders:</strong> Colorful top borders (no fancy hover)<br>
+                ✓ <strong>Terms text:</strong> Small italic text below promotions<br>
+                ✓ <strong>Clean & professional:</strong> Ready for parents!
+            </p>
+            <p style="margin-top: 30px; font-size: 1.2rem; color: #FABA29;">
+                <strong>Ready for Elementor implementation!</strong>
+            </p>
+        </div>
+        <p style="margin-top: 35px; font-size: 0.95rem; opacity: 0.8;">
+            Open: <code>design-mockup-v4.html</code>
+        </p>
+    </div>
+
+    <script>
+        const blogPosts = [
+            {
+                title: "Не, това не е просто „бързо смятане"",
+                excerpt: "Ментална аритметика не е само изчисления - това е цялостна тренировка на мозъка, която развива концентрация, памет и увереност. Открийте истинската магия зад методиката...",
+                link: "#"
+            },
+            {
+                title: "Войната с разсейването",
+                excerpt: "„Остави този телефон!" „Слушаш ли ме изобщо?" Звучи ли ви познато? Открийте как ментална аритметика помага на децата да развият суперсилата на концентрацията...",
+                link: "#"
+            },
+            {
+                title: "Златният прозорец (4-12 години)",
+                excerpt: "Мозъкът на детето е като мека глина - най-податлив на формиране между 4 и 12 години. Научете защо това е критичният период за развитие на когнитивните умения...",
+                link: "#"
+            }
+        ];
+
+        let currentBlog = 0;
+
+        function updateBlog() {
+            const blog = blogPosts[currentBlog];
+            const card = document.querySelector('.blog-card');
+            card.querySelector('h3').textContent = blog.title;
+            card.querySelector('p').textContent = blog.excerpt;
+            card.querySelector('.read-more').href = blog.link;
+        }
+
+        function nextBlog() {
+            currentBlog = (currentBlog + 1) % blogPosts.length;
+            updateBlog();
+        }
+
+        function prevBlog() {
+            currentBlog = (currentBlog - 1 + blogPosts.length) % blogPosts.length;
+            updateBlog();
+        }
+    </script>
+
+</body>
+</html>

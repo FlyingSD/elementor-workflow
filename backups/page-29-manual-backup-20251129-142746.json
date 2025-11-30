@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys; sys.path.insert(0, 'scripts/working'); from mcp_server_helpers import MCPHelpers; h = MCPHelpers('config.json'); data = h.get_page_data(29); import json; print(json.dumps(data, indent=2, ensure_ascii=False))
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'mcp_server_helpers'

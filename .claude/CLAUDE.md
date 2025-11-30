@@ -1,8 +1,21 @@
 # Claude Code - Elementor AI Automation System
 
-**Version**: 6.0 (Optimized)
+**Version**: 7.0 (Knowledge System Complete)
 **Project**: Svetlinkelementor
 **Mode**: AI-Automated Page Building
+**Last Updated**: 2025-11-30
+
+---
+
+## 📖 NEW TO THIS SYSTEM?
+
+**READ FIRST**: `SYSTEM-OVERVIEW.md` (in project root)
+- Explains complete architecture
+- How all agents work together
+- Knowledge flow and decision trees
+- Maintenance and troubleshooting
+
+**This file** (CLAUDE.md) is the **Main Coordinator instructions**. For system-wide understanding, start with SYSTEM-OVERVIEW.md!
 
 ---
 
@@ -26,6 +39,62 @@ You are Claude Code, the **Main Coordinator** for a multi-agent Elementor automa
 
 ---
 
+## ⚠️ MANDATORY: CSS REGENERATION AFTER MCP UPDATES ⚠️
+
+**🚨 READ THIS EVERY TIME BEFORE USING MCP TOOLS! 🚨**
+
+**After EVERY MCP update (update_elementor_widget, update_elementor_data, etc.), you MUST run:**
+
+```bash
+# Step 1: Nuclear CSS fix
+curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
+
+# Step 2: Visit page to trigger regeneration
+curl -s "http://svetlinkielementor.local/home" > nul
+```
+
+**Why?** MCP/REST API updates database only. Does NOT regenerate CSS. Editor shows changes, frontend does NOT.
+
+**Complete documentation**: `SSOT/MANDATORY-CSS-REGENERATION.md` ← READ THIS FILE!
+
+**No CSS regeneration = No visible changes = Frustrated user = Failed task**
+
+---
+
+## 🚨 CRITICAL DESIGN RULE - READ FIRST!
+
+### IMPROVEMENTS vs REPLACEMENTS
+
+**WHEN USER PROVIDES REFERENCE/INSPIRATION**:
+
+✅ **DO - IMPROVE EXISTING**:
+- Use reference for **styling ideas** (colors, layouts, spacing)
+- Use reference for **design patterns** (two-column, gradients, etc.)
+- **KEEP ALL existing content/information**
+- **ENHANCE** what's already there
+- Add new elements **alongside** existing ones
+
+❌ **DON'T - REPLACE EVERYTHING**:
+- ❌ NEVER delete all existing sections
+- ❌ NEVER rebuild from scratch unless explicitly told
+- ❌ NEVER remove existing content/widgets
+- ❌ NEVER assume "reference" means "replace everything"
+
+**KEY DISTINCTION**:
+- "Use this as reference" = **INSPIRATION for styling**
+- "Rebuild this entirely" = **FULL REPLACEMENT**
+
+**IF UNCLEAR → ASK USER FIRST!**
+
+**Example**:
+- User shows React hero code → Use for styling ideas (gradient, layout)
+- KEEP existing Bulgarian text, counters, CTA buttons
+- IMPROVE styling/layout, DON'T delete everything
+
+**This rule applies to ALL agents** (coordinator, coder, designer, tester).
+
+---
+
 ## 📋 System Architecture
 
 ### Communication Flow (2-Hop Model)
@@ -35,23 +104,29 @@ User (Denis)
     ↓
 You (Claude - Coordinator)
     ↓ Task Tool (direct delegation)
-    ├─→ coder agent (MCP page creation)
+    ├─→ elementor-expert agent (🆕 Elementor API/MCP specialist)
+    ├─→ design-expert agent (🆕 UX/UI/Accessibility specialist)
+    ├─→ coder agent (General page creation)
     ├─→ tester agent (Playwright visual QA)
-    ├─→ designer agent (design decisions)
-    └─→ stuck agent (research via Brave Search + R.JINA)
+    ├─→ designer agent (Legacy - use design-expert instead)
+    └─→ stuck agent (Research via Brave Search + R.JINA)
 ```
 
 ### Agent Files
 
 ```
 .claude/
-├── CLAUDE.md (this file)
+├── CLAUDE.md (this file - Main Coordinator)
 └── agents/
-    ├── coder.md
-    ├── tester.md
-    ├── designer.md
-    └── stuck.md
+    ├── elementor-expert.md (🆕 Elementor API/Structure specialist)
+    ├── design-expert.md (🆕 Web Design Principles specialist)
+    ├── coder.md (General implementation)
+    ├── tester.md (Visual QA)
+    ├── designer.md (Legacy - being replaced by design-expert)
+    └── stuck.md (Research/troubleshooting)
 ```
+
+**NEW** (2025-11-30): Two specialized knowledge agents added with deep technical expertise!
 
 ---
 
@@ -69,16 +144,33 @@ You (Claude - Coordinator)
 
 | User Keywords | Invoke Agent | Purpose |
 |---------------|--------------|---------|
+| **Elementor-specific tasks** | `elementor-expert` | 🆕 MCP/API, structure, alignment, property names |
+| **Design standards/UX** | `design-expert` | 🆕 Accessibility, typography, spacing, web standards |
 | "problem", "error", "stuck" | `stuck` | Research via Brave + R.JINA |
-| "create", "build", "code" | `coder` | MCP page creation |
+| "create", "build", "code" | `coder` OR `elementor-expert` | General or Elementor-specific implementation |
 | "test", "screenshot", "verify" | `tester` | Visual QA (Playwright) |
-| "design", "colors", "layout" | `designer` | Design advice |
+
+**When to use elementor-expert**:
+- "Create 3-column card layout" → Technical Elementor structure
+- "Why isn't shadow showing?" → Property naming / CSS regeneration
+- "How to center column content?" → Alignment configuration
+- "Add widget to section" → MCP workflow
+- "What's the correct JSON for gradient?" → Group controls
+
+**When to use design-expert**:
+- "Should I use 2 or 3 columns?" → Layout decision (grid systems)
+- "Is this contrast accessible?" → WCAG compliance
+- "What font size for headings?" → Typography scale
+- "How much spacing between cards?" → 8-point grid system
+- "Is this CTA button text clear?" → UX writing rules
 
 **Examples**:
-- "Colors not working" → `stuck` (problem)
-- "Create hero section" → `coder` (build)
-- "Check if mobile looks good" → `tester` (visual)
-- "Should I use 2 or 3 columns?" → `designer` (decision)
+- "Create benefits cards with shadows" → `elementor-expert` (technical how-to)
+- "Should benefits have shadows?" → `design-expert` (design decision)
+- "Shadows not showing after MCP update" → `elementor-expert` (Issue #3 troubleshooting)
+- "Is 16px too small for body text?" → `design-expert` (typography standards)
+- "Check if mobile looks good" → `tester` (visual QA)
+- "Error with MCP connection" → `stuck` (research problem)
 
 ---
 
@@ -86,28 +178,60 @@ You (Claude - Coordinator)
 
 All detailed information lives in `SSOT/` directory:
 
-### The Golden Triangle (3 Active Files)
+### Core System Files
 
-1. **SSOT/STATIC_RULES.md** (~90 KB, read by section)
-   - Widget whitelist (29 FREE widgets)
+1. **SYSTEM-OVERVIEW.md** (🆕 START HERE!)
+   - Complete system architecture explained
+   - How agents work together
+   - Knowledge flow diagrams
+   - When to use which agent
+   - How to maintain the system
+
+### Technical Knowledge Base (3 NEW Guides - 2025-11-30)
+
+2. **ELEMENTOR-API-TECHNICAL-GUIDE.md** (~450 lines)
+   - Elementor architecture, save flow, CSS generation
+   - REST API integration, MCP workflow
+   - Group controls (Background, Border, Shadow)
+   - Property naming conventions
+   - Cache management, troubleshooting
+   - **For**: elementor-expert agent
+
+3. **ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md** (~500 lines)
+   - Element hierarchy, section/column/widget capabilities
+   - Card structure patterns, spacing system
+   - Layout troubleshooting, responsive breakpoints
+   - **For**: elementor-expert agent
+
+4. **CORE-WEBSITE-BUILDING-RULES.md** (~1100 lines)
+   - Nielsen's Usability Heuristics, WCAG accessibility
+   - Typography rules, 8-point spacing grid
+   - Color contrast, layout & grid systems
+   - Responsive design, content/UX writing
+   - **For**: design-expert agent
+
+### Project-Specific Files
+
+5. **STATIC_RULES.md** (~90 KB, read by section)
+   - Widget whitelist (40-50 FREE widgets)
    - JSON schema & structure
    - Global Colors system
    - Section structure rules
    - MCP workflow checklist
 
-2. **SSOT/ACTIVE_STATE.md** (~15 KB, read entire)
+6. **ACTIVE_STATE.md** (~15 KB, read entire)
    - Current page IDs (21, 23, 25, etc.)
    - WordPress credentials
    - Global Colors values
    - Next actions
    - **Updated after each task**
 
-3. **SSOT/TROUBLESHOOTING.md** (21 KB, read when stuck)
+7. **TROUBLESHOOTING.md** (21 KB, read when stuck)
    - 5 known issues with solutions
    - Global Colors not showing (SOLVED)
    - Stretch section not working (SOLVED)
    - REST API limitations (WORKAROUND)
-   - Containers don't work (EXPECTED - use Sections)
+   - Containers ARE FREE (CORRECTED)
    - Header/Footer not REST accessible (LIMITATION)
 
 ### How Agents Use SSOT
@@ -154,11 +278,36 @@ python backup-before-update.py --page-id 21 --task "description"
 
 ## 🔧 MCP Servers
 
-**Configured in `.mcp.json`**:
-- `wp-elementor-mcp` (32 tools - WordPress/Elementor automation)
-- `brave-search` (web search engine)
+**4 Active MCP Servers** (Configured in `.mcp.json`):
+
+1. **wp-elementor-mcp** (32 tools) - WordPress/Elementor Automation ✅
+   - Tools: `mcp__wp-elementor__create_page`, `update_page`, `get_pages`, `create_elementor_section`
+   - Location: `C:\Users\denit\wp-elementor-mcp\`
+   - Mode: Standard (32 tools available)
+   - Purpose: Create/update WordPress pages and Elementor content programmatically
+
+2. **json-schema-validator** (5 tools) - JSON Validation 🆕
+   - Tools: `mcp__json-schema__generate_schema`, `validate_json_schema`, `add_update_schema`
+   - Location: `C:\Users\denit\jsonshema_mcp\`
+   - Purpose: Validate Elementor JSON structures before deployment
+   - Use Case: Prevent malformed JSON from breaking pages
+
+3. **brave-search** (Web Research) ✅
+   - Purpose: Search the web for documentation and solutions
+   - Used by: stuck agent for problem-solving
+
+4. **Playwright** (20+ tools) - Browser Automation ✅
+   - Tools: `mcp__playwright__browser_navigate`, `browser_snapshot`, `browser_take_screenshot`
+   - Purpose: Visual testing, screenshots, browser automation
+   - Used by: tester agent for QA
+
+**Total Tools Available**: 55+ (32 wp-elementor + 5 json-schema + 20+ playwright)
+
+**Detailed Documentation**: See `SSOT/MCP-CONFIGURATION.md` for installation, troubleshooting, usage examples
 
 **Credentials in**: `config.json` (WordPress auth, API keys, page IDs)
+
+**After Restart**: Check for `mcp__` tool prefixes to verify MCP servers loaded correctly
 
 ---
 
@@ -216,7 +365,7 @@ Task({
 1. **Global Colors not showing** → ✅ SOLVED (polyfill active)
 2. **Stretch section not full-width** → ✅ SOLVED (Internal Embedding)
 3. **REST API updates don't apply** → ⚠️ WORKAROUND (click "Update" in editor)
-4. **Containers don't work** → ✅ EXPECTED (use Legacy Sections in FREE)
+4. **Containers ARE available in FREE** → ✅ CORRECTED (use Containers OR Legacy Sections)
 5. **Header/Footer not REST accessible** → ⚠️ LIMITATION (manual import)
 
 ---
@@ -254,15 +403,37 @@ Task({
 
 **Current Setup** (from ACTIVE_STATE.md):
 - Site: `http://svetlinkielementor.local`
-- Homepage ID: 21 (6 sections complete)
-- Header Template: 69 (empty)
-- Footer Template: 73 (empty)
+- Theme: Hello Elementor 3.4.5 (switched 2025-11-29)
+- Homepage: 21 (6 sections ✅)
+- About: 23 (complete ✅ + header/footer ✅)
+- Programs: 25 (complete ✅ + header/footer ✅)
+- Contact: 27 (needs CF7 + map ⚠️ + header/footer ✅)
+- FAQ: 29 (complete ✅ + header/footer ✅)
 
-**Global Colors**:
+**✅ HEADERS & FOOTERS WORKING!**
+- Logo "Светлинки" (clickable, teal) ✅
+- Navigation menu (5 links) ✅
+- CTA button "ЗАПАЗИ СЕ СЕГА" (golden yellow) ✅
+- Footer displaying on all pages ✅
+
+**🔧 NEXT PRIORITIES:**
+- Add Contact Form 7 to Contact page
+- Add Google Maps to Contact page
+- Fix Benefits section layout (cramped)
+- Fix Programs section layout (narrow)
+
+**✅ COMPLETED THIS SESSION:**
+- Headers added to all pages (logo + nav menu + CTA button)
+- Footer Canvas option enabled and activated
+- All pages changed to Canvas template
+- POST-LAUNCH-IMPROVEMENTS.md created
+
+**Global Colors** (Updated 2025-11-30):
 - Primary: `#FABA29` (Yellow/Gold) → `var(--e-global-color-primary)`
 - Secondary: `#4F9F8B` (Teal/Green) → `var(--e-global-color-secondary)`
-- Accent: `#FEFCF5` (Warm Cream) → `var(--e-global-color-accent)`
-- Text: `#2C2C2C` (Dark Gray) → `var(--e-global-color-text)`
+- Text: `#1D3234` (Dark Teal) → `var(--e-global-color-text)`
+- Accent: `#FF8C7A` (Coral - NEW!) → `var(--e-global-color-accent)`
+- Color 5: `#FEFCF5` (Warm Cream - Site Background) → `var(--e-global-color-5)`
 
 ---
 
@@ -298,5 +469,14 @@ Task({
 > "Coordinate agents, track todos, point to SSOT, ensure safety."
 
 **Location**: `.claude/CLAUDE.md`
-**Last Updated**: 2025-11-29 (Phase 3: Optimized)
-**Version**: 6.0 (66% reduction from v5.0)
+**Last Updated**: 2025-11-30
+**Version**: 7.0 (Knowledge System Complete)
+
+**Changelog**:
+- v7.0: Added elementor-expert and design-expert agents with comprehensive knowledge bases
+- v7.0: Created 3 technical guides (API, Structure, Web Rules) - 2000+ lines
+- v7.0: Added SYSTEM-OVERVIEW.md explaining entire system architecture
+- v6.1: MCP Configuration + Global Colors system
+- v6.0: Agent system optimization
+
+**Important**: Don't summarize critical rules - maintain full detail!

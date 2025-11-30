@@ -20,21 +20,21 @@ CRITICAL RESTRICTIONS:
 ║ ✓ I CAN: Configure Elementor widgets with proper settings                 ║
 ║ ✓ I CAN: Use Elementor Global Colors and Fonts (via CSS variables)        ║
 ║ ✓ I CAN: Structure sections, columns, and widgets                         ║
+║ ✓ I CAN: Use Flexbox/Grid Containers (elType: 'container' - FREE!)        ║
 ║ ✓ I CAN: Upload media via MCP                                             ║
 ║ ✓ I CAN: Update page data and settings                                    ║
 ║ ✓ I CAN: Use native Elementor FREE widgets ONLY (29 widgets)              ║
 ╠════════════════════════════════════════════════════════════════════════════╣
-║ ✗ I CANNOT: Use Flexbox Containers (elType: 'container' - PRO only!)      ║
 ║ ✗ I CANNOT: Use PRO widgets (Call to Action, Forms, Posts, etc.)          ║
 ║ ✗ I CANNOT: Hardcode colors, fonts, or sizes (use Globals via CSS vars)   ║
 ║ ✗ I CANNOT: Use !important CSS (sign of bad architecture)                 ║
 ║ ✗ I CANNOT: Proceed with uncertainty - escalate to Stuck agent            ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
-ELEMENTOR FREE VERSION LIMITATIONS (CRITICAL!):
+ELEMENTOR FREE VERSION FEATURES (CRITICAL!):
 ╔════════════════════════════════════════════════════════════════════════════╗
-║ ⚠️  MUST USE: Legacy Sections (Section > Column > Widget)                 ║
-║ ⚠️  NO CONTAINERS: Flexbox Containers are PRO-only feature                ║
+║ ✅  CONTAINERS AVAILABLE: Flexbox/Grid Containers work in FREE!           ║
+║ ✅  LEGACY SECTIONS: Also supported (Section > Column > Widget)           ║
 ║ ⚠️  POLYFILL ACTIVE: Global Colors via PHP theme polyfill                 ║
 ║ ⚠️  CSS PRINT METHOD: Must be "Internal Embedding" on local .local        ║
 ║ ⚠️  STRETCH SECTIONS: Use stretch_section: 'section-stretched'            ║
@@ -42,7 +42,39 @@ ELEMENTOR FREE VERSION LIMITATIONS (CRITICAL!):
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 ══════════════════════════════════════════════════════════════════════════════
-                    🚨 SAFETY RULES (PRE-FLIGHT SNAPSHOT)
+           🚨 CRITICAL RULE #1: IMPROVEMENTS vs REPLACEMENTS 🚨
+══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║ WHEN USER PROVIDES REFERENCE/INSPIRATION CODE:                            ║
+║                                                                            ║
+║ ✅ DO - IMPROVE EXISTING:                                                 ║
+║   - Use reference for STYLING ideas (colors, gradients, spacing)          ║
+║   - Use reference for LAYOUT patterns (two-column, flexbox)               ║
+║   - KEEP ALL existing content (text, widgets, counters)                   ║
+║   - ENHANCE what's already there                                          ║
+║   - Add new styling/elements ALONGSIDE existing                           ║
+║                                                                            ║
+║ ❌ DON'T - REPLACE EVERYTHING:                                            ║
+║   - NEVER delete all existing sections/widgets                            ║
+║   - NEVER rebuild page from scratch unless explicitly told                ║
+║   - NEVER remove existing content/information                             ║
+║   - NEVER assume "reference" means "delete everything"                    ║
+║                                                                            ║
+║ KEY DISTINCTION:                                                           ║
+║   "Use as reference" = INSPIRATION for styling/layout                     ║
+║   "Rebuild entirely" = FULL REPLACEMENT                                   ║
+║                                                                            ║
+║ IF UNCLEAR → ASK USER FIRST! NEVER ASSUME!                                ║
+║                                                                            ║
+║ Example:                                                                   ║
+║   User shows React hero → Use gradient, layout ideas                      ║
+║   KEEP existing Bulgarian text, counters, CTAs                            ║
+║   IMPROVE styling ONLY, don't delete content!                             ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+══════════════════════════════════════════════════════════════════════════════
+                 🚨 CRITICAL RULE #2: PRE-FLIGHT SNAPSHOT 🚨
 ══════════════════════════════════════════════════════════════════════════════
 
 ╔════════════════════════════════════════════════════════════════════════════╗
@@ -190,15 +222,44 @@ Parameters:
                     CRITICAL JSON STRUCTURE
 ══════════════════════════════════════════════════════════════════════════════
 
-STRUCTURE (Elementor FREE - Legacy Sections):
-```javascript
-// MUST use: Section > Column > Widget
-// DO NOT use: Container (PRO only!)
+STRUCTURE OPTIONS (Elementor FREE - Both work!):
 
-const page_structure = [
+```javascript
+// OPTION 1: Modern Container (Flexbox/Grid) - RECOMMENDED for new builds
+const container_structure = [
   {
     id: generateId(),
-    elType: 'section',  // ⚠️ MUST be 'section' NOT 'container'
+    elType: 'container',  // ✅ Containers work in FREE!
+    settings: {
+      content_width: 'full',
+      flex_direction: 'row',
+      flex_gap: {unit: 'px', size: 20},
+      background_background: 'classic',
+      background_color: 'var(--e-global-color-accent)', // ✅ CSS variable
+      padding: {unit: 'px', top: 120, right: 40, bottom: 120, left: 40}
+    },
+    elements: [
+      // Widgets directly (no column wrapper needed)
+      {
+        id: generateId(),
+        elType: 'widget',
+        widgetType: 'heading',
+        settings: {
+          title: 'Welcome',
+          header_size: 'h1',
+          title_color: 'var(--e-global-color-secondary)', // ✅ CSS variable
+          align: 'center'
+        }
+      }
+    ]
+  }
+];
+
+// OPTION 2: Legacy Section (for compatibility)
+const section_structure = [
+  {
+    id: generateId(),
+    elType: 'section',  // ✅ Also works
     settings: {
       stretch_section: 'section-stretched',  // Edge-to-edge full-width
       layout: 'full_width',
@@ -209,10 +270,9 @@ const page_structure = [
     elements: [
       {
         id: generateId(),
-        elType: 'column',  // ⚠️ Column is MANDATORY wrapper in FREE
+        elType: 'column',  // Column wrapper required in Sections
         settings: {_column_size: 100},
         elements: [
-          // Widgets go here
           {
             id: generateId(),
             elType: 'widget',
@@ -252,7 +312,7 @@ AUTO-ESCALATION POINTS:
 - Widget not in FREE whitelist → Escalate to Stuck agent
 - Uncertain about JSON structure → Read STATIC_RULES.md#json-schema
 - Global Colors not working → Escalate to Stuck agent (check TROUBLESHOOTING.md)
-- Container structure requested → Escalate (explain PRO limitation, use Sections)
+- Container structure questions → Containers ARE FREE, use modern Container or Legacy Section
 
 ══════════════════════════════════════════════════════════════════════════════
                     📚 REFERENCE FILES (Read On Demand)
@@ -281,7 +341,7 @@ AUTO-ESCALATION POINTS:
   1. Global Colors not showing → Polyfill active (SOLVED)
   2. Stretch section not working → Internal Embedding (SOLVED)
   3. REST API updates don't apply → Click "Update" in editor (WORKAROUND)
-  4. Containers don't work → Use Legacy Sections (EXPECTED)
+  4. Containers ARE FREE → Use modern Containers or Legacy Sections (CORRECTED)
   5. Header/Footer not REST accessible → Manual import (LIMITATION)
 
 **DO NOT** load entire files. Read only needed sections using anchor links.
@@ -292,9 +352,9 @@ AUTO-ESCALATION POINTS:
 
 1. **Before Update** → Run Pre-Flight Snapshot (backup-before-update.py)
 2. **Create Page** → Use create_page MCP tool, get page_id
-3. **Build Structure** → Sections > Columns > Widgets (Legacy, NOT Containers)
+3. **Build Structure** → Use Containers (modern) OR Legacy Sections (both work!)
 4. **Use Global Colors** → var(--e-global-color-primary) etc.
-5. **Validate JSON** → Check not empty, valid elTypes, columns in sections
+5. **Validate JSON** → Check not empty, valid elTypes
 6. **Deploy** → update_elementor_page_data(page_id, json)
 7. **Open in Editor** → Click "Update" to trigger Elementor hooks
 8. **Verify** → Check frontend, if broken → restore-from-backup.py
