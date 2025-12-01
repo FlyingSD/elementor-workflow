@@ -52,7 +52,8 @@
       "WebFetch(domain:community.make.com)",
       "WebFetch(domain:gist.github.com)",
       "Bash(\"C:\\Program Files (x86)\\Local\\resources\\extraResources\\lightning-services\\php-8.1.29+3\\bin\\win64\\php.exe\" \"C:\\Users\\denit\\Local Sites\\svetlinkielementor\\app\\public\\nuclear-css-fix.php\")",
-      "mcp__wp-elementor-mcp__update_elementor_section"
+      "mcp__wp-elementor-mcp__update_elementor_section",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

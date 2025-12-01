@@ -306,6 +306,25 @@ curl -s "http://svetlinkielementor.local/home" > nul
 - WP-CLI commands (not always available)
 - CSS Print Method switching (unreliable)
 
+**Research Sources & Background**:
+
+This issue took 5 hours to identify on 2025-11-30. Research from Elementor GitHub repository:
+
+**Elementor Core GitHub Issues**:
+- Issue #4464: "Styles don't update until manual Regenerate CSS"
+- Issue #7237: "CSS not regenerated when missing"
+- Issue #27300: "Regenerate CSS doesn't actually regenerate (only deletes)"
+- Issue #31594: "CSS files deleted/fail to regenerate in cached environments"
+- Issue #20555: "Responsive styles not generated after get_builder_content_for_display"
+- Discussion #19395: "Clear/regenerate CSS for single page"
+- WP Rocket Issue #4673: "Elementor CSS triggers during wp_enqueue_scripts"
+
+**Key Insight from Issue #31594** (Elementor Developer):
+> "Elementor's current system depends on an uncached frontend request to regenerate deleted CSS files — but that assumption no longer holds in real-world websites using modern caching stacks."
+
+**Key Insight from Issue #27300** (Elementor Team):
+> "Even though it's called 'Regenerate CSS' it doesn't actually regenerate CSS, but just removes the content of the wp-content/uploads/elementor/css directory and the actual regeneration happens on the next visit."
+
 **See Complete Documentation**: `SSOT/MANDATORY-CSS-REGENERATION.md`
 
 **This is NOT optional. This is MANDATORY for ALL MCP operations.**

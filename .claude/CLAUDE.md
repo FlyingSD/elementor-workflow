@@ -401,39 +401,14 @@ Task({
 
 ## 🎨 Quick Reference
 
-**Current Setup** (from ACTIVE_STATE.md):
-- Site: `http://svetlinkielementor.local`
-- Theme: Hello Elementor 3.4.5 (switched 2025-11-29)
-- Homepage: 21 (6 sections ✅)
-- About: 23 (complete ✅ + header/footer ✅)
-- Programs: 25 (complete ✅ + header/footer ✅)
-- Contact: 27 (needs CF7 + map ⚠️ + header/footer ✅)
-- FAQ: 29 (complete ✅ + header/footer ✅)
+**For current project state, read**: `SSOT/ACTIVE_STATE.md`
 
-**✅ HEADERS & FOOTERS WORKING!**
-- Logo "Светлинки" (clickable, teal) ✅
-- Navigation menu (5 links) ✅
-- CTA button "ЗАПАЗИ СЕ СЕГА" (golden yellow) ✅
-- Footer displaying on all pages ✅
-
-**🔧 NEXT PRIORITIES:**
-- Add Contact Form 7 to Contact page
-- Add Google Maps to Contact page
-- Fix Benefits section layout (cramped)
-- Fix Programs section layout (narrow)
-
-**✅ COMPLETED THIS SESSION:**
-- Headers added to all pages (logo + nav menu + CTA button)
-- Footer Canvas option enabled and activated
-- All pages changed to Canvas template
-- POST-LAUNCH-IMPROVEMENTS.md created
-
-**Global Colors** (Updated 2025-11-30):
-- Primary: `#FABA29` (Yellow/Gold) → `var(--e-global-color-primary)`
-- Secondary: `#4F9F8B` (Teal/Green) → `var(--e-global-color-secondary)`
-- Text: `#1D3234` (Dark Teal) → `var(--e-global-color-text)`
-- Accent: `#FF8C7A` (Coral - NEW!) → `var(--e-global-color-accent)`
-- Color 5: `#FEFCF5` (Warm Cream - Site Background) → `var(--e-global-color-5)`
+**Current Values** (Always check ACTIVE_STATE.md for latest):
+- Page IDs & Status → ACTIVE_STATE.md → Current Pages section
+- Global Colors (hex values) → ACTIVE_STATE.md → Global Design System section
+- WordPress credentials → ACTIVE_STATE.md → Credentials section
+- Site URL & configuration → ACTIVE_STATE.md → Current Pages section
+- Next priorities & tasks → ACTIVE_STATE.md → Next Immediate Actions section
 
 ---
 

@@ -453,9 +453,9 @@ C:\Users\denit\Local Sites\svetlinkielementor\
 
 ---
 
-**Document Version**: 1.6
+**Document Version**: 1.7
 **Created**: 2025-11-29
-**Last Updated**: 2025-11-30 16:00 (Archiving & V4 prep session)
+**Last Updated**: 2025-12-01 (Major cleanup & documentation session)
 **Purpose**: Single source for current project state
 **Update Policy**: Update only when values change (page IDs, credentials, new pages created, etc.)
 
@@ -465,5 +465,48 @@ C:\Users\denit\Local Sites\svetlinkielementor\
 - 3 design mockup iterations (v1-v3)
 - 9 JSON data snapshots
 - 10 deprecated Python/JavaScript scripts
-✨ ROOT CLEANED - Only active files remain (V4 design docs, ELEMENTOR-API-WORKFLOW-GUIDE.md, working scripts)
+✨ ROOT CLEANED - Only active files remain (V4 design docs, working scripts)
 🎯 READY FOR V4 - Homepage styling implementation next using approved design-mockup-v4.html
+
+**Session Note (2025-12-01 - Major Cleanup)**:
+✅ **SSOT Enhanced with Research & Lessons**:
+- Created `SSOT/LESSONS-LEARNED.md` - Post-mortem of 5-hour CSS regeneration debugging session
+- Added GitHub research sources to `SSOT/TROUBLESHOOTING.md` Issue #6 (7 Elementor issues documented)
+- Moved `ELEMENTOR-API-WORKFLOW-GUIDE.md` to SSOT/ (belongs with technical guides)
+
+✅ **Project Root Cleaned**:
+- Archived 3 reports to `archive/2025-11-30-session/reports/`:
+  * CSS-REGENERATION-FINAL-REPORT.md
+  * ELEMENTOR-CSS-REGENERATION-SOLUTION.md
+  * HOMEPAGE-VISUAL-ANALYSIS-REPORT.md
+- Archived templates to `archive/2025-11-30-session/templates/` (header, footer - 98+118 lines)
+- Archived extracted-sections to `archive/2025-11-30-session/extracted-sections/` (benefits, blog, programs)
+- Deleted screenshots/ directory (17MB stale screenshots - tester agent can regenerate fresh)
+- Deleted temp files (backup_output.txt, backup_output2.txt, v4-for-mcp.txt, nul)
+
+✅ **Scripts Organized**:
+- Moved `force-css-regeneration.py` to scripts/working/
+- Moved `take-elementor-editor-screenshot.js` to scripts/working/
+- Updated `scripts/README.md` with all Playwright scripts (frontend vs editor distinction)
+- **IMPORTANT**: Documented Denis's environment (changes show WITHOUT Update button)
+
+✅ **Blog Files Cleanup**:
+- 17 blog markdown files (Bulgarian) moved to `SSOT/archive/Blog/`
+
+🎯 **File Structure Now**:
+```
+Root (CLEAN):
+├── Design System: design-mockup-v4.html, COLOR-AND-STYLE-VISION.md, V4-COMPONENT-LIBRARY.md
+├── System Docs: SYSTEM-OVERVIEW.md, README-NEXT-STEPS.md, ELEMENTOR-FREE-2024-2025.md
+├── Config: config.json, .mcp.json
+├── Safety: mcp-backup/ (wp-elementor-mcp safety backup)
+└── Working: scripts/, SSOT/, backups/, archive/
+
+SSOT/ (Enhanced):
+├── Technical Guides (4): ELEMENTOR-API-*, ELEMENTOR-STRUCTURE-*, CORE-WEBSITE-*, ELEMENTOR-API-WORKFLOW-GUIDE
+├── Project Docs (3): STATIC_RULES.md, ACTIVE_STATE.md, TROUBLESHOOTING.md
+├── NEW: LESSONS-LEARNED.md (post-mortems of major issues)
+└── NEW: MANDATORY-CSS-REGENERATION.md (critical workflow)
+```
+
+**Key Takeaway**: "Keep only what moves you forward" - Archived completed work, kept production-ready files, enhanced SSOT with lessons to prevent repeating 5-hour debugging sessions.

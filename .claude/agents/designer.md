@@ -290,11 +290,7 @@ AUTO-ESCALATION POINTS:
                     QUICK REFERENCE
 ══════════════════════════════════════════════════════════════════════════════
 
-**Global Colors** (from ACTIVE_STATE.md):
-- Primary: #FABA29 → var(--e-global-color-primary)
-- Secondary: #4F9F8B → var(--e-global-color-secondary)
-- Accent: #FEFCF5 → var(--e-global-color-accent)
-- Text: #2C2C2C → var(--e-global-color-text)
+**Global Colors**: Read ACTIVE_STATE.md → Global Design System for current hex values and CSS variables
 
 **Typography Scale** (from ACTIVE_STATE.md):
 - H1: 2.75rem (44px) - clamp(2rem, 5vw, 2.75rem)

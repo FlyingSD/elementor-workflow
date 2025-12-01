@@ -46,6 +46,105 @@ scripts/
 - **Usage**: `python scripts/working/rebuild-complete-homepage.py`
 - **Status**: ✅ WORKING (alternative implementation)
 
+### Page Building Scripts
+
+**build-modern-hero.py**
+- **Purpose**: Build hero section only
+- **Usage**: `python scripts/working/build-modern-hero.py`
+- **When**: Hero section needs update
+
+**build-about-page.py**
+- **Purpose**: Build About page (ID 23)
+- **Usage**: `python scripts/working/build-about-page.py`
+
+**build-programs-page.py**
+- **Purpose**: Build Programs page (ID 25)
+- **Usage**: `python scripts/working/build-programs-page.py`
+
+**build-contact-page.py**
+- **Purpose**: Build Contact page (ID 27)
+- **Usage**: `python scripts/working/build-contact-page.py`
+
+**build-faq-page.py**
+- **Purpose**: Build FAQ page (ID 29)
+- **Usage**: `python scripts/working/build-faq-page.py`
+
+### Header/Footer Management
+
+**update-header-template.py**
+- **Purpose**: Update header template (ID 69)
+- **Usage**: `python scripts/working/update-header-template.py`
+
+**update-header-simple.py**
+- **Purpose**: Simplified header update
+- **Usage**: `python scripts/working/update-header-simple.py`
+
+**update-footer-template.py**
+- **Purpose**: Update footer template (ID 73)
+- **Usage**: `python scripts/working/update-footer-template.py`
+
+**add-header-footer-to-homepage.py**
+- **Purpose**: Add header/footer sections to homepage
+- **Usage**: `python scripts/working/add-header-footer-to-homepage.py`
+
+### CSS Regeneration & Testing
+
+**force-css-regeneration.py**
+- **Purpose**: Force Elementor CSS regeneration (diagnostic tool)
+- **Usage**: `python scripts/working/force-css-regeneration.py 21`
+- **When**: Testing CSS generation, debugging visibility issues
+- **Note**: For MCP workflow, use nuclear-css-fix.php instead
+
+**⚠️ MANDATORY MCP Workflow (2025-12-01)**:
+
+After EVERY MCP update, run these 2 commands:
+
+```bash
+# Step 1: Nuclear CSS fix
+curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
+
+# Step 2: Visit page to trigger regeneration
+curl -s "http://svetlinkielementor.local/home" > nul
+```
+
+**Important Note (Denis's Environment - 2025-12-01)**:
+- Changes show WITHOUT manual Update button ✅
+- nuclear-css-fix.php + page visit is SUFFICIENT
+- Issue #3 workaround (click Update in editor) NOT needed
+- See `SSOT/MANDATORY-CSS-REGENERATION.md` for full documentation
+
+### Playwright Testing Scripts
+
+**take-screenshots-only.js**
+- **Purpose**: Take FRONTEND screenshots ONLY (homepage)
+- **Usage**: `node scripts/working/take-screenshots-only.js`
+- **Output**: Desktop (1920x1080), Tablet (768x1024), Mobile (375x812)
+- **When**: Visual QA of homepage frontend
+
+**take-elementor-editor-screenshot.js**
+- **Purpose**: Take EDITOR screenshots ONLY (Elementor backend)
+- **Usage**: `node scripts/working/take-elementor-editor-screenshot.js`
+- **Output**: Full editor view + Update button area
+- **When**: Debugging editor issues, documenting editor state
+
+**click-update-and-screenshot.js**
+- **Purpose**: Automate Issue #3 workaround (login → editor → click Update)
+- **Usage**: `node scripts/working/click-update-and-screenshot.js`
+- **When**: REST API changes not showing (may not be needed in Denis's environment)
+
+**Best Practice**: Run BOTH screenshot scripts for complete visual QA:
+```bash
+# Frontend screenshots
+node scripts/working/take-screenshots-only.js
+
+# Editor screenshots
+node scripts/working/take-elementor-editor-screenshot.js
+```
+
+**Note**: Playwright scripts separated to avoid confusion:
+- Frontend vs Editor screenshots are different views
+- Run appropriate script based on what you need to verify
+
 ### Utility Scripts
 
 **merge-static-rules.py**
@@ -53,6 +152,16 @@ scripts/
 - **Usage**: `python scripts/working/merge-static-rules.py`
 - **Used for**: Phase 2 optimization (Golden Triangle creation)
 - **Note**: One-time use script (completed)
+
+**emergency-restore.py**
+- **Purpose**: Quick restore without prompts
+- **Usage**: `python scripts/working/emergency-restore.py --backup "path/to/backup.json"`
+- **When**: Critical failure, need immediate restore
+
+**import-faq-page.php**
+- **Purpose**: Import FAQ page via PHP (WordPress context)
+- **Usage**: `php scripts/working/import-faq-page.php`
+- **When**: REST API import fails
 
 ---
 

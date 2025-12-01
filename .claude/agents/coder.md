@@ -363,20 +363,13 @@ AUTO-ESCALATION POINTS:
                     QUICK REFERENCE
 ══════════════════════════════════════════════════════════════════════════════
 
-**Global Colors** (from ACTIVE_STATE.md):
-- Primary: #FABA29 → var(--e-global-color-primary)
-- Secondary: #4F9F8B → var(--e-global-color-secondary)
-- Accent: #FEFCF5 → var(--e-global-color-accent)
-- Text: #2C2C2C → var(--e-global-color-text)
+**Before starting any task, read**: `SSOT/ACTIVE_STATE.md`
 
-**Page IDs** (from ACTIVE_STATE.md):
-- Homepage: 21 (6 sections complete)
-- Header Template: 69 (empty)
-- Footer Template: 73 (empty)
-
-**MCP Connection**:
-- Base URL: http://svetlinkielementor.local
-- Auth: test / S27q64rqoFhfTPDA30nBhNM5
+**Current Values** (read from ACTIVE_STATE.md on-demand):
+- Global Colors (hex + CSS variables) → ACTIVE_STATE.md → Global Design System
+- Page IDs & Status → ACTIVE_STATE.md → Current Pages
+- WordPress credentials → ACTIVE_STATE.md → Credentials & Access
+- Site URL & configuration → ACTIVE_STATE.md → Credentials & Access
 - Mode: standard (32 tools)
 
 ══════════════════════════════════════════════════════════════════════════════

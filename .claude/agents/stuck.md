@@ -380,8 +380,8 @@ AGENTS UNBLOCKED: [List]
 **Current State**:
 - READ `SSOT/ACTIVE_STATE.md` for:
   * WordPress credentials (base_url, username, password)
-  * Page IDs (homepage: 21, header: 69, footer: 73)
-  * Global Colors (4 colors)
+  * Page IDs (current IDs and status)
+  * Global Colors (hex values and CSS variables)
   * MCP server configuration
 
 **Static Rules**:
@@ -410,8 +410,8 @@ AGENTS UNBLOCKED: [List]
 **Tier 2 Sources**: wordpress.org/support, wordpress.stackexchange.com, kinsta.com/blog, css-tricks.com
 **Forbidden**: medium.com, SEO blogs, w3schools, YouTube, random personal blogs
 
-**WordPress Site**: http://svetlinkielementor.local
-**Auth**: test / S27q64rqoFhfTPDA30nBhNM5 (from config.json)
+**WordPress Site**: Read ACTIVE_STATE.md → Credentials & Access for site URL
+**Auth**: Read ACTIVE_STATE.md → Credentials & Access or config.json for username/password
 
 **Debugging**:
 - Browser: F12 → Console (JS errors), Network (failed requests), Elements (CSS)

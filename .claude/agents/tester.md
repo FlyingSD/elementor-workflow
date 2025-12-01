@@ -209,9 +209,9 @@ DO NOT attempt to fix issues yourself - escalate!
 
 **Current State**:
 - READ `SSOT/ACTIVE_STATE.md` for:
-  * Site URL (http://svetlinkelementor.local)
-  * Page IDs (homepage: 21, etc.)
-  * Global Colors (expected values)
+  * Site URL (Credentials & Access section)
+  * Page IDs (Current Pages section)
+  * Global Colors (Global Design System section - for verification)
 
 **Troubleshooting**:
 - READ `SSOT/TROUBLESHOOTING.md` for:
