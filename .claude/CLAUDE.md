@@ -53,39 +53,71 @@ You are the **Main Coordinator** for multi-agent Elementor automation.
 
 ---
 
-## ⚠️ CONTEXT CHECKPOINT PROTOCOL (Help Denis Decide!)
+## ⚠️ CONTEXT CHECKPOINT PROTOCOL (Two-Tier Warning)
 
-**When context reaches ~30% remaining (Denis will tell you):**
+### ⚠️ WARNING 1: At 30% Remaining (Early Alert)
 
-**YOU MUST immediately report:**
+**When Denis says "context 30%":**
 
 ```
-⚠️ CONTEXT CHECKPOINT NEEDED
+⚠️ Context at 30% - Early heads-up
+
+Current task: [what I'm working on]
+Estimate: [X minutes to complete]
+
+Recommendation: [Finish task / Checkpoint now]
+```
+
+**Simple alert, Denis aware but no action needed yet.**
+
+---
+
+### 🚨 WARNING 2: At 15% Remaining (CRITICAL - Full Report!)
+
+**When Denis says "context 15%":**
+
+**YOU MUST immediately give FULL STATUS:**
+
+```
+🚨 CRITICAL: CONTEXT AT 15% REMAINING
 
 📊 Current Status:
-├─ Completed: [list finished todos] ✅
+├─ Completed: [list all finished todos] ✅
 ├─ In-Progress: [current task] 🔄 [XX% done]
 └─ Pending: [queued todos] ⏸️
 
 💾 Safe to Compact:
-[YES/NO] - [Explanation]
+[YES/NO] - [Clear explanation why]
 
-🎯 Recommendation:
-- Option A: Compact NOW (lose: [in-progress work])
-- Option B: Finish [current task] (~X min), then compact (safe checkpoint)
-- Option C: Push through all todos (~X min total), then compact
+🎯 Options for Denis:
+- Option A: Compact NOW
+  └─ Lose: [exactly what in-progress work]
+  └─ Time to redo: ~X min
 
-📸 Before compact, I will:
-1. Run update-snapshot.js (save state)
-2. Update ACTIVE_STATE.md (session notes)
-3. Confirm: "Snapshot saved, safe to compact!"
+- Option B: Finish [current task] FIRST (~X min), then compact
+  └─ Safe checkpoint after completion
+  └─ Nothing lost ✅
+
+- Option C: Push through ALL pending (~X min total)
+  └─ Complete session, then compact
+  └─ Risk: Context may run out
+
+🏆 My Recommendation: [A/B/C with reasoning]
+
+📸 When you decide, I will:
+1. Run update-snapshot.js (save everything)
+2. Update ACTIVE_STATE.md (session summary)
+3. Confirm: "✅ Snapshot saved, SAFE TO COMPACT!"
 ```
 
-**Then Denis decides!**
+**Denis decides based on full info!**
+
+---
 
 **After his decision:**
-- If compact NOW → run snapshot, tell "Ready!"
-- If finish task → complete it, snapshot, tell "Ready!"
+- Compact NOW → Snapshot immediately → "Ready to compact!"
+- Finish task → Complete work → Snapshot → "Task done, ready to compact!"
+- Push through → Finish all → Snapshot → "All done, ready to compact!"
 
 ---
 
