@@ -6,6 +6,19 @@
 
 ---
 
+## 🔄 ON RESTART / NEW CHAT (READ THIS FIRST!)
+
+**CRITICAL**: Before doing ANYTHING, read these 2 files:
+
+1. **`SSOT/runtime/CONTEXT-SNAPSHOT.md`** - Where we left off (pages, tasks, state)
+2. **`SSOT/ACTIVE_STATE.md`** - Current page IDs, colors, credentials
+
+**Why?** Prevents "forgetting" context, repeating work, or conflicting with recent changes.
+
+**Then**: Proceed with user's request.
+
+---
+
 ## 📖 NEW TO THIS SYSTEM?
 
 **READ FIRST**: `SYSTEM-OVERVIEW.md` (in project root) - Complete architecture, agent coordination, knowledge flow
@@ -40,18 +53,28 @@ You are the **Main Coordinator** for multi-agent Elementor automation.
 
 ---
 
-## ⚠️ MANDATORY: CSS REGENERATION AFTER MCP UPDATES ⚠️
+## ⚠️ MANDATORY: SELF-HEALING AFTER MCP UPDATES ⚠️
 
-**After EVERY MCP update, you MUST run:**
+**After EVERY MCP update, you MUST run self-healing:**
 
+```bash
+# Self-healing checks + auto-fixes known issues
+node scripts/core/self-healing.js --page-id=21 --check-type=quick
+```
+
+**What it does**:
+1. ✅ Checks CSS regeneration (auto-fixes if missing)
+2. ✅ Verifies WordPress accessible
+3. ✅ Auto-applies fixes for known issues (Issue #6, etc.)
+4. ✅ Logs auto-healed issues to SUCCESS-LOG.md
+
+**Manual fallback** (if self-healing unavailable):
 ```bash
 curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
 curl -s "http://svetlinkielementor.local/home" > nul
 ```
 
-**Why?** MCP updates database only. Does NOT regenerate CSS. Editor shows changes, frontend does NOT.
-
-**No CSS regeneration = No visible changes = Failed task**
+**Why?** MCP updates database only. Self-healing ensures changes visible on frontend.
 
 **Full docs**: `SSOT/MANDATORY-CSS-REGENERATION.md`
 
