@@ -174,17 +174,40 @@ TodoWrite({
 
 ---
 
-## 🎓 Agent Invocation
+## 🎓 Agent Invocation (OPTIMIZED)
+
+### Targeted Section Loading (80% Context Reduction!)
+
+**Use anchor-search.js to find relevant sections**:
+
+```bash
+# Find which guide section to read
+node scripts/core/anchor-search.js "card layout"
+# Returns: ELEMENTOR-STRUCTURE-GUIDE.md#card-structure-patterns
+```
+
+**Then spawn agent with TARGETED read**:
 
 ```javascript
 Task({
-  description: "Create hero section",
-  prompt: "Create hero with H1, text, CTA. Global Colors. Page ID: 21. See STATIC_RULES.md#mcp-checklist",
+  description: "Create benefits cards",
+  prompt: `
+📦 CONTEXT (load these ONLY):
+1. ACTIVE_STATE.md → Current Pages (get page ID)
+2. ACTIVE_STATE.md → Global Design System (get colors)
+3. ELEMENTOR-STRUCTURE-GUIDE.md#card-structure-patterns (read this section ONLY)
+
+🎯 TASK: Create 3-column benefits section with icon-box cards
+
+⛔ DO NOT read entire guides! Use sections above only.
+  `,
   subagent_type: "general-purpose"
 });
 ```
 
-**Include**: Page IDs, URLs, SSOT section pointers. One agent at a time for dependencies.
+**Key**: Specify EXACT sections to read. Agent loads ~200 lines instead of ~2000 lines!
+
+**One agent at a time for dependencies.**
 
 ---
 

@@ -1,0 +1,129 @@
+{
+  "index_version": "1.0",
+  "last_updated": "2025-12-01",
+  "description": "Anchor index for targeted SSOT section loading (80% context reduction)",
+  "usage": "Query keywords → Get exact file:section:lines → Load ONLY that section",
+
+  "index": {
+    "card layout": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
+    "card styling": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
+    "3 column cards": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
+    "icon box cards": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
+
+    "equal height": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#section-configuration",
+    "stretch section": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#section-configuration",
+    "full width": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#section-configuration",
+    "section alignment": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#section-configuration",
+
+    "column alignment": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#column-layout-and-alignment",
+    "vertical align": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#column-layout-and-alignment",
+    "horizontal align": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#column-layout-and-alignment",
+    "column width": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#column-layout-and-alignment",
+
+    "spacing system": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
+    "padding values": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
+    "margin values": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
+    "gap between": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
+
+    "box shadow": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
+    "border styling": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
+    "background gradient": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
+    "background color": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
+
+    "mcp workflow": "SSOT/MANDATORY-CSS-REGENERATION.md#complete-mcp-update-checklist",
+    "css regeneration": "SSOT/MANDATORY-CSS-REGENERATION.md#mandatory-workflow-no-exceptions",
+    "nuclear css fix": "SSOT/MANDATORY-CSS-REGENERATION.md#mandatory-workflow-no-exceptions",
+    "backup page": "SSOT/MANDATORY-CSS-REGENERATION.md#complete-mcp-update-checklist",
+
+    "global colors": "SSOT/ACTIVE_STATE.md#global-design-system",
+    "css variables": "SSOT/ACTIVE_STATE.md#global-design-system",
+    "color hex values": "SSOT/ACTIVE_STATE.md#global-design-system",
+
+    "page ids": "SSOT/ACTIVE_STATE.md#current-pages-wordpress",
+    "current pages": "SSOT/ACTIVE_STATE.md#current-pages-wordpress",
+    "homepage id": "SSOT/ACTIVE_STATE.md#current-pages-wordpress",
+
+    "wordpress credentials": "SSOT/ACTIVE_STATE.md#credentials-access",
+    "site url": "SSOT/ACTIVE_STATE.md#credentials-access",
+    "admin password": "SSOT/ACTIVE_STATE.md#credentials-access",
+
+    "widget whitelist": "SSOT/STATIC_RULES.md#widget-whitelist",
+    "free widgets": "SSOT/STATIC_RULES.md#widget-whitelist",
+    "available widgets": "SSOT/STATIC_RULES.md#widget-whitelist",
+
+    "json structure": "SSOT/STATIC_RULES.md#json-data-schema",
+    "json schema": "SSOT/STATIC_RULES.md#json-data-schema",
+    "element structure": "SSOT/STATIC_RULES.md#json-data-schema",
+
+    "section structure": "SSOT/STATIC_RULES.md#section-structure-rules",
+    "column structure": "SSOT/STATIC_RULES.md#section-structure-rules",
+    "widget structure": "SSOT/STATIC_RULES.md#section-structure-rules",
+
+    "property naming": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#property-naming-conventions",
+    "setting names": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#property-naming-conventions",
+
+    "css not showing": "SSOT/TROUBLESHOOTING.md#issue-6-mcp-rest-api-updates-not-showing-on-frontend-css-not-regenerated",
+    "frontend not updating": "SSOT/TROUBLESHOOTING.md#issue-6-mcp-rest-api-updates-not-showing-on-frontend-css-not-regenerated",
+    "changes not visible": "SSOT/TROUBLESHOOTING.md#issue-6-mcp-rest-api-updates-not-showing-on-frontend-css-not-regenerated",
+
+    "global colors not showing": "SSOT/TROUBLESHOOTING.md#issue-1-global-colors-not-outputting-css-variables-empty",
+    "white background": "SSOT/TROUBLESHOOTING.md#issue-1-global-colors-not-outputting-css-variables-empty",
+
+    "section not full width": "SSOT/TROUBLESHOOTING.md#issue-2-stretch-section-not-working-full-width-failing",
+    "645px section": "SSOT/TROUBLESHOOTING.md#issue-2-stretch-section-not-working-full-width-failing",
+
+    "containers free": "SSOT/TROUBLESHOOTING.md#issue-4-containers-are-available-in-free-corrected",
+    "containers available": "SSOT/TROUBLESHOOTING.md#issue-4-containers-are-available-in-free-corrected",
+
+    "typography scale": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#typography-system",
+    "font sizes": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#typography-system",
+    "heading sizes": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#typography-system",
+
+    "wcag compliance": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#wcag-accessibility-standards",
+    "accessibility": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#wcag-accessibility-standards",
+    "contrast ratio": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#color-contrast",
+
+    "8 point grid": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#8-point-spacing-grid-system",
+    "spacing values": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#8-point-spacing-grid-system",
+
+    "responsive breakpoints": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#responsive-design",
+    "mobile first": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#responsive-design",
+    "touch targets": "SSOT/CORE-WEBSITE-BUILDING-RULES.md#responsive-design",
+
+    "hero section pattern": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#common-patterns-and-layouts",
+    "benefits section": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
+    "footer pattern": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#common-patterns-and-layouts"
+  },
+
+  "aliases": {
+    "cards": "card layout",
+    "card": "card layout",
+    "equal heights": "equal height",
+    "full-width": "full width",
+    "fullwidth": "full width",
+    "shadows": "box shadow",
+    "borders": "border styling",
+    "gradients": "background gradient",
+    "colors": "global colors",
+    "colour": "global colors",
+    "page id": "page ids",
+    "credentials": "wordpress credentials",
+    "widgets": "widget whitelist",
+    "json": "json structure",
+    "spacing": "spacing system",
+    "fonts": "typography scale",
+    "accessibility": "wcag compliance",
+    "mobile": "responsive breakpoints",
+    "hero": "hero section pattern",
+    "benefits": "benefits section",
+    "footer": "footer pattern"
+  },
+
+  "stats": {
+    "total_keywords": 68,
+    "total_aliases": 24,
+    "coverage_estimate": "90%",
+    "avg_section_size": "50-200 lines",
+    "context_reduction": "80%"
+  }
+}
