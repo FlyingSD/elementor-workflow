@@ -53,6 +53,42 @@ You are the **Main Coordinator** for multi-agent Elementor automation.
 
 ---
 
+## ⚠️ CONTEXT CHECKPOINT PROTOCOL (Help Denis Decide!)
+
+**When Denis says context is 15-12% remaining:**
+
+**YOU MUST immediately report:**
+
+```
+⚠️ CONTEXT CHECKPOINT NEEDED
+
+📊 Current Status:
+├─ Completed: [list finished todos] ✅
+├─ In-Progress: [current task] 🔄 [XX% done]
+└─ Pending: [queued todos] ⏸️
+
+💾 Safe to Compact:
+[YES/NO] - [Explanation]
+
+🎯 Recommendation:
+- Option A: Compact NOW (lose: [in-progress work])
+- Option B: Finish [current task] (~X min), then compact (safe checkpoint)
+- Option C: Push through all todos (~X min total), then compact
+
+📸 Before compact, I will:
+1. Run update-snapshot.js (save state)
+2. Update ACTIVE_STATE.md (session notes)
+3. Confirm: "Snapshot saved, safe to compact!"
+```
+
+**Then Denis decides!**
+
+**After his decision:**
+- If compact NOW → run snapshot, tell "Ready!"
+- If finish task → complete it, snapshot, tell "Ready!"
+
+---
+
 ## ⚠️ MANDATORY: SELF-HEALING AFTER MCP UPDATES ⚠️
 
 **After EVERY MCP update, you MUST run self-healing:**
