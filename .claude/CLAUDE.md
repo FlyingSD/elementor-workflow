@@ -235,9 +235,18 @@ Task({
   `,
   subagent_type: "general-purpose"
 });
+
+// AFTER agent completes MCP update:
+// YOU (coordinator) MUST run self-healing:
+await Bash({
+  command: 'node scripts/core/self-healing.js --page-id=21 --check-type=quick',
+  description: 'Self-healing: Auto-detect and auto-fix issues'
+});
 ```
 
-**Key**: Specify EXACT sections to read. Agent loads ~200 lines instead of ~2000 lines!
+**Key**:
+- Specify EXACT sections (agent loads ~200 lines, not ~2000)
+- **ALWAYS run self-healing after MCP!** (auto-fixes CSS, etc.)
 
 **One agent at a time for dependencies.**
 
