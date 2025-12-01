@@ -12,24 +12,40 @@
 **Total Content**: 3471 lines merged and organized
 **Status**: Production Reference - Read sections on-demand using anchor links
 
+---
+
 ## Table of Contents
-- Jump to specific sections:
-1.
-- [Core Principles & Widget Whitelist](#core-principles) - From ELEMENTOR-CORE-PRINCIPLES.md
-2.
-- [JSON Generation Tools](#json-tools) - From JSON-GENERATION-TOOLS-GUIDE.md
-3.
+
+Jump to specific sections:
+1. [Core Principles & Widget Whitelist](#core-principles) - From ELEMENTOR-CORE-PRINCIPLES.md
+2. [JSON Generation Tools](#json-tools) - From JSON-GENERATION-TOOLS-GUIDE.md
+3. [Database Schema Deep Dive](#database-schema) - From ELEMENTOR-DATA-SCHEMA-DEEP-DIVE.md
+4. [MCP Page Creation Checklist](#mcp-checklist) - From MCP-PAGE-CREATION-CHECKLIST.md
+
+---
+
+
+<a name="core-principles"></a>
 ## Core Principles & Widget Whitelist
 
 **Source**: `SSOT/ELEMENTOR-CORE-PRINCIPLES.md`
 
+---
+
+
 ## Table of Contents
-- [Structural Hierarchy](#structural-hierarchy)
-2.
-- [Performance Optimization](#performance-optimization)
-3.
-- [Widget Selection Strategy](#widget-selection-strategy)
-4.
+
+1. [Structural Hierarchy](#structural-hierarchy)
+2. [Performance Optimization](#performance-optimization)
+3. [Widget Selection Strategy](#widget-selection-strategy)
+4. [Design System Implementation](#design-system-implementation)
+5. [Common Mistakes to Avoid](#common-mistakes-to-avoid)
+6. [Responsive Design](#responsive-design)
+7. [JSON Data Structure](#json-data-structure)
+8. [Programmatic Building Guidelines](#programmatic-building-guidelines)
+
+---
+
 ## Structural Hierarchy
 
 ### Modern Architecture: Flexbox Containers (RECOMMENDED)
@@ -61,6 +77,8 @@ Page
 ```
 
 **We use Flexbox Containers for all new pages.**
+
+---
 
 ### Container Best Practices
 
@@ -124,6 +142,8 @@ Container 5: CTA (direction: column, centered)
 - `nowrap`: Single line (default)
 - `wrap`: Allow wrapping to multiple lines (essential for responsive grids)
 
+---
+
 ## Performance Optimization
 
 ### Minimize DOM Elements
@@ -172,7 +192,7 @@ AFTER (Optimized with Containers) ⭐:
 ### Optimization Strategies
 
 1. **Replace Multiple Widgets with Single Specialized Widgets**:
- ```
+   ```
    ❌ Image + Heading + Text + Button = 4 widgets
    ✅ Call to Action widget = 1 widget
 
@@ -185,20 +205,20 @@ AFTER (Optimized with Containers) ⭐:
 
 2. **🚨 CRITICAL: Native Elementor FREE Widgets ONLY**:
 
- **FORBIDDEN (Zero Tolerance)**:
- - ❌ HTML widget with custom code
- - ❌ Code widget with custom HTML/CSS
- - ❌ Shortcodes from third-party plugins
- - ❌ Custom Gutenberg/ACF blocks
- - ❌ Any custom-coded elements
+   **FORBIDDEN (Zero Tolerance)**:
+   - ❌ HTML widget with custom code
+   - ❌ Code widget with custom HTML/CSS
+   - ❌ Shortcodes from third-party plugins
+   - ❌ Custom Gutenberg/ACF blocks
+   - ❌ Any custom-coded elements
 
- **REQUIRED (Client-Editable)**:
- - ✅ Native Elementor FREE widgets ONLY
- - ✅ Widget settings panel for styling
- - ✅ Global Colors/Fonts (CSS variables)
+   **REQUIRED (Client-Editable)**:
+   - ✅ Native Elementor FREE widgets ONLY
+   - ✅ Widget settings panel for styling
+   - ✅ Global Colors/Fonts (CSS variables)
 
- **Elementor FREE Available Widgets**:
- ```
+   **Elementor FREE Available Widgets**:
+   ```
    BASIC WIDGETS:
    - Heading            (H1-H6 titles)
    - Text Editor        (WYSIWYG content)
@@ -228,48 +248,48 @@ AFTER (Optimized with Containers) ⭐:
    - Rating            (Star ratings)
    ```
 
- **Elementor PRO Widgets NOT Available**:
- - ❌ Call to Action (use Image Box + Button instead)
- - ❌ Price List/Table (use Text Editor + styling)
- - ❌ Animated Headline (use Heading + CSS)
- - ❌ Countdown Timer
- - ❌ Forms (use Contact Form 7 shortcode)
- - ❌ Posts/Portfolio widgets
- - ❌ Advanced Carousels
+   **Elementor PRO Widgets NOT Available**:
+   - ❌ Call to Action (use Image Box + Button instead)
+   - ❌ Price List/Table (use Text Editor + styling)
+   - ❌ Animated Headline (use Heading + CSS)
+   - ❌ Countdown Timer
+   - ❌ Forms (use Contact Form 7 shortcode)
+   - ❌ Posts/Portfolio widgets
+   - ❌ Advanced Carousels
 
- **Why This Rule**:
- - Client MUST edit ALL content in Elementor UI
- - Custom HTML breaks visual editing
- - Maintenance requires developer for text changes
- - Security vulnerabilities
- - Performance issues
- - Breaks responsive controls
+   **Why This Rule**:
+   - Client MUST edit ALL content in Elementor UI
+   - Custom HTML breaks visual editing
+   - Maintenance requires developer for text changes
+   - Security vulnerabilities
+   - Performance issues
+   - Breaks responsive controls
 
- **Design Adaptation Strategy**:
- - If design needs unavailable widget: Use closest FREE widget
- - Example: No "Call to Action" widget → Use Image Box + Button
- - Prioritize: Maintainability > Pixel-perfect accuracy
- - Overall style > Exact layout replica
+   **Design Adaptation Strategy**:
+   - If design needs unavailable widget: Use closest FREE widget
+   - Example: No "Call to Action" widget → Use Image Box + Button
+   - Prioritize: Maintainability > Pixel-perfect accuracy
+   - Overall style > Exact layout replica
 
 3. **Image Optimization & Loading Strategy**:
- - Set image dimensions inside the widget (prevents layout shift)
- - Add ALT text for accessibility and SEO (MANDATORY)
- - Use appropriate image sizes:
- - Hero images: <150KB (optimized JPG/WebP)
- - Feature images: <50KB
- - Icons: Use icon fonts or SVG
- - **Lazy Loading** (ENABLE):
- - Enable lazy loading for below-fold images
- - Keep hero/above-fold images without lazy load
- - Enable lazy loading for videos and Lottie animations
- - **Responsive Images**:
- - Use Elementor's built-in responsive image system
- - Provide mobile-specific images when needed
+   - Set image dimensions inside the widget (prevents layout shift)
+   - Add ALT text for accessibility and SEO (MANDATORY)
+   - Use appropriate image sizes:
+     - Hero images: <150KB (optimized JPG/WebP)
+     - Feature images: <50KB
+     - Icons: Use icon fonts or SVG
+   - **Lazy Loading** (ENABLE):
+     - Enable lazy loading for below-fold images
+     - Keep hero/above-fold images without lazy load
+     - Enable lazy loading for videos and Lottie animations
+   - **Responsive Images**:
+     - Use Elementor's built-in responsive image system
+     - Provide mobile-specific images when needed
 
 4. **Font and Color Consistency**:
- - Limit to 2 font families maximum
- - Use Global Fonts and Global Colors exclusively
- - Never hardcode hex colors or font names
+   - Limit to 2 font families maximum
+   - Use Global Fonts and Global Colors exclusively
+   - Never hardcode hex colors or font names
 
 ### Performance Testing Workflow
 
@@ -283,6 +303,8 @@ AFTER (Optimized with Containers) ⭐:
 #    - Best Practices: 90+
 #    - SEO: 90+
 ```
+
+---
 
 ## Accessibility Best Practices
 
@@ -383,6 +405,8 @@ EXAMPLE (Elementor Forms):
 
 **Target**: Lighthouse Accessibility Score 90+ (ideally 100)
 
+---
+
 ## Widget Selection Strategy
 
 ### Decision Tree: Choosing the Right Widget
@@ -419,6 +443,8 @@ Column 2: Icon List (Contact Info)
 Column 3: Icon List (Quick Links)
 Column 4: Icon List (Social Media)
 ```
+
+---
 
 ## Design System Implementation
 
@@ -490,6 +516,8 @@ Desktop: Top: 64px, Bottom: 64px, Left: 20px, Right: 20px
 Tablet:  Top: 48px, Bottom: 48px, Left: 15px, Right: 15px
 Mobile:  Top: 32px, Bottom: 32px, Left: 15px, Right: 15px
 ```
+
+---
 
 ## Common Mistakes to Avoid
 
@@ -606,29 +634,31 @@ Headings: Poppins (various weights)
 Body: Inter (400, 600)
 ```
 
+---
+
 ## Responsive Design
 
 ### Key Principles
 
 1. **Design Mobile-First**:
- - Start with mobile layout
- - Enhance for tablet and desktop
- - Use percentage-based widths
+   - Start with mobile layout
+   - Enhance for tablet and desktop
+   - Use percentage-based widths
 
 2. **Custom Breakpoints**:
- ```
+   ```
    Desktop: 1200px+
    Tablet:  768px - 1199px
    Mobile:  0px - 767px
    ```
 
 3. **Responsive Settings Per Widget**:
- - Font size: Use `clamp()` or responsive units
- - Padding/Margin: Set different values for each breakpoint
- - Hide/Show: Use device visibility settings
+   - Font size: Use `clamp()` or responsive units
+   - Padding/Margin: Set different values for each breakpoint
+   - Hide/Show: Use device visibility settings
 
 4. **Column Behavior**:
- ```
+   ```
    Desktop: 3 columns (33% each)
    Tablet:  2 columns (50% each)
    Mobile:  1 column (100%)
@@ -643,6 +673,8 @@ Body: Inter (400, 600)
 4. Preview in actual devices or browser DevTools
 5. Test with real content (not Lorem Ipsum)
 ```
+
+---
 
 ## JSON Data Structure
 
@@ -723,6 +755,8 @@ When creating pages via MCP, set these meta fields:
 }
 ```
 
+---
+
 ## Programmatic Building Guidelines
 
 ### MCP Workflow for Svetlinki
@@ -778,6 +812,8 @@ For each page:
 - [ ] Tester agent screenshot captured
 - [ ] QA agent 21-test suite passed
 
+---
+
 ## Quick Reference: Widget Selection
 
 | Use Case | Widget | Alternative (Avoid) |
@@ -798,14 +834,24 @@ For each page:
 | Divider | Divider | Empty sections |
 | Spacer | Spacer | Empty columns |
 
+---
+
 ## Key Mantras for Svetlinki Build
-- > **"Minimize DOM elements.
-- Every section, column, and widget adds weight."**
 
-> **"Global Colors and Global Fonts only.
-- No exceptions."**
+> **"Minimize DOM elements. Every section, column, and widget adds weight."**
 
-> **"Use specialized widgets.
+> **"Global Colors and Global Fonts only. No exceptions."**
+
+> **"Use specialized widgets. Don't build with primitives."**
+
+> **"Single columns by default. Only add columns when content requires side-by-side layout."**
+
+> **"Performance first. Beauty without speed is failure."**
+
+> **"Responsive by design, not by duplication."**
+
+---
+
 ## Performance Targets
 
 ### Lighthouse Scores (Minimum)
@@ -835,6 +881,8 @@ Feature Images:     50KB max
 Icons:             10KB max (or use icon fonts)
 Total Page Weight: 1.5MB max
 ```
+
+---
 
 ## Verification Process
 
@@ -883,6 +931,8 @@ QA agent should test:
 ... [21 total tests]
 ```
 
+---
+
 ## References
 
 **Official Documentation**:
@@ -900,24 +950,35 @@ QA agent should test:
 - Agent Configuration: AGENT-CONFIGURATION-SUMMARY.md
 - Context Restoration: RESTORE-CONTEXT-PROMPT.md
 
+---
+
 **Document Version**: 1.0
 **Last Updated**: 2025-11-28
 **Maintained by**: Claude (via r.jina research)
 **Status**: Production Reference
 
-<a name="json-tools"></a>
 
+
+<a name="json-tools"></a>
 ## JSON Generation Tools
 
 **Source**: `SSOT/JSON-GENERATION-TOOLS-GUIDE.md`
 
+---
+
+
 ## Table of Contents
-- [Overview](#overview)
-2.
-- [Recommended MCP Servers](#recommended-mcp-servers)
-3.
-- [JSON Schema Validator MCP](#json-schema-validator-mcp)
-4.
+
+1. [Overview](#overview)
+2. [Recommended MCP Servers](#recommended-mcp-servers)
+3. [JSON Schema Validator MCP](#json-schema-validator-mcp)
+4. [JSON Manipulation MCP](#json-manipulation-mcp)
+5. [Elementor JSON Structure Templates](#elementor-json-structure-templates)
+6. [Workflow Integration](#workflow-integration)
+7. [Usage Examples](#usage-examples)
+
+---
+
 ## Overview
 
 ### The Challenge
@@ -949,6 +1010,8 @@ Use specialized MCP servers to:
 2. **Generate** JSON from templates
 3. **Manipulate** existing JSON structures
 4. **Schema-validate** before sending to Elementor
+
+---
 
 ## Recommended MCP Servers
 
@@ -1003,6 +1066,8 @@ Use specialized MCP servers to:
 - Generate initial structure ideas
 - Quick validation of structure concepts
 - Not recommended for production workflow
+
+---
 
 ## JSON Schema Validator MCP
 
@@ -1164,6 +1229,8 @@ list_schemas({
 // Returns: ["section", "widget_heading", "widget_icon_box", ...]
 ```
 
+---
+
 ## JSON Manipulation MCP
 
 ### Installation
@@ -1234,6 +1301,8 @@ filter_json({
   value: "var(--e-global-color-background)"
 });
 ```
+
+---
 
 ## Elementor JSON Structure Templates
 
@@ -1439,6 +1508,8 @@ filter_json({
 }
 ```
 
+---
+
 ## Workflow Integration
 
 ### Recommended Workflow: Schema-First Approach
@@ -1554,6 +1625,8 @@ console.log("Validation:", validation.is_valid ? "PASS" : "FAIL");
 console.log("Hardcoded colors found:", hardcodedColors.length);
 ```
 
+---
+
 ## Usage Examples
 
 ### Example 1: Create Home Page Hero Section
@@ -1632,9 +1705,87 @@ if (isValid.is_valid) {
 }
 ```
 
-###
+### Example 2: Audit and Fix Hardcoded Colors
 
-*(Additional examples removed for brevity)*
+```javascript
+// 1. Get all pages
+const pages = await get_pages({ per_page: 100 });
+
+// 2. For each page, find hardcoded colors
+for (const page of pages) {
+  const pageData = await get_elementor_data({ page_id: page.id });
+
+  // Find hardcoded colors
+  const violations = await query_json({
+    url: "data:application/json," + encodeURIComponent(JSON.stringify(pageData)),
+    path: "$..settings[?(@.color =~ /#[0-9A-Fa-f]{6}/)].color"
+  });
+
+  if (violations.length > 0) {
+    console.log(`Page ${page.id} (${page.title}): ${violations.length} hardcoded colors found`);
+    console.log("Violations:", violations);
+
+    // Map hex colors to Global Colors
+    const colorMap = {
+      "#6366f1": "var(--e-global-color-primary)",
+      "#F5A623": "var(--e-global-color-secondary)",
+      "#2c2c2c": "var(--e-global-color-text)",
+      "#FDB913": "var(--e-global-color-accent)",
+      "#fefcf5": "var(--e-global-color-background)"
+    };
+
+    // Fix automatically (requires iteration through widgets)
+    // ... implementation details
+  }
+}
+```
+
+### Example 3: Clone and Modify Section
+
+```javascript
+// 1. Get existing section from About page
+const aboutData = await get_elementor_data({ page_id: 23 });
+const missionSection = aboutData.elements[1];  // Second section
+
+// 2. Clone structure
+const clonedSection = JSON.parse(JSON.stringify(missionSection));
+
+// 3. Modify IDs (make unique)
+clonedSection.id = "cloned-" + Date.now();
+clonedSection.elements.forEach(col => {
+  col.id = "cloned-col-" + Date.now();
+  col.elements.forEach(widget => {
+    widget.id = "cloned-widget-" + Date.now();
+  });
+});
+
+// 4. Modify content
+if (clonedSection.elements[0].elements[0].widgetType === "heading") {
+  clonedSection.elements[0].elements[0].settings.title = "Нашата визия";
+}
+
+// 5. Validate
+const valid = await validate_json_from_collections({
+  json_data: JSON.stringify(clonedSection),
+  collection: "elementor_svetlinki",
+  schema_id: "section"
+});
+
+// 6. Add to another page
+if (valid.is_valid) {
+  // Get current page data
+  const programsData = await get_elementor_data({ page_id: 25 });
+  programsData.elements.push(clonedSection);
+
+  // Update page
+  update_elementor_data({
+    page_id: 25,
+    elementor_data: JSON.stringify(programsData.elements)
+  });
+}
+```
+
+---
 
 ## Best Practices
 
@@ -1707,31 +1858,33 @@ if not all(r["valid"] for r in results):
     exit(1)
 ```
 
+---
+
 ## Summary
 
 ### Key Takeaways
 
 1. **Use JSON Schema Validator MCP** for:
- - Generating schemas from examples
- - Validating JSON before creating pages
- - Storing reusable component schemas
+   - Generating schemas from examples
+   - Validating JSON before creating pages
+   - Storing reusable component schemas
 
 2. **Use JSON Manipulation MCP** for:
- - Querying existing page structures
- - Finding hardcoded values (colors, fonts)
- - Bulk modifications
+   - Querying existing page structures
+   - Finding hardcoded values (colors, fonts)
+   - Bulk modifications
 
 3. **Schema-First Workflow**:
- - Create schemas once (one-time setup)
- - Validate every JSON structure before use
- - Store templates for common components
+   - Create schemas once (one-time setup)
+   - Validate every JSON structure before use
+   - Store templates for common components
 
 4. **Benefits**:
- - ✅ Prevents malformed JSON
- - ✅ Catches Global Color/Font violations early
- - ✅ Ensures consistency across all pages
- - ✅ Enables automated auditing
- - ✅ Reduces debugging time
+   - ✅ Prevents malformed JSON
+   - ✅ Catches Global Color/Font violations early
+   - ✅ Ensures consistency across all pages
+   - ✅ Enables automated auditing
+   - ✅ Reduces debugging time
 
 ### Next Steps
 
@@ -1740,16 +1893,22 @@ if not all(r["valid"] for r in results):
 3. **Validate existing pages** (find issues)
 4. **Build new pages with validation** (prevent issues)
 
+---
+
 **Document Version**: 1.0
 **Last Updated**: 2025-11-28
 **Research Method**: r.jina.ai web search and repository analysis
 **Status**: Production Ready - Recommended for Implementation
 
-<a name="database-schema"></a>
 
+
+<a name="database-schema"></a>
 ## Database Schema Deep Dive
 
 **Source**: `SSOT/ELEMENTOR-DATA-SCHEMA-DEEP-DIVE.md`
+
+---
+
 
 ## 🧬 The DNA of Elementor: JSON Structure
 
@@ -1759,6 +1918,8 @@ if not all(r["valid"] for r in results):
 
 When you open a page, Elementor reads the JSON and generates HTML dynamically.
 If Claude understands this JSON, it can generate entire pages without opening the editor.
+
+---
 
 ## 📍 Database Storage Locations
 
@@ -1772,6 +1933,8 @@ If Claude understands this JSON, it can generate entire pages without opening th
 | `_elementor_version` | Elementor version used | String: `"3.x.x"` | ✅ Yes |
 | `_elementor_template_type` | Template type identifier | String | ⚠️ For templates |
 | `_elementor_element_cache` | Cached element data | Serialized | 🔄 Auto-managed |
+
+---
 
 ## 🏗️ The Hierarchical Structure
 
@@ -1790,6 +1953,8 @@ Page
             ├── Counter
             └── [29 FREE widgets total]
 ```
+
+---
 
 ## 📐 Complete JSON Schema
 
@@ -1859,6 +2024,8 @@ Page
 ]
 ```
 
+---
+
 ## 🔑 Critical Properties Explained
 
 ### Section Properties (elType: "section")
@@ -1892,6 +2059,8 @@ Page
 |----------|------|----------|---------|
 | `widgetType` | string | ✅ Yes | Widget identifier (e.g., `"heading"`, `"text-editor"`, `"button"`) |
 | `settings` | object | ✅ Yes | Widget-specific configuration |
+
+---
 
 ## 🎨 Widget-Specific Settings (Property Names)
 
@@ -1976,6 +2145,8 @@ Page
 }
 ```
 
+---
+
 ## 💾 Database Serialization
 
 ### How JSON is Stored
@@ -1997,6 +2168,8 @@ $elementor_data = json_decode($json_string, true);
 **Why Slashing?**: WordPress escapes special characters for database security.
 
 **Quote from source**: *"The elementor JSON needs slashes before saving."*
+
+---
 
 ## 🔧 Page Settings Structure
 
@@ -2028,6 +2201,8 @@ $elementor_data = json_decode($json_string, true);
 - `stretch_section: 'section-stretched'` → Makes section 1920px wide
 
 **You need BOTH for true full-width design!**
+
+---
 
 ## 🚀 Programmatic Page Creation (PHP)
 
@@ -2106,6 +2281,8 @@ update_post_meta($post_id, '_elementor_data', $slashed_json);
 echo "Page created: ID $post_id\n";
 ```
 
+---
+
 ## 🔄 Cache Management
 
 ### PHP Method (Programmatic)
@@ -2129,6 +2306,8 @@ wp elementor flush-css
 - ✅ After changing Global Colors/Fonts
 - ✅ After modifying page settings
 - ✅ When changes don't appear on frontend
+
+---
 
 ## 🎯 CSS Class Reference (for "Blind" Styling)
 
@@ -2191,6 +2370,8 @@ wp elementor flush-css
 }
 ```
 
+---
+
 ## 📋 System Prompt for Claude (AI Automation Context)
 
 ```
@@ -2237,6 +2418,8 @@ when layout changes don't appear.
 - For Containers: Direct widget placement (no column wrapper needed)
 ```
 
+---
+
 ## ✅ Validation Checklist
 
 Before saving Elementor data, verify:
@@ -2251,6 +2434,8 @@ Before saving Elementor data, verify:
 - ☐ JSON is properly escaped with `wp_slash()` before save
 - ☐ `_elementor_edit_mode` set to `'builder'`
 - ☐ Cache cleared after changes
+
+---
 
 ## 🚨 Common Pitfalls
 
@@ -2322,6 +2507,8 @@ update_post_meta($post_id, '_elementor_data', json_encode($data));
 update_post_meta($post_id, '_elementor_data', wp_slash(json_encode($data)));
 ```
 
+---
+
 ## 📋 STRICT WHITELIST: Elementor FREE Widgets Only
 
 ### ⚠️ CRITICAL: Widget Type Validation
@@ -2373,6 +2560,8 @@ update_post_meta($post_id, '_elementor_data', wp_slash(json_encode($data)));
 
 **Total FREE Widgets**: 29
 
+---
+
 ### ❌ FORBIDDEN widgetType VALUES (PRO Only)
 
 These will **FAIL** in Elementor FREE:
@@ -2394,6 +2583,8 @@ These will **FAIL** in Elementor FREE:
 | `gallery` | Gallery (PRO version) | PRO feature |
 
 **If a PRO feature is needed**: Simulate using `html` widget or combine `image-box`/`icon-box` with custom CSS.
+
+---
 
 ### 🔒 System Prompt for Claude (Widget Enforcement)
 
@@ -2419,6 +2610,8 @@ If a requested feature requires a Pro widget:
 
 NEVER hallucinate Pro widgets or unknown widget types!
 ```
+
+---
 
 ## 🏗️ Architecture Note: Containers vs Sections
 
@@ -2454,6 +2647,8 @@ elType: "section"
 }
 ```
 
+---
+
 ### Modern Structure (Flexbox Containers - ✅ FREE & PRO!)
 
 ```
@@ -2488,6 +2683,8 @@ elType: "container"
 
 **Reason**: Flexbox Containers are NOW AVAILABLE in Elementor FREE (verified via screenshot). Using `elType: "container"` is RECOMMENDED for modern, cleaner structure!
 
+---
+
 ### How to Determine Which to Use
 
 **Check Elementor Version**:
@@ -2504,6 +2701,8 @@ if ($is_pro && version_compare($elementor_version, '3.12', '>=')) {
 ```
 
 **For Svetlinki Project**: ✅ RECOMMENDED: Use Flexbox Containers (modern structure) - Available in FREE version!
+
+---
 
 ### Container Settings (✅ Available in FREE!)
 
@@ -2531,6 +2730,8 @@ Container settings available in Elementor FREE (as of 2025):
 }
 ```
 
+---
+
 ## 📖 References
 
 **Source Files Analyzed**:
@@ -2542,6 +2743,8 @@ Container settings available in Elementor FREE (as of 2025):
 
 **GitHub Repository**: https://github.com/elementor/elementor
 
+---
+
 **Version**: 1.0
 **Created**: 2025-11-29
 **Purpose**: Enable Claude Code to manipulate Elementor pages at the "DNA level" without UI
@@ -2549,11 +2752,15 @@ Container settings available in Elementor FREE (as of 2025):
 
 **This is 1000% clean - verified from source code!** ✅
 
-<a name="mcp-checklist"></a>
 
+
+<a name="mcp-checklist"></a>
 ## MCP Page Creation Checklist
 
 **Source**: `SSOT/MCP-PAGE-CREATION-CHECKLIST.md`
+
+---
+
 
 ## Pre-Creation Phase
 
@@ -2562,23 +2769,23 @@ Container settings available in Elementor FREE (as of 2025):
 Before creating ANY page, verify these are configured:
 
 - [ ] **Global Colors configured** in Elementor Site Settings
- - Primary: #FABA29 (Yellow/Gold)
- - Secondary: #4F9F8B (Teal/Green)
- - Text: #2C2C2C (Dark Gray)
- - Accent: #FEFCF5 (Warm Cream)
+  - Primary: #FABA29 (Yellow/Gold)
+  - Secondary: #4F9F8B (Teal/Green)
+  - Text: #2C2C2C (Dark Gray)
+  - Accent: #FEFCF5 (Warm Cream)
 
 - [ ] **Global Fonts configured** in Elementor Site Settings
- - Primary Heading Font
- - Secondary Heading Font
- - Body Font
+  - Primary Heading Font
+  - Secondary Heading Font
+  - Body Font
 
 - [ ] **Typography Scale documented**
- - H1: 2.75rem, H2: 1.9rem, H3: 1.4rem
- - Body: 1rem, Line Height: 1.7
+  - H1: 2.75rem, H2: 1.9rem, H3: 1.4rem
+  - Body: 1rem, Line Height: 1.7
 
 - [ ] **Spacing System defined**
- - Section padding values
- - Widget margin/padding scale
+  - Section padding values
+  - Widget margin/padding scale
 
 ### 2. Content Preparation 📝
 
@@ -2586,9 +2793,9 @@ Before creating ANY page, verify these are configured:
 - [ ] **Reference screenshot** available (check `2025-11-26-current-state/`)
 - [ ] **Page structure planned** (sections mapped out)
 - [ ] **Images prepared** and uploaded to media library
- - Hero image optimized (<150KB)
- - Feature images optimized (<50KB)
- - ALT text prepared for all images
+  - Hero image optimized (<150KB)
+  - Feature images optimized (<50KB)
+  - ALT text prepared for all images
 
 ### 3. MCP Connection Verification 🔌
 
@@ -2602,6 +2809,8 @@ curl -u "test:S27q 64rq oFhf TPDA 30nB hNM5" \
 - [ ] Authentication working
 - [ ] WordPress REST API accessible
 
+---
+
 ## Page Creation Phase
 
 ### Step 0: 🚨 Pre-Flight Snapshot (MANDATORY for Updates)
@@ -2611,7 +2820,7 @@ curl -u "test:S27q 64rq oFhf TPDA 30nB hNM5" \
 **WHY**: Protect against accidental data loss (empty JSON, wrong structure, etc.)
 
 ╔════════════════════════════════════════════════════════════════════════════╗
-🚨 ABSOLUTE RULE: CREATE BACKUP BEFORE EVERY update_elementor_page_data()
+║ 🚨 ABSOLUTE RULE: CREATE BACKUP BEFORE EVERY update_elementor_page_data() ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 **BEFORE updating existing page:**
@@ -2647,6 +2856,8 @@ python restore-from-backup.py --backup "backups/page_21_before_hero-fix_20251129
 
 **See also**: `.claude/agents/coder.md` → "SAFETY RULES (PRE-FLIGHT SNAPSHOT)" section
 
+---
+
 ### Step 1: Create Base Page Structure 🏗️
 
 **MCP Tool**: `create_elementor_page` or `create_page`
@@ -2656,7 +2867,7 @@ python restore-from-backup.py --backup "backups/page_21_before_hero-fix_20251129
 - [ ] Slug set (lowercase, hyphens)
 - [ ] Status: `draft` (until complete)
 - [ ] Meta fields set:
- ```json
+  ```json
   {
     "_elementor_edit_mode": "builder",
     "_elementor_template_type": "wp-page",
@@ -2712,14 +2923,14 @@ TOTAL: [#] sections, [#] columns, [#] widgets
 **For Each Section**:
 
 - [ ] **Section background** set (use Global Colors)
- ```json
+  ```json
   {
     "background_color": "var(--e-global-color-background)"
   }
   ```
 
 - [ ] **Section padding** configured
- ```json
+  ```json
   {
     "padding": {
       "unit": "px",
@@ -2732,13 +2943,13 @@ TOTAL: [#] sections, [#] columns, [#] widgets
   ```
 
 - [ ] **Column count** justified
- - 1 column: Default (80% of sections)
- - 2 columns: Text + image, split content
- - 3 columns: Feature grids only
- - 4 columns: Special cases only
+  - 1 column: Default (80% of sections)
+  - 2 columns: Text + image, split content
+  - 3 columns: Feature grids only
+  - 4 columns: Special cases only
 
 - [ ] **Column sizes** set (percentage)
- ```json
+  ```json
   {
     "_column_size": 50  // For 2-column: 50/50
   }
@@ -2769,41 +2980,41 @@ create_elementor_section({
 **Widget Selection Decision Tree**:
 
 1. **Is it text + image + button?**
- - ✅ Use: Call to Action widget
- - ❌ Don't use: Separate Heading + Text + Button + Image
+   - ✅ Use: Call to Action widget
+   - ❌ Don't use: Separate Heading + Text + Button + Image
 
 2. **Is it icon + heading + text?**
- - ✅ Use: Icon Box widget
- - ❌ Don't use: Separate Icon + Heading + Text
+   - ✅ Use: Icon Box widget
+   - ❌ Don't use: Separate Icon + Heading + Text
 
 3. **Is it just a heading?**
- - ✅ Use: Heading widget
- - ❌ Don't use: Text Editor with `<h1>`
+   - ✅ Use: Heading widget
+   - ❌ Don't use: Text Editor with `<h1>`
 
 4. **Is it paragraph text?**
- - ✅ Use: Text Editor widget
- - ❌ Don't use: Multiple Heading widgets
+   - ✅ Use: Text Editor widget
+   - ❌ Don't use: Multiple Heading widgets
 
 5. **Is it a list of items with icons?**
- - ✅ Use: Icon List widget
- - ❌ Don't use: Multiple Icon + Text widgets
+   - ✅ Use: Icon List widget
+   - ❌ Don't use: Multiple Icon + Text widgets
 
 6. **Is it multiple images?**
- - ✅ Use: Gallery or Image Carousel widget
- - ❌ Don't use: Multiple Image widgets in columns
+   - ✅ Use: Gallery or Image Carousel widget
+   - ❌ Don't use: Multiple Image widgets in columns
 
 **For Each Widget**:
 
 - [ ] **Widget type** selected from decision tree
 - [ ] **Global Colors** used (never hardcoded hex)
- ```json
+  ```json
   {
     "color": "var(--e-global-color-secondary)"
   }
   ```
 
 - [ ] **Typography** follows scale
- ```json
+  ```json
   {
     "header_size": "h1",  // or h2, h3, etc.
     "typography_typography": "custom",
@@ -2815,7 +3026,7 @@ create_elementor_section({
   ```
 
 - [ ] **Image dimensions** set (if applicable)
- ```json
+  ```json
   {
     "image": { "url": "...", "id": 123 },
     "width": { "unit": "px", "size": 600 },
@@ -2824,7 +3035,7 @@ create_elementor_section({
   ```
 
 - [ ] **ALT text** added (if image widget)
- ```json
+  ```json
   {
     "image": { "url": "...", "alt": "Описание на изображението" }
   }
@@ -2857,7 +3068,7 @@ add_widget_to_section({
 
 - [ ] **Desktop settings** configured (default)
 - [ ] **Tablet settings** configured (768px-1199px)
- ```json
+  ```json
   {
     "typography_font_size_tablet": {
       "unit": "rem",
@@ -2867,7 +3078,7 @@ add_widget_to_section({
   ```
 
 - [ ] **Mobile settings** configured (0-767px)
- ```json
+  ```json
   {
     "typography_font_size_mobile": {
       "unit": "rem",
@@ -2877,7 +3088,7 @@ add_widget_to_section({
   ```
 
 - [ ] **Hide on devices** (if needed)
- ```json
+  ```json
   {
     "hide_desktop": "",  // Show
     "hide_tablet": "yes", // Hide
@@ -2911,6 +3122,8 @@ add_widget_to_section({
   }
 }
 ```
+
+---
 
 ## Verification Phase
 
@@ -2947,22 +3160,22 @@ clear_elementor_cache_by_page({ page_id: 21 })
 
 **Verification Checklist**:
 - [ ] **Global Colors compliance**
- - No hardcoded hex values (`#6366f1` → `var(--e-global-color-primary)`)
- - All colors use CSS variables
+  - No hardcoded hex values (`#6366f1` → `var(--e-global-color-primary)`)
+  - All colors use CSS variables
 
 - [ ] **Global Fonts compliance**
- - No hardcoded font names
- - Typography scale followed
+  - No hardcoded font names
+  - Typography scale followed
 
 - [ ] **Visual match to reference screenshot**
- - Layout matches
- - Spacing consistent
- - Colors accurate
+  - Layout matches
+  - Spacing consistent
+  - Colors accurate
 
 - [ ] **Responsive design working**
- - Desktop view correct
- - Tablet view correct
- - Mobile view correct
+  - Desktop view correct
+  - Tablet view correct
+  - Mobile view correct
 
 **Command**:
 ```bash
@@ -3044,6 +3257,8 @@ Task: "Capture screenshots of page at http://svetlinkielementor.local/about/ at 
 Task: "Run comprehensive 21-test suite on page ID 21 (Home) at http://svetlinkielementor.local/. Report pass/fail for each test category."
 ```
 
+---
+
 ## Publication Phase
 
 ### Step 12: Final Review 👀
@@ -3085,6 +3300,8 @@ update_page({
 | Home | ✅ Complete | 5 | 18 | 96/100 | Optimized from original design |
 ```
 
+---
+
 ## Post-Creation Optimization
 
 ### Optional: Further Optimization 🔧
@@ -3107,6 +3324,8 @@ If Lighthouse score < 95:
 - [ ] **Form labels** present (if forms exist)
 - [ ] **ARIA labels** added where needed
 
+---
+
 ## Quick Reference: MCP Tools
 
 | Phase | Tool | Purpose |
@@ -3125,6 +3344,8 @@ If Lighthouse score < 95:
 | Cache | `clear_elementor_cache_by_page` | Clear page-specific cache |
 | List | `get_pages` | List all pages |
 | Update | `update_page` | Update page status/meta |
+
+---
 
 ## Troubleshooting
 
@@ -3164,6 +3385,8 @@ If Lighthouse score < 95:
 - [ ] Check WordPress URL matches: `http://svetlinkielementor.local`
 - [ ] Restart Claude Code
 - [ ] Check Local site is running in LocalWP
+
+---
 
 ## Example: Complete Page Creation Flow
 
@@ -3305,6 +3528,8 @@ update_page({
 ✅ About page complete - 3 sections, 6 widgets, Lighthouse 94/100
 ```
 
+---
+
 ## Summary: Key Success Factors
 
 1. ✅ **Plan before creating** (section structure, widget count)
@@ -3317,7 +3542,11 @@ update_page({
 8. ✅ **Target Lighthouse 90+** (performance first)
 9. ✅ **Document completion** (update progress tracker)
 
+---
+
 **Document Version**: 1.0
 **Last Updated**: 2025-11-28
 **Reference**: ELEMENTOR-CORE-PRINCIPLES.md
 **Status**: Production Workflow Guide
+
+

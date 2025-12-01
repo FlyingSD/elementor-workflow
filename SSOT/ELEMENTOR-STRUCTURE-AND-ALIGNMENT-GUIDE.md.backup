@@ -5,13 +5,21 @@
 **Status**: Production reference for page building
 **Version**: 1.0
 
+---
+
 ## Table of Contents
-- [Structure Fundamentals](#structure-fundamentals)
-2.
-- [Section Configuration](#section-configuration)
-3.
-- [Column Layout & Alignment](#column-layout--alignment)
-4.
+
+1. [Structure Fundamentals](#structure-fundamentals)
+2. [Section Configuration](#section-configuration)
+3. [Column Layout & Alignment](#column-layout--alignment)
+4. [Card Structure Patterns](#card-structure-patterns)
+5. [Text & Content Alignment](#text--content-alignment)
+6. [Spacing System](#spacing-system)
+7. [Common Patterns](#common-patterns)
+8. [Troubleshooting Layouts](#troubleshooting-layouts)
+
+---
+
 ## Structure Fundamentals
 
 ### Element Hierarchy
@@ -35,9 +43,9 @@ Section/Container (Full-width wrapper)
 2. **Columns** create horizontal divisions within sections
 3. **Widgets** are actual content elements (cannot contain other widgets)
 4. **Styling applies at appropriate level**:
- - Page background → Section
- - Card background → Column
- - Content styling → Widget
+   - Page background → Section
+   - Card background → Column
+   - Content styling → Widget
 
 ### Element Capabilities
 
@@ -48,6 +56,8 @@ Section/Container (Full-width wrapper)
 | **Widget** | Text, icon, button, typography | Container background (limited) |
 
 **Critical Rule**: To create card-style layouts with backgrounds, borders, and shadows → **Style the COLUMN, not the widget!**
+
+---
 
 ## Section Configuration
 
@@ -161,6 +171,8 @@ Source: `includes/elements/section.php`
 **Effect**: Makes section stretch to browser window edges (ignores container padding)
 
 **Use Case**: Full-width backgrounds while keeping content boxed inside
+
+---
 
 ## Column Layout & Alignment
 
@@ -320,6 +332,8 @@ Source: `includes/elements/column.php`
   }
 }
 ```
+
+---
 
 ## Card Structure Patterns
 
@@ -503,6 +517,8 @@ Section
 }
 ```
 
+---
+
 ## Text & Content Alignment
 
 ### Widget-Level Text Alignment
@@ -550,6 +566,8 @@ Section
 - Desktop cards: Center aligned
 - Mobile cards: Left aligned (easier to read)
 - CTAs: Always center aligned
+
+---
 
 ## Spacing System
 
@@ -639,6 +657,8 @@ Section Padding (60-80px)
   }
 }
 ```
+
+---
 
 ## Common Patterns
 
@@ -757,6 +777,8 @@ Section Padding (60-80px)
   "align": "flex-start"
 }
 ```
+
+---
 
 ## Troubleshooting Layouts
 
@@ -914,6 +936,8 @@ Section Padding (60-80px)
 }
 ```
 
+---
+
 ## Quick Reference Cheat Sheet
 
 ### Section Quick Config
@@ -973,10 +997,22 @@ Section Padding (60-80px)
 }
 ```
 
+---
+
 ## Best Practices Summary
-- **Card Styling**: Always style the COLUMN, not the widget
-2.
-- **Equal Heights**: Use section `column_position: "stretch"`
-3.
-- **Spacing**: Use consistent spacing system (15/20/30/40px increments)
-4.
+
+1. **Card Styling**: Always style the COLUMN, not the widget
+2. **Equal Heights**: Use section `column_position: "stretch"`
+3. **Spacing**: Use consistent spacing system (15/20/30/40px increments)
+4. **Responsive**: Always define tablet/mobile breakpoints
+5. **Alignment**: Combine section, column, and widget alignment for best control
+6. **Gaps**: Use section gap OR column margins, not both
+7. **Testing**: Always test on all 3 breakpoints (desktop/tablet/mobile)
+8. **CSS Regeneration**: After API updates, regenerate CSS (see Technical Guide)
+
+---
+
+**Last Updated**: 2025-11-30
+**Version**: 1.0
+**Companion Guide**: ELEMENTOR-API-TECHNICAL-GUIDE.md
+**Status**: Production Ready

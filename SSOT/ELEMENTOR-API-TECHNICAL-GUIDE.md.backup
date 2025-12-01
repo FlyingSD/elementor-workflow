@@ -5,13 +5,21 @@
 **Status**: Production reference documentation
 **Version**: 1.0
 
+---
+
 ## Table of Contents
-- [Architecture Overview](#architecture-overview)
-2.
-- [Data Flow & Save Mechanism](#data-flow--save-mechanism)
-3.
-- [CSS Generation System](#css-generation-system)
-4.
+
+1. [Architecture Overview](#architecture-overview)
+2. [Data Flow & Save Mechanism](#data-flow--save-mechanism)
+3. [CSS Generation System](#css-generation-system)
+4. [REST API Integration](#rest-api-integration)
+5. [Group Controls Deep Dive](#group-controls-deep-dive)
+6. [Property Naming Conventions](#property-naming-conventions)
+7. [Cache Management](#cache-management)
+8. [Troubleshooting](#troubleshooting)
+
+---
+
 ## Architecture Overview
 
 ### Core Components
@@ -53,6 +61,8 @@ Document (Post/Page)
         └── Widget (content element)
             └── Settings (JSON object)
 ```
+
+---
 
 ## Data Flow & Save Mechanism
 
@@ -123,6 +133,8 @@ $css_file->delete();  // ← Only deletion happens!
 - CSS regeneration does NOT happen automatically ❌
 - Manual trigger required (see Troubleshooting section)
 
+---
+
 ## CSS Generation System
 
 ### Generation Flow
@@ -189,6 +201,8 @@ render_css()
   box-shadow: 0px 10px 35px 0px rgba(0, 0, 0, 0.1);
 }"
 ```
+
+---
 
 ## REST API Integration
 
@@ -260,6 +274,8 @@ Workaround options:
 1. Manual: Click "Update" in Elementor editor
 2. Script: Run `Elementor\Plugin::instance()->files_manager->clear_cache()`
 3. Tool: Visit Elementor > Tools > Regenerate Files & Data
+
+---
 
 ## Group Controls Deep Dive
 
@@ -391,6 +407,8 @@ border-radius: 20px 20px 20px 20px;
 }
 ```
 
+---
+
 ## Property Naming Conventions
 
 ### Naming Patterns
@@ -475,6 +493,8 @@ Examples:
 - Tablet: `_tablet`
 - Mobile: `_mobile`
 
+---
+
 ## Cache Management
 
 ### Cache Layers
@@ -533,6 +553,8 @@ wp_update_post([
     'post_modified_gmt' => current_time('mysql', 1)
 ]);
 ```
+
+---
 
 ## Troubleshooting
 
@@ -618,8 +640,8 @@ echo $css; // Search for "box-shadow"
 
 **Check**:
 1. Using correct property names:
- - Vertical: `content_position`
- - Horizontal: `align`
+   - Vertical: `content_position`
+   - Horizontal: `align`
 2. Applied to column, not widget
 3. Column has height to align within
 4. Not conflicting with widget-level alignment
@@ -632,6 +654,8 @@ echo $css; // Search for "box-shadow"
   "align": "center"              // Horizontal center
 }
 ```
+
+---
 
 ## Reference Resources
 
@@ -660,6 +684,8 @@ echo $css; // Search for "box-shadow"
 - Local installation: `C:\Users\denit\wp-elementor-mcp`
 - Version: 1.6.1
 
+---
+
 ## Quick Reference Commands
 
 ```bash
@@ -678,6 +704,8 @@ mcp__wp-elementor-mcp__get_elementor_widget(post_id, element_id)
 # Backup before changes
 mcp__wp-elementor-mcp__backup_elementor_data({post_id})
 ```
+
+---
 
 **Last Updated**: 2025-11-30
 **Version**: 1.0

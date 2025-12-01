@@ -6,13 +6,24 @@
 **Version**: 1.0
 **Sources**: Nielsen Norman Group, W3C WCAG, Material Design, Smashing Magazine, Web.dev, U.S. Web Design System
 
+---
+
 ## Table of Contents
-- [Foundation Principles](#foundation-principles)
-2.
-- [Accessibility Standards (WCAG)](#accessibility-standards-wcag)
-3.
-- [Typography Rules](#typography-rules)
-4.
+
+1. [Foundation Principles](#foundation-principles)
+2. [Accessibility Standards (WCAG)](#accessibility-standards-wcag)
+3. [Typography Rules](#typography-rules)
+4. [Spacing & Whitespace System](#spacing--whitespace-system)
+5. [Color & Contrast](#color--contrast)
+6. [Layout & Grid Systems](#layout--grid-systems)
+7. [Responsive Design Rules](#responsive-design-rules)
+8. [Content & UX Writing](#content--ux-writing)
+9. [Navigation & Interaction](#navigation--interaction)
+10. [Performance & Technical](#performance--technical)
+11. [Quick Reference Checklist](#quick-reference-checklist)
+
+---
+
 ## Foundation Principles
 
 ### Nielsen's 10 Usability Heuristics
@@ -77,6 +88,8 @@
 - Keep it brief and task-focused
 - **Rule**: Best help is no help needed (intuitive design)
 
+---
+
 ### 10 Principles of Effective Web Design
 
 **1. Don't Make Users Think**
@@ -133,6 +146,8 @@
 - Test with real users
 - **Rule**: Testing one user is 100% better than testing none
 
+---
+
 ## Accessibility Standards (WCAG)
 
 ### Four Core Principles: POUR
@@ -187,6 +202,8 @@
 - ARIA labels when semantic HTML insufficient
 - Validate HTML (W3C validator)
 - Test with screen readers (NVDA, JAWS, VoiceOver)
+
+---
 
 ## Typography Rules
 
@@ -260,6 +277,8 @@ Small: 14px (0.875rem) - Captions, meta
 
 **Why**: Respects user browser font size settings (accessibility)
 
+---
+
 ## Spacing & Whitespace System
 
 ### 8-Point Grid System
@@ -330,6 +349,8 @@ Page Padding (60-80px)
 - Use margin for gaps between elements
 - Don't use both for same purpose (choose one pattern)
 
+---
+
 ## Color & Contrast
 
 ### WCAG Contrast Requirements
@@ -379,6 +400,8 @@ Page Padding (60-80px)
 - Purple: Luxury, creativity, wisdom
 
 **Rule**: Test colors with target audience (cultural differences exist)
+
+---
 
 ## Layout & Grid Systems
 
@@ -452,6 +475,8 @@ Use for articles, documentation
 - Main: 66% width (8 columns)
 - Sidebar: 33% width (4 columns)
 - Swap on mobile (content first)
+
+---
 
 ## Responsive Design Rules
 
@@ -547,6 +572,8 @@ img {
 
 **Don't Hide Critical Content on Mobile!**
 
+---
+
 ## Content & UX Writing
 
 ### Writing for the Web
@@ -599,6 +626,8 @@ img {
 1. Primary (filled button, brand color)
 2. Secondary (outline button)
 3. Tertiary (text link)
+
+---
 
 ## Navigation & Interaction
 
@@ -662,6 +691,8 @@ img {
 - Clear error styling (red border, icon, message)
 - Don't clear field on error (let user fix it)
 
+---
+
 ## Performance & Technical
 
 ### Page Speed Rules
@@ -715,6 +746,8 @@ img {
 - Enhanced features: Modern browsers
 - Fallbacks: For older browsers
 
+---
+
 ## Quick Reference Checklist
 
 ### Before Launch Checklist
@@ -760,6 +793,8 @@ img {
 - [ ] Analytics installed
 - [ ] Privacy policy/terms added
 
+---
+
 ## Rule Priority Levels
 
 ### P0 - Critical (Must Have)
@@ -782,6 +817,8 @@ img {
 - Micro-interactions
 - Performance optimization beyond basics
 
+---
+
 ## Golden Rules Summary
 
 1. **Users first**: Design for actual user needs, not your preferences
@@ -794,6 +831,8 @@ img {
 8. **Test**: With real users, real devices, real assistive technologies
 9. **Performance**: Every KB matters
 10. **Iterate**: Ship, measure, improve, repeat
+
+---
 
 **Last Updated**: 2025-11-30
 **Version**: 1.0
