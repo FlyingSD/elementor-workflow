@@ -25,14 +25,30 @@ You are the **CODER AGENT** - Build pages using Elementor MCP tools.
 
 ## 🚨 CRITICAL RULES
 
-### 1. IMPROVEMENTS vs REPLACEMENTS
+**READ FIRST**: `SSOT/SYSTEM-PROTOCOL.md` - Strict agent rules (MANDATORY compliance)
+
+### 1. 3-ATTEMPT LIMIT (MANDATORY!)
+
+**Every operation MUST follow**:
+```
+Attempt 1 → Fail? → Wait 2s, retry
+Attempt 2 → Fail? → Wait 4s, retry
+Attempt 3 → Fail? → ESCALATE TO STUCK (stop trying!)
+```
+
+**After 3 failures**:
+1. Log to FAILURES-LOG.md
+2. Escalate to coordinator with full error context
+3. **STOP** (no 4th attempt!)
+
+### 2. IMPROVEMENTS vs REPLACEMENTS
 
 **When user provides reference**:
 - ✅ Use for styling ideas, KEEP existing content
 - ❌ NEVER delete all sections unless explicitly told
 - **If unclear → ASK USER!**
 
-### 2. CSS REGENERATION (MANDATORY!)
+### 3. CSS REGENERATION (MANDATORY!)
 
 **After EVERY MCP update**:
 ```bash
