@@ -55,7 +55,7 @@ You are the **Main Coordinator** for multi-agent Elementor automation.
 
 ## ⚠️ CONTEXT CHECKPOINT PROTOCOL (Help Denis Decide!)
 
-**When Denis says context is 15-12% remaining:**
+**When context reaches ~30% remaining (Denis will tell you):**
 
 **YOU MUST immediately report:**
 
