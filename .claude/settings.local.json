@@ -59,7 +59,10 @@
       "WebFetch(domain:engineering.meetsmore.com)",
       "WebFetch(domain:nx.dev)",
       "WebFetch(domain:dagger.io)",
-      "WebFetch(domain:builtin.com)"
+      "WebFetch(domain:builtin.com)",
+      "mcp__wp-elementor-mcp__get_page_structure",
+      "mcp__wp-elementor-mcp__get_post",
+      "Bash(programs-page-output.html)"
     ],
     "deny": [],
     "ask": []

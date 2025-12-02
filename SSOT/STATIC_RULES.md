@@ -742,12 +742,19 @@ When creating pages via MCP, set these meta fields:
 7. Configure responsive settings
 ```
 
-**Phase 3: Optimization**
+**Phase 3: CSS Regeneration & Verification (MANDATORY!)**
 ```
-8. Clear cache with clear_elementor_cache
-9. Verify with get_page_structure
-10. Test performance with Lighthouse
+8. Regenerate CSS via Web API (REQUIRED after ANY MCP update!):
+   curl -s "http://svetlinkielementor.local/regenerate-css-api.php?page=21&secret=svetlinki2024"
+   curl -s "http://svetlinkielementor.local/" > nul
+
+9. Verify changes in NEW incognito window
+10. Verify structure with get_page_structure
+11. Test performance with Lighthouse
 ```
+
+**⚠️ CRITICAL**: MCP updates database only. CSS regeneration is NOT optional!
+See: `SSOT/MANDATORY-CSS-REGENERATION.md` for full details.
 
 ### Design System Checklist
 

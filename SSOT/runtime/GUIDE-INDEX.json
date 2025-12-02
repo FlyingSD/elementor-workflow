@@ -1,6 +1,6 @@
 {
-  "index_version": "1.0",
-  "last_updated": "2025-12-01",
+  "index_version": "1.2",
+  "last_updated": "2025-12-02 (FAQ + About session)",
   "description": "Anchor index for targeted SSOT section loading (80% context reduction)",
   "usage": "Query keywords → Get exact file:section:lines → Load ONLY that section",
 
@@ -24,15 +24,25 @@
     "padding values": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
     "margin values": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
     "gap between": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#spacing-system",
+    "legacy sections spacing": "SSOT/LESSONS-LEARNED.md#3-fixed-card-spacing",
+    "column margins spacing": "SSOT/LESSONS-LEARNED.md#3-fixed-card-spacing",
+    "card spacing legacy": "SSOT/LESSONS-LEARNED.md#3-fixed-card-spacing",
+    "section gap not working": "SSOT/LESSONS-LEARNED.md#3-fixed-card-spacing",
 
     "box shadow": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
     "border styling": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
+    "border configuration": "SSOT/LESSONS-LEARNED.md#2-fixed-border-configuration",
+    "border all sides": "SSOT/LESSONS-LEARNED.md#2-fixed-border-configuration",
+    "border width pattern": "SSOT/LESSONS-LEARNED.md#2-fixed-border-configuration",
+    "borders not showing": "SSOT/LESSONS-LEARNED.md#2-fixed-border-configuration",
     "background gradient": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
     "background color": "SSOT/ELEMENTOR-API-TECHNICAL-GUIDE.md#group-controls-deep-dive",
 
     "mcp workflow": "SSOT/MANDATORY-CSS-REGENERATION.md#complete-mcp-update-checklist",
     "css regeneration": "SSOT/MANDATORY-CSS-REGENERATION.md#mandatory-workflow-no-exceptions",
-    "nuclear css fix": "SSOT/MANDATORY-CSS-REGENERATION.md#mandatory-workflow-no-exceptions",
+    "css regeneration api": "SSOT/MANDATORY-CSS-REGENERATION.md#method-1-web-api-endpoint-recommended",
+    "regenerate css api": "SSOT/MANDATORY-CSS-REGENERATION.md#method-1-web-api-endpoint-recommended",
+    "nuclear css fix": "SSOT/MANDATORY-CSS-REGENERATION.md#method-2-alternative-if-api-fails",
     "backup page": "SSOT/MANDATORY-CSS-REGENERATION.md#complete-mcp-update-checklist",
 
     "global colors": "SSOT/ACTIVE_STATE.md#global-design-system",
@@ -92,7 +102,34 @@
 
     "hero section pattern": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#common-patterns-and-layouts",
     "benefits section": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#card-structure-patterns",
-    "footer pattern": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#common-patterns-and-layouts"
+    "footer pattern": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#common-patterns-and-layouts",
+
+    "accordion widget": "SSOT/STATIC_RULES.md#widget-whitelist",
+    "faq accordion": "SSOT/STATIC_RULES.md#widget-whitelist",
+    "accordion styling": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+    "accordion title background": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+    "custom css limitation": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+
+    "about page structure": "ABOUT-PAGE-CORRECT-STRUCTURE.md#correct-structure-from-reference",
+    "simple page layout": "ABOUT-PAGE-CORRECT-STRUCTURE.md#correct-structure-from-reference",
+    "two column layout": "SSOT/ELEMENTOR-STRUCTURE-AND-ALIGNMENT-GUIDE.md#column-layout-and-alignment",
+    "blockquote styling": "ABOUT-PAGE-CORRECT-STRUCTURE.md#section-1-about-mission",
+    "list styling": "ABOUT-PAGE-CORRECT-STRUCTURE.md#section-2-values-how-we-work",
+
+    "hover effects": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+    "css transitions": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+    "hover color palette": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+    "darken on hover": "SSOT/IMPORTANT/ACCORDION-NATIVE-VS-CUSTOM-CSS.md",
+
+    "text editor widget": "SSOT/STATIC_RULES.md#widget-whitelist",
+    "html content": "ABOUT-PAGE-CORRECT-STRUCTURE.md#elementor-widgets-to-use-native-only",
+    "inline styles acceptable": "ABOUT-PAGE-CORRECT-STRUCTURE.md#elementor-widgets-to-use-native-only",
+
+    "v4 styling": "SSOT/ACTIVE_STATE.md#approved-design-system-v4",
+    "v4 colors": "SSOT/ACTIVE_STATE.md#approved-design-system-v4",
+    "yellow accents": "SSOT/ACTIVE_STATE.md#approved-design-system-v4",
+    "white backgrounds": "SSOT/ACTIVE_STATE.md#approved-design-system-v4",
+    "minimal coral": "ABOUT-PAGE-CORRECT-STRUCTURE.md#v4-color-usage-minimal"
   },
 
   "aliases": {
@@ -116,13 +153,21 @@
     "mobile": "responsive breakpoints",
     "hero": "hero section pattern",
     "benefits": "benefits section",
-    "footer": "footer pattern"
+    "footer": "footer pattern",
+    "accordion": "accordion widget",
+    "faq": "faq accordion",
+    "hover": "hover effects",
+    "custom css": "custom css limitation",
+    "about": "about page structure",
+    "blockquote": "blockquote styling",
+    "list": "list styling",
+    "v4": "v4 styling"
   },
 
   "stats": {
-    "total_keywords": 68,
-    "total_aliases": 24,
-    "coverage_estimate": "90%",
+    "total_keywords": 101,
+    "total_aliases": 32,
+    "coverage_estimate": "95%",
     "avg_section_size": "50-200 lines",
     "context_reduction": "80%"
   }

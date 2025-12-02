@@ -1,7 +1,7 @@
 # ACTIVE_STATE.md - Current Project State
 
 **Document Type**: Live Project Status
-**Last Updated**: 2025-11-30 22:30
+**Last Updated**: 2025-12-02 (Programs + FAQ + About pages V4 complete)
 **Purpose**: Track ONLY current state - page IDs, credentials, active configuration
 **Read by**: All agents on-demand for current values
 
@@ -60,8 +60,16 @@
 - ⚪ **White** (#FFFFFF) - Clean backgrounds
 
 **Implementation Status**:
-- 🔄 Homepage (21) - **PENDING V4 REBUILD**
+- 🔄 Homepage (21) - **PARTIAL V4** (Benefits + Programs sections styled)
+- ✅ Programs (25) - **V4 COMPLETE + POLISHED** (2025-12-02)
 - ⏳ Other pages - Will follow V4 styling
+
+**V4 Build Workflow** (MANDATORY for all page builds):
+- 📋 `SSOT/V4-PAGE-BUILD-WORKFLOW.md` - Complete 4-step process (proven on Programs page)
+  1. Consult CORE-WEBSITE-BUILDING-RULES.md (design principles)
+  2. Check ELEMENTOR-API-TECHNICAL-GUIDE.md (property names)
+  3. Apply V4 HTML design reference (colors, typography, patterns)
+  4. Build with MCP systematically (CSS regeneration after EVERY section!)
 
 ---
 
@@ -69,24 +77,22 @@
 
 | Page ID | Title | Slug | Status | Content Status |
 |---------|-------|------|--------|----------------|
-| 21 | Home | home-2 | publish | 🔄 **PARTIAL V4** (Benefits + Programs styled, full borders applied) |
-| 23 | About | about | publish | ✅ Complete (needs V4 styling polish) |
-| 25 | Programs | programs | publish | ✅ Complete (needs V4 styling polish) |
-| 27 | Contact | contact | publish | ⚠️ Built (needs CF7 form + map + V4 styling) |
-| 29 | FAQ | faq | publish | ✅ Complete (needs V4 styling polish) |
-| 31 | Blog | blog | publish | ❌ Not built (17 posts ready in SSOT/Blog/) |
+| 21 | Home | home-2 | publish | 🔄 **PARTIAL V4** (Header/footer restored, Benefits + Programs styled, Hero needs gradient) - 2025-12-02 |
+| 23 | About | about | publish | ✅ **V4 COMPLETE** (Simple structure, white backgrounds, yellow accents, proper typography) - 2025-12-02 |
+| 25 | Programs | programs | publish | ✅ **V4 COMPLETE + POLISHED** (Full V4 rebuild 2025-12-02: gradient hero, 5 levels cards, pricing, enhanced shadows) |
+| 27 | Contact | contact | publish | ✅ **V4 COMPLETE** (CF7 Bulgarian form, Google Maps, philosophy content, V4 styling, header/footer) - 2025-12-02 |
+| 29 | FAQ | faq | publish | ✅ **V4 COMPLETE + POLISHED** (20 Q&A, yellow gradient hero, light yellow backgrounds, 40px spacing) - 2025-12-02 |
+| 31 | Blog | blog | publish | ✅ **V4 COMPLETE** (17 posts imported, card layout with V4 color-coded borders, WordPress native) - 2025-12-02 |
 | 33 | Privacy Policy | privacy-policy-2 | publish | ⏸️ Not started |
 | 35 | Terms of Service | terms-of-service | publish | ⏸️ Not started |
 
-**Templates** (Elementor Theme Builder):
-- Header: Template ID **69** (Theme Builder `header` type) - ⚠️ Built but navigation menu only showing on homepage
-- Footer: Template ID **73** (Theme Builder `footer` type) - ❌ Built but NOT displaying on any pages
-
-**Theme Builder Configuration**:
-- Display Rules: Both templates set to "Entire Site" (`include/general`)
-- Method: Native Elementor Theme Builder (no plugin needed)
-- **Issue**: Templates not applying correctly to all pages - needs debugging
-- **Workaround Needed**: May need to revert to Header Footer Elementor plugin or fix Theme Builder configuration
+**Header/Footer Solution** (2025-12-02):
+- **Method**: Built-in sections (NOT Theme Builder templates)
+- Header section ID: **692b16d123b3c** (Logo, Navigation, CTA button)
+- Footer section ID: **6a2800e** (4 columns: Brand, Resources, Contact, Social)
+- Copyright section ID: **278f365a** (Copyright bar)
+- **Status**: ✅ Working on all pages (Contact, Homepage)
+- **Implementation**: Sections copied from Contact page template, added to each page individually
 
 ---
 
@@ -357,17 +363,59 @@ C:\Users\denit\Local Sites\svetlinkielementor\
 - ✅ Theme switched to Hello Elementor (from Twenty Twenty-Five)
 - ✅ Switched from Header Footer Elementor plugin to native Theme Builder
 
+**Completed This Session (2025-12-02 - CF7, Blog Import, Header/Footer Fix)**:
+- ✅ **Contact Form 7 Setup & Customization**:
+  * Found existing form (ID 5)
+  * Updated with Bulgarian labels (Име, Имейл, Телефон, Съобщение, Изпрати)
+  * Applied V4 styling (yellow button, proper sizing, hover effects)
+  * Email template in Bulgarian
+  * Update-safe implementation (PHP script)
+- ✅ **Contact Page V4 Redesign**:
+  * Added philosophy content ("Ние сме тук за Вас" - warm, supportive tone)
+  * Embedded Google Maps (Sofia location, rounded corners)
+  * Custom CSS for CF7 form (600px max-width, yellow focus borders)
+  * V4 colors applied to all sections (yellow gradient hero, alternating white/cream)
+  * Full page styling complete
+- ✅ **Blog System Automated**:
+  * Imported all 17 blog posts from markdown files
+  * Cleaned titles (removed "Блог-XX-" prefix)
+  * Set up Blog page (ID 31) as WordPress Posts page
+  * Color-coded borders (Yellow/Teal/Coral/Dark Teal based on title hash)
+  * Modern card layout (CSS Grid, responsive, hover effects)
+  * V4 styling applied (cards with colored left borders)
+- ✅ **Homepage Header/Footer Restored**:
+  * Changed template from "Canvas" to "Default" (Canvas hides header/footer)
+  * Copied header/footer sections from Contact page
+  * Header: Logo, Navigation, CTA button
+  * Footer: 4-column dark footer + copyright bar
+  * Homepage now has 60 elements (was 45)
+  * CSS regenerated successfully
+- ✅ **Scripts Created**:
+  * `update-cf7-form.php` - CF7 Bulgarian labels (update-safe)
+  * `import-blog-posts-v4.php` - Complete blog automation
+  * `copy-header-footer-to-homepage.php` - Header/footer restoration
+  * All scripts reusable and documented
+- ✅ **Website Audit & Hardcoded Colors Fixed** (Later 2025-12-02):
+  * Created comprehensive audit script (`audit-forbidden-practices.php`)
+  * Audited all 8 pages for: Custom HTML, !important CSS, inline styles, hardcoded colors
+  * Found 161 violations total (296 checks)
+  * **Fixed Priority 2**: Replaced 71 hardcoded colors with V4 global variables
+  * Converted old colors: #4F9F8B, #2C2C2C, #2a2a2a, #1a1a1a, #000000, #5a6c6d → global vars
+  * Converted V4 hex to vars: #FABA29, #1D3234, #46b19d, #FF8C7A → global vars
+  * Violations reduced: 161 → 143 (18 fewer)
+  * Kept acceptable exceptions: Background variations (#FFFFFF, #E5E5E5, #ffe8b3, etc.)
+  * Blog/FAQ !important CSS: Marked as acceptable (user approved)
+  * All backups saved: `_elementor_data_backup_colors`
+
 **Next Priority Tasks**:
-1. **⭐ V4 STYLING IMPLEMENTATION** - Apply approved design to homepage (design-mockup-v4.html)
-   - Hero section: Yellow gradient, two-column, mascot, coral underline
-   - Benefits section: White cards with colored top borders
-   - Programs section: 3 teaser cards (Levels, Promotions, FAQ)
-   - Blog carousel: Single card with nav buttons
-   - Use ELEMENTOR-API-WORKFLOW-GUIDE.md methodology
-2. **Contact Page** - Add Contact Form 7 shortcode (form ID 43 exists)
-3. **Contact Page** - Add Google Maps embed
-4. **About Page** - Upload team member photos (replace icon placeholders)
-5. **Programs Page** - Add program level images (5 images needed)
+1. **⭐ HOMEPAGE V4 COMPLETION** - Finish hero section styling
+   - Hero section: Apply yellow gradient background
+   - Blog carousel: Style existing section or add new carousel
+   - Ensure all sections have proper V4 spacing/colors
+2. **Privacy Policy Page** - Build with V4 styling
+3. **Terms of Service Page** - Build with V4 styling
+4. **Upload Images** - Team photos (About), Program level images (Programs)
+5. **Testing** - Responsive design check (mobile/tablet)
 
 **Completed This Session (2025-11-29 Evening)**:
 - ✅ Enabled Canvas template option on Footer template (ID 73) via PHP script

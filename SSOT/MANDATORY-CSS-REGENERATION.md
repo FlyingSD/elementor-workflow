@@ -21,7 +21,29 @@
 
 ## ✅ MANDATORY WORKFLOW (NO EXCEPTIONS!)
 
-**After EVERY MCP update, you MUST run these 2 commands:**
+**After EVERY MCP update, you MUST run CSS regeneration:**
+
+### **Method 1: Web API Endpoint (RECOMMENDED)**
+
+```bash
+# Single command - handles both CSS clearing and regeneration
+curl -s "http://svetlinkielementor.local/regenerate-css-api.php?page=21&secret=svetlinki2024"
+
+# Then visit page to ensure CSS is applied
+curl -s "http://svetlinkielementor.local/" > nul
+```
+
+**Why this works:**
+- ✅ Clears Elementor cache
+- ✅ Deletes CSS metadata
+- ✅ Updates post modification time
+- ✅ Calls `$document->save()` (triggers hooks!)
+- ✅ Regenerates CSS file
+- ✅ All in one request
+
+**Script location**: `app/public/regenerate-css-api.php`
+
+### **Method 2: Alternative (if API fails)**
 
 ```bash
 # Step 1: Nuclear CSS fix (deletes all CSS, forces regeneration)
@@ -30,10 +52,6 @@ curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
 # Step 2: Visit page to trigger CSS generation
 curl -s "http://svetlinkielementor.local/home" > nul
 ```
-
-**Why both steps?**
-1. First command: Deletes old CSS, prepares for regeneration
-2. Second command: Page visit triggers `wp_enqueue_scripts` hook → CSS actually regenerated
 
 ---
 
@@ -48,13 +66,20 @@ mcp__wp-elementor-mcp__backup_elementor_data --post_id 21
 # 2. UPDATE (your changes)
 mcp__wp-elementor-mcp__update_elementor_widget --post_id 21 --widget_id "benefits005" --widget_settings {...}
 
-# 3. CSS REGENERATION (MANDATORY!)
-curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
-curl -s "http://svetlinkielementor.local/home" > nul
+# 3. CSS REGENERATION (MANDATORY!) - Use Web API
+curl -s "http://svetlinkielementor.local/regenerate-css-api.php?page=21&secret=svetlinki2024"
+curl -s "http://svetlinkielementor.local/" > nul
 
-# 4. VERIFY (take screenshot or check manually)
-npx playwright screenshot "http://svetlinkielementor.local/home" screenshots/verify.png
+# 4. VERIFY (check in NEW incognito window)
+# Open: http://svetlinkielementor.local/ in fresh incognito window
+# Or use Playwright for automated verification
 ```
+
+**Important Notes:**
+- ✅ CSS regeneration is **NOT optional** - ALWAYS required after MCP updates
+- ✅ Use the `regenerate-css-api.php` endpoint (more reliable than old methods)
+- ✅ Always verify in NEW incognito window (avoid cached CSS)
+- ✅ Changes in Elementor editor ≠ Changes on frontend (CSS must regenerate!)
 
 ---
 
@@ -77,24 +102,26 @@ npx playwright screenshot "http://svetlinkielementor.local/home" screenshots/ver
 ## ✅ CORRECT WORKFLOW EXAMPLE
 
 ```bash
-# User asks: "Add yellow borders to Benefits cards"
+# User asks: "Add full borders to Benefits cards"
 
 # Step 1: Backup
 mcp__wp-elementor-mcp__backup_elementor_data(post_id: 21)
 
-# Step 2: Update
+# Step 2: Update borders (5px top, 1px sides/bottom for emphasis)
 mcp__wp-elementor-mcp__update_elementor_widget(
   post_id: 21,
   widget_id: "benefits005",
-  widget_settings: {"border_width": {"top": "5", "right": "5", "bottom": "5", "left": "5"}}
+  widget_settings: {
+    "border_width": {"unit": "px", "top": "5", "right": "1", "bottom": "1", "left": "1", "isLinked": false}
+  }
 )
 
-# Step 3: MANDATORY CSS REGENERATION
-curl -s "http://svetlinkielementor.local/nuclear-css-fix.php"
-curl -s "http://svetlinkielementor.local/home" > nul
+# Step 3: MANDATORY CSS REGENERATION (Web API)
+curl -s "http://svetlinkielementor.local/regenerate-css-api.php?page=21&secret=svetlinki2024"
+curl -s "http://svetlinkielementor.local/" > nul
 
-# Step 4: Verify
-# Tell user: "Changes applied. Please check in NEW incognito window: http://svetlinkielementor.local/home"
+# Step 4: Verify in NEW incognito window
+# Tell user: "✅ Borders updated! Check in NEW incognito: http://svetlinkielementor.local/"
 ```
 
 ---
@@ -111,14 +138,47 @@ User clicks "Update" → $document->save() → WordPress hooks fire → CSS rege
 MCP update → Database update only → NO hooks fire → CSS NOT regenerated ❌
 ```
 
-**The Fix**:
+**The Fix** (Web API Method):
 ```
-MCP update → nuclear-css-fix.php → Deletes CSS + Saves via $document->save() → Page visit → wp_enqueue_scripts hook → CSS regenerates ✅
+MCP update → regenerate-css-api.php → Clears cache + Deletes CSS + $document->save() → Triggers hooks → CSS regenerates → Page visit ensures CSS applied ✅
 ```
+
+**Why the Web API works better**:
+- Single HTTP request handles all steps
+- More reliable than running separate commands
+- Provides feedback (success/error messages)
+- Doesn't require PHP in system PATH
 
 ---
 
-## 🔧 THE NUCLEAR CSS FIX SCRIPT
+## 🔧 CSS REGENERATION SCRIPTS
+
+### **Primary: regenerate-css-api.php (RECOMMENDED)**
+
+**Location**: `app/public/regenerate-css-api.php`
+
+**Usage**:
+```bash
+curl "http://svetlinkielementor.local/regenerate-css-api.php?page=21&secret=svetlinki2024"
+```
+
+**What it does**:
+1. ✅ Security check (requires secret key)
+2. ✅ Clears Elementor cache completely
+3. ✅ Deletes CSS metadata for specific page
+4. ✅ Updates post modification time
+5. ✅ Gets CSS file manager and forces regeneration
+6. ✅ Flushes WordPress object cache
+7. ✅ Provides detailed feedback (success/error)
+
+**Why this is better**:
+- Single HTTP request (no separate commands needed)
+- Page-specific (pass `?page=ID`)
+- Security protected (secret key required)
+- Detailed output for debugging
+- Always works reliably
+
+### **Fallback: nuclear-css-fix.php**
 
 **Location**: `app/public/nuclear-css-fix.php`
 
@@ -130,10 +190,10 @@ MCP update → nuclear-css-fix.php → Deletes CSS + Saves via $document->save()
 5. Regenerates CSS file structure
 
 **Why "nuclear"?**
-- Most aggressive approach
+- Most aggressive approach (clears ALL pages, not just one)
 - Deletes EVERYTHING CSS-related
 - Forces complete rebuild
-- Always works (when followed by page visit)
+- Use when API method fails
 
 ---
 

@@ -150,6 +150,16 @@ if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
 			);
 		}
 
+		// Custom accordion styling for FAQ page
+		if ( is_page( 29 ) ) {
+			wp_enqueue_style(
+				'custom-accordion-style',
+				get_template_directory_uri() . '/custom-accordion.css',
+				[],
+				HELLO_ELEMENTOR_VERSION
+			);
+		}
+
 		if ( hello_elementor_display_header_footer() ) {
 			wp_enqueue_style(
 				'hello-elementor-header-footer',
@@ -272,5 +282,23 @@ require HELLO_THEME_PATH . '/theme.php';
 
 // Load Elementor Global Colors Polyfill for FREE version (Svetlinki customization)
 require get_template_directory() . '/inc/elementor-global-colors-polyfill.php';
+
+// Custom Accordion Styling for FAQ page (Svetlinki customization)
+function enqueue_custom_accordion_css() {
+    if (is_page(29)) { // FAQ page
+        // Remove any duplicate/old enqueues
+        wp_deregister_style('custom-accordion-style');
+        wp_dequeue_style('custom-accordion-style');
+
+        // Enqueue our version
+        wp_enqueue_style(
+            'custom-accordion-css',
+            get_stylesheet_directory_uri() . '/custom-accordion.css',
+            array(),
+            '1.2.0' // Version 1.2.0 - Cache bust for hover effects
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_accordion_css', 20); // Priority 20 (after most other enqueues)
 
 HelloTheme\Theme::instance();
