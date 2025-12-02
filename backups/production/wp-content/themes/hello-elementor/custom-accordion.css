@@ -1,0 +1,63 @@
+/* FAQ Page Accordion - Yellow Title Backgrounds with Hover Effects */
+.page-id-29 .elementor-accordion .elementor-accordion-item {
+    margin-bottom: 30px !important;
+}
+
+.page-id-29 .elementor-accordion .elementor-tab-title {
+    background-color: #FABA29 !important;
+    color: #FFFFFF !important;
+    padding: 20px 35px !important;
+    border-radius: 12px !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+    cursor: pointer !important;
+}
+
+/* Hover Effect - Darker Yellow */
+.page-id-29 .elementor-accordion .elementor-tab-title:hover {
+    background-color: #E5A615 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Active/Open State - Slightly Different Shade */
+.page-id-29 .elementor-accordion .elementor-tab-title.elementor-active {
+    background-color: #E5A615 !important;
+}
+
+.page-id-29 .elementor-accordion .elementor-tab-title .elementor-accordion-icon,
+.page-id-29 .elementor-accordion .elementor-tab-title .elementor-accordion-icon i {
+    color: #FFFFFF !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Icon rotation on hover */
+.page-id-29 .elementor-accordion .elementor-tab-title:hover .elementor-accordion-icon {
+    transform: scale(1.1) !important;
+}
+
+.page-id-29 .elementor-accordion .elementor-tab-content {
+    background-color: #FFFFFF !important;
+    padding: 25px !important;
+}
+
+/*
+====================================
+V4 HOVER COLOR PALETTE (for future use)
+====================================
+
+Primary Yellow (#FABA29):
+- Default: #FABA29
+- Hover: #E5A615 (darken 15%)
+- Active: #D89A10 (darken 20%)
+
+Secondary Teal (#46b19d):
+- Default: #46b19d
+- Hover: #3a9684 (darken 15%)
+- Active: #32836f (darken 20%)
+
+Accent Coral (#FF8C7A):
+- Default: #FF8C7A
+- Hover: #E67561 (darken 15%)
+- Active: #CC654D (darken 20%)
+
+====================================
+*/

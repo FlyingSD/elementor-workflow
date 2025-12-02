@@ -1,0 +1,74 @@
+{
+    "page_id": 31,
+    "page_name": "Blog",
+    "post_title": "Blog",
+    "post_name": "blog",
+    "post_status": "publish",
+    "post_type": "page",
+    "exported_at": "2025-12-02 18:42:32",
+    "elementor_version": "3.33.2",
+    "elementor_data": [
+        {
+            "id": "footer_section_31",
+            "elType": "section",
+            "settings": {
+                "background_color": "var(--e-global-color-text)",
+                "text_color": "white",
+                "padding": {
+                    "unit": "px",
+                    "top": "40",
+                    "right": "0",
+                    "bottom": "40",
+                    "left": "0"
+                },
+                "content_width": "boxed",
+                "custom_css": ".elementor-section.footer-section { border-top: 1px solid #444; }"
+            },
+            "elements": [
+                {
+                    "id": "footer_col_31",
+                    "elType": "column",
+                    "settings": {
+                        "_column_size": 100,
+                        "background_color": "var(--e-global-color-text)"
+                    },
+                    "elements": [
+                        {
+                            "id": "footer_text_31",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<div style=\"display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px; color: white;\"><div><h4 style=\"color: var(--e-global-color-accent);\">\u0421\u0432\u0435\u0442\u043b\u0438\u043d\u043a\u0438</h4><p>\u0420\u0430\u0437\u0432\u0438\u0432\u0430\u043c \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043f\u043e\u0441\u043e\u0431\u043d\u043e\u0441\u0442\u0438 \u043d\u0430 \u0434\u0435\u0446\u0430 \u0432 \u0432\u044a\u0437\u0440\u0430\u0441\u0442 4-12+ \u0433\u043e\u0434\u0438\u043d\u0438</p><p><strong>Email:</strong> info@svetlinki.bg</p><p><strong>\u0422\u0435\u043b\u0435\u0444\u043e\u043d:</strong> +359 888 123 456</p></div><div><h4 style=\"color: var(--e-global-color-accent);\">\u041d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f</h4><ul style=\"list-style: none; padding: 0;\"><li><a href=\"/home/\" style=\"color: white; text-decoration: none;\">\u041d\u0430\u0447\u0430\u043b\u043e</a></li><li><a href=\"/about/\" style=\"color: white; text-decoration: none;\">\u0417\u0430 \u043d\u0430\u0441</a></li><li><a href=\"/programs/\" style=\"color: white; text-decoration: none;\">\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0438</a></li><li><a href=\"/blog/\" style=\"color: white; text-decoration: none;\">\u0411\u043b\u043e\u0433</a></li><li><a href=\"/contact/\" style=\"color: white; text-decoration: none;\">\u041a\u043e\u043d\u0442\u0430\u043a\u0442\u0438</a></li></ul></div><div><h4 style=\"color: var(--e-global-color-accent);\">\u041f\u0440\u0430\u0432\u043d\u0430 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f</h4><ul style=\"list-style: none; padding: 0;\"><li><a href=\"/privacy-policy/\" style=\"color: white; text-decoration: none;\">\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043d\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u043d\u043e\u0441\u0442</a></li><li><a href=\"/terms-of-service/\" style=\"color: white; text-decoration: none;\">\u0423\u0441\u043b\u043e\u0432\u0438\u044f \u0437\u0430 \u043f\u043e\u043b\u0437\u0432\u0430\u043d\u0435</a></li><li><a href=\"/faq/\" style=\"color: white; text-decoration: none;\">\u0427\u0435\u0441\u0442\u043e \u0437\u0430\u0434\u0430\u0432\u0430\u043d\u0438 \u0432\u044a\u043f\u0440\u043e\u0441\u0438</a></li></ul></div></div>",
+                                "text_color": "white"
+                            }
+                        },
+                        {
+                            "id": "footer_divider_31",
+                            "elType": "widget",
+                            "widgetType": "divider",
+                            "settings": {
+                                "divider_type": "solid",
+                                "line_color": "#444"
+                            }
+                        },
+                        {
+                            "id": "footer_copyright_31",
+                            "elType": "widget",
+                            "widgetType": "text-editor",
+                            "settings": {
+                                "editor": "<p style=\"text-align: center; margin: 0; color: #aaa;\">Copyright 2025 Svetlinki. All rights reserved.</p>",
+                                "text_color": "#aaa"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "_elementor_edit_mode": "builder",
+        "_elementor_template_type": "wp-page",
+        "_elementor_version": "",
+        "_elementor_css": ""
+    }
+}
